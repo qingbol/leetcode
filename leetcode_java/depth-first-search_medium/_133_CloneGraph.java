@@ -98,7 +98,8 @@ class Solution {
   //// ------------------- end (Approach3)---------------------------------
   //// -------------------start(Approach4)---------------------------------
   // bfs, recursion. by standard solution. better than approach3
-  public Node cloneGraph(Node node) {
+  // optimal
+  public Node cloneGraph4(Node node) {
     if (node == null) {
       return null;
     }
@@ -117,8 +118,35 @@ class Solution {
     }
     return newNode;
   }
+
   //// ------------------- end (Approach4)---------------------------------
   //// -------------------start(Approach5)---------------------------------
+  // bfs, iteration
+  public Node cloneGraph(Node node) {
+    if (node == null) {
+      return null;
+    }
+    Map<Node, Node> map = new HashMap<>();
+    Deque<Node> queue = new ArrayDeque<>();
+
+    queue.offer(node);
+    map.put(node, new Node(node.val, new ArrayList<>()));
+
+    while (!queue.isEmpty()) {
+      Node curr = queue.poll();
+      for (Node neighbor : curr.neighbors) {
+        if (!map.containsKey(neighbor)) {
+          map.put(neighbor, new Node(neighbor.val, new ArrayList<>()));
+          queue.offer(neighbor);
+          map.get(curr).neighbors.add(map.get(neighbor));
+          // }
+        } else {
+          map.get(curr).neighbors.add(map.get(neighbor));
+        }
+      }
+    }
+    return map.get(node);
+  }
   //// ------------------- end (Approach5)---------------------------------
   //// -------------------start(Approach6)---------------------------------
   //// ------------------- end (Approach6)---------------------------------
