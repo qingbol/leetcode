@@ -152,7 +152,7 @@ class Solution {
 
   //// --------------------- end (Approach2)----------------------------
   //// ---------------------start(Approach3)----------------------------
-  // use node indegree
+  // use node indegree. topological sort
   // optimal
   public int[] findOrder(int numCourses, int[][] prerequisites) {
     // build adjcency list and indegree array

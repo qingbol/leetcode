@@ -265,11 +265,13 @@ class Solution {
       return;
     }
 
+    // lst.add(curWord);
     for (String neighbor : tree.get(curWord)) {
       lst.add(neighbor);
       backtrack3(tree, res, lst, neighbor, endWord);
       lst.remove(lst.size() - 1);
     }
+    // lst.remove(lst.size() - 1);
   }
 
   private void buildTree3(Map<String, Set<String>> tree, Set<String> wordDict, String beginWord, String endWord) {
