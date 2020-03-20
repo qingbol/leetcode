@@ -29,9 +29,33 @@ class Node {
 */
 class Solution {
   //// -----------------start(Approach1)------------------
-  // 20200312
-  // by myself. LevelOrder + iteration
+  // wrong, why?
   public Node connect1(Node root) {
+    if (root != null) {
+      return root;
+    }
+    helper3(root.left, root.right);
+    return root;
+  }
+
+  private void helper3(Node left, Node right) {
+    if (left == null && right == null) {
+      return;
+    }
+    if (left != null) {
+      left.next = right;
+    }
+    helper3(left.left, left.right);
+    helper3(left.right, right.left);
+    helper3(right.left, right.right);
+  }
+
+  //// ----------------- end (Approach1)------------------
+  //// -----------------start(Approach2)------------------
+  // 20200312
+  // by myself. LevelOrder + iteration.
+  // O(n) space
+  public Node connect2(Node root) {
     if (root == null) {
       return root;
     }
@@ -57,10 +81,11 @@ class Solution {
     return root;
   }
 
-  //// ----------------- end (Approach1)------------------
-  //// -----------------start(Approach2)------------------
+  //// ----------------- end (Approach2)------------------
+  //// -----------------start(Approach3)------------------
   // preorder + recursion
-  public Node connect2(Node root) {
+  // O(N) space
+  public Node connect3(Node root) {
     if (root == null) {
       return root;
     }
@@ -75,26 +100,31 @@ class Solution {
     return root;
   }
 
-  //// ----------------- end (Approach2)------------------
-  //// -----------------start(Approach3)------------------
-  // wrong, why?
+  //// ----------------- end (Approach3)------------------
+  //// -----------------start(Approach4)------------------
   public Node connect(Node root) {
-    if (root != null) {
-      return root;
+    // use leftmost to denote the leftmost node in one level
+    Node leftmost = root;
+    while (leftmost != null) {
+      Node head = leftmost;
+      while (head != null) {
+        // set connection 1
+        if (head.left != null) {
+          head.left.next = head.right;
+        }
+
+        // set connection2
+        if (head.right != null && head.next != null) {
+          head.right.next = head.next.left;
+        }
+
+        head = head.next;
+      }
+
+      leftmost = leftmost.left;
     }
-    helper3(root.left, root.right);
     return root;
   }
-
-  private void helper3(Node left, Node right) {
-    if (left == null && right == null) {
-      return;
-    }
-    left.next = right;
-    helper3(left.left, left.right);
-    helper3(left.right, right.left);
-    helper3(right.left, right.right);
-  }
-  //// ----------------- end (Approach3)------------------
+  //// ----------------- end (Approach4)------------------
 }
 // @lc code=end

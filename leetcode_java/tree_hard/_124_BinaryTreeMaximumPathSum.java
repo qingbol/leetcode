@@ -44,6 +44,8 @@ class Solution {
 
   //// --------------- end (Approach1)------------------
   //// ---------------start(Approach1)------------------
+  // postorder
+  // correct
   public int maxPathSum(TreeNode root) {
     helper2(root);
     return res;

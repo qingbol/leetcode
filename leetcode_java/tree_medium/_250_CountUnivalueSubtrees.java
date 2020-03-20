@@ -14,9 +14,10 @@ class Solution {
   // 20200316
   // by myself.
   // wrong. because it don't test if the children is a unival tree.
+  // 191/197 cases passed (N/A)
   int res = 0;
 
-  public int countUnivalSubtrees(TreeNode root) {
+  public int countUnivalSubtrees1(TreeNode root) {
     if (root == null) {
       return 0;
     }
@@ -27,6 +28,36 @@ class Solution {
     }
     return res;
   }
+
   //// ------------ end (Approach1)-------------------------------
+  //// ------------start(Approach2)-------------------------------
+  // by leetcode best solution
+  public int countUnivalSubtrees(TreeNode root) {
+    helper2(root);
+    return res;
+  }
+
+  private boolean helper2(TreeNode cur) {
+    if (cur == null) {
+      return true;
+    }
+    boolean l = helper2(cur.left);
+    boolean r = helper2(cur.right);
+    if (l && r) {
+      if (cur.left != null && cur.left.val != cur.val) {
+        return false;
+      }
+      if (cur.right != null && cur.right.val != cur.val) {
+        return false;
+      }
+      res++;
+      return true;
+    }
+    return false;
+  }
+
+  //// ------------ end (Approach2)-------------------------------
+  //// ------------start(Approach3)-------------------------------
+  //// ------------ end (Approach3)-------------------------------
 }
 // @lc code=end
