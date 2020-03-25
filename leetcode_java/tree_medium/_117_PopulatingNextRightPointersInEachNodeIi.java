@@ -42,9 +42,10 @@ class Solution {
       Node prev = null;
       Node curr = leftmost;
 
-      // this statement is very important.
+      // this statement is very important. If we dont set it here.
+      // infinite loop will occur.
       System.out.format("leftmost:%d\n", leftmost.val);
-      // leftmost = null;
+      leftmost = null;
 
       while (curr != null) {
         // handle curr node's left child

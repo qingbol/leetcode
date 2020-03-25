@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  // -------------------start(Approach1)-------------------
+  // 20200302,
   // Approach 1: Brute Force
   public int lengthOfLIS1(int[] nums) {
     return lengthOfLIS(nums, Integer.MIN_VALUE, 0);
@@ -31,6 +33,9 @@ class Solution {
     return Math.max(taken, notTaken);
   }
 
+  // ------------------- end (Approach1)-------------------
+  // -------------------start(Approach2)-------------------
+  // 20200302,
   /// Approach 2: Recursion with Memoization
   public int lengthOfLIS2(int[] nums) {
     int[][] memo = new int[nums.length + 1][nums.length];
@@ -58,6 +63,9 @@ class Solution {
     return maxLen;
   }
 
+  // ------------------- end (Approach2)-------------------
+  // -------------------start(Approach3)-------------------
+  // 20200302,
   // Approach 3: Dynamic Programming
   public int lengthOfLIS3(int[] nums) {
     if (null == nums || 0 == nums.length) {
@@ -80,6 +88,9 @@ class Solution {
     return res;
   }
 
+  // ------------------- end (Approach3)-------------------
+  // -------------------start(Approach4)-------------------
+  // 20200302,
   // Approach 4: Dynamic Programming with Binary Search
   public int lengthOfLIS(int[] nums) {
     int[] dp = new int[nums.length];
@@ -112,8 +123,11 @@ class Solution {
     return lo;
   }
 
+  // ------------------- end (Approach4)-------------------
+  // -------------------start(Approach5)-------------------
+  // 20200302,
   // Approach 4: Dynamic Programming with Binary Search
-  public int lengthOfLIS4(int[] nums) {
+  public int lengthOfLIS5(int[] nums) {
     int[] sequence = new int[nums.length];
     int maxLen = 0;
     for (int num : nums) {
@@ -141,5 +155,6 @@ class Solution {
     }
     return maxLen;
   }
+  // ------------------- end (Approach5)-------------------
 }
 // @lc code=end
