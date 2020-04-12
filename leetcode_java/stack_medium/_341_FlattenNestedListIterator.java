@@ -21,6 +21,9 @@
  * nested list // Return null if this NestedInteger holds a single integer
  * public List<NestedInteger> getList(); }
  */
+//// -------------------start(Approach1)----------------
+// 20200207.
+// Your runtime beats 5.98 % of java submissions
 public class NestedIterator implements Iterator<Integer> {
   // List<NestedInteger> lst;
   // NestedInteger it;
@@ -55,6 +58,7 @@ public class NestedIterator implements Iterator<Integer> {
   }
 }
 
+//// ------------------- end (Approach1)----------------
 /**
  * Your NestedIterator object will be instantiated and called as such:
  * NestedIterator i = new NestedIterator(nestedList); while (i.hasNext()) v[f()]

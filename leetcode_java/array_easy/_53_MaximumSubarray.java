@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //// --------------start(Approach1)------------------------
+  // 20200112.
   public int maxSubArray1(int[] nums) {
     int res = maxSub(nums, 0, nums.length - 1);
     return res;
@@ -22,7 +24,9 @@ class Solution {
     return 0;
   }
 
-  //
+  //// -------------- end (Approach1)------------------------
+  //// --------------start(Approach2)------------------------
+  // 20200112
   public int maxSubArray(int[] nums) {
     int[] sum = new int[nums.length];
     sum[0] = nums[0];
@@ -33,6 +37,12 @@ class Solution {
     }
     return res;
   }
+
+  //// -------------- end (Approach1)------------------------
+  //// --------------start(Approach3)------------------------
+  public int maxSubArray(int[] nums) {
+  }
+  //// -------------- end (Approach3)------------------------
 
 }
 // @lc code=end

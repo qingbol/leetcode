@@ -7,7 +7,7 @@
 // @lc code=start
 class Solution {
   //// :---------------start(approach 1)--------------------------------------
-  //// :By myself, wrong, some cases cant pass.
+  //// 20200220:By myself, wrong, some cases cant pass.
   //// eg. "abbacd"
   public String shortestPalindrome1(String s) {
     if (null == s || s.length() < 2 || isValid(s)) {
@@ -46,6 +46,8 @@ class Solution {
   }
 
   //// :--------------- end (approach 1)--------------------------------------
+  //// :---------------start(approach 2)--------------------------------------
+  // 20200220
   public String shortestPalindrome(String s) {
     if (s.length() < 2) {
       return s;
@@ -73,7 +75,6 @@ class Solution {
     }
     return res;
   }
-  //// :---------------start(approach 2)--------------------------------------
   //// :--------------- end (approach 2)--------------------------------------
   //// :---------------start(approach 3)--------------------------------------
   //// :--------------- end (approach 3)--------------------------------------

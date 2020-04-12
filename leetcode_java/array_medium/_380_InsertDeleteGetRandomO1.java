@@ -7,6 +7,8 @@
 // @lc code=start
 class RandomizedSet {
 
+  //// ------------------start(Approach1)-----------------------
+  // 20200127.
   List<Integer> lst;
   Random rand;
   Map<Integer, Integer> map;
@@ -52,6 +54,7 @@ class RandomizedSet {
   public int getRandom() {
     return lst.get(rand.nextInt(lst.size()));
   }
+  //// ------------------ end (Approach1)-----------------------
 }
 
 /**

@@ -92,7 +92,7 @@ class Solution {
   // -------------------start(Approach4)-------------------
   // 20200302,
   // Approach 4: Dynamic Programming with Binary Search
-  public int lengthOfLIS(int[] nums) {
+  public int lengthOfLIS4(int[] nums) {
     int[] dp = new int[nums.length];
     int len = 0;
     for (int i = 0; i < nums.length; i++) {
@@ -155,6 +155,32 @@ class Solution {
     }
     return maxLen;
   }
+
   // ------------------- end (Approach5)-------------------
+  // -------------------start(Approach6)-------------------
+  // 20200324, try to write it again by myself when learning dp
+  // Your runtime beats 36.24 % of java submissions
+  public int lengthOfLIS(int[] nums) {
+    int n = nums.length;
+    if (n <= 1) {
+      return n;
+    }
+    int[] dp = new int[n];
+    Arrays.fill(dp, 1);
+    int res = 1;
+
+    for (int i = 1; i < n; i++) {
+      for (int j = i - 1; j >= 0; j--) {
+        if (nums[i] > nums[j]) {
+          dp[i] = Math.max(dp[i], dp[j] + 1);
+          res = Math.max(res, dp[i]);
+          // break;
+        }
+      }
+    }
+
+    return res;
+  }
+  // ------------------- end (Approach6)-------------------
 }
 // @lc code=end

@@ -42,7 +42,7 @@ class Solution {
   // 20200317
   // dp + memorization
   // Your runtime beats 57.71 % of java submissions
-  public int rob(TreeNode root) {
+  public int rob2(TreeNode root) {
     return helper2(root, new HashMap<>());
   }
 
@@ -75,6 +75,29 @@ class Solution {
 
   //// --------------- end (Approach2)-------------------------
   //// ---------------start(Approach3)-------------------------
+  // 20200404. dp
+  // reference to
+  // https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/qiang-fang-zi
+  // Your runtime beats 100 % of java submissions
+  public int rob(TreeNode root) {
+    int[] dp = helper3(root);
+    return Math.max(dp[0], dp[1]);
+  }
+
+  private int[] helper3(TreeNode node) {
+    if (node == null) {
+      return new int[] { 0, 0 };
+    }
+
+    int[] left = helper3(node.left);
+    int[] right = helper3(node.right);
+
+    // if root is included, then left and right child must not be included
+    int robRoot = node.val + left[0] + right[0];
+    int notRobRoot = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+    return new int[] { notRobRoot, robRoot };
+  }
+
   //// --------------- end (Approach3)-------------------------
 }
 // @lc code=end

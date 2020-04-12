@@ -7,7 +7,9 @@
 // @lc code=start
 class Solution {
   //// :--------------------start(approach 1)------------------------------
-  public String longestPalindrome1(String s) {
+  // 20200221, dp
+  // Your runtime beats 24.62 % of java submissions
+  public String longestPalindrome(String s) {
     if (s.length() < 2) {
       return s;
     }
@@ -36,9 +38,12 @@ class Solution {
 
   //// :-------------------- end (approach 1)------------------------------
   //// :--------------------start(approach 2)------------------------------
+  // 20200221
+  // Approach 4: Expand Around Center
+  // Your runtime beats 89.98 % of java submissions
   private String res = "";
 
-  public String longestPalindrome(String s) {
+  public String longestPalindrome2(String s) {
     if (s.length() < 2) {
       return s;
     }
@@ -58,8 +63,47 @@ class Solution {
       res = ss.substring(l + 1, r);
     }
   }
+
   //// :--------------------start(approach 2)------------------------------
   //// :-------------------- end (approach 3)------------------------------
+  // 20200328. dp, by myself
+  // Your runtime beats 23.13 % of java submissions
+  // Your runtime beats 25.34 % of java submissions
+  public String longestPalindrome3(String s) {
+    if (s.length() <= 1) {
+      return s;
+    }
+
+    int n = s.length();
+    boolean[][] dp = new boolean[n][n];
+    int max = 1;
+    int l = 0;
+    int r = 0;
+
+    for (int j = 0; j < n; j++) {
+      for (int i = 0; i <= j; i++) {
+        // if (i == j) {
+        // dp[i][j] = true;
+
+        // } else {
+        if (s.charAt(i) == s.charAt(j) && (i + 1 >= j - 1 || dp[i + 1][j - 1])) {
+          dp[i][j] = true;
+          if (j - i + 1 > max) {
+            max = j - i + 1;
+            l = i;
+            r = j;
+          }
+          // } else {
+          // dp[i][j] = false;
+        }
+        // }
+      }
+    }
+    // System.out.format("dp: %s\n", Arrays.deepToString(dp).replaceAll("\\],",
+    // "\n"));
+    return s.substring(l, r + 1);
+  }
+
   //// :-------------------- end (approach 3)------------------------------
 }
 // @lc code=end

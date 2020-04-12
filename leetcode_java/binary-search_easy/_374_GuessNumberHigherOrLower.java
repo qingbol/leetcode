@@ -11,6 +11,8 @@
       int guess(int num); */
 
 public class Solution extends GuessGame {
+  //// ----------------start(Approach1)-----------------------
+  // 20200120,
   public int guessNumber(int n) {
     int lo = 1;
     int hi = n;
@@ -26,5 +28,6 @@ public class Solution extends GuessGame {
     }
     return -1;
   }
+  //// ---------------- end (Approach1)-----------------------
 }
 // @lc code=end

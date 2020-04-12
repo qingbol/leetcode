@@ -1,7 +1,7 @@
 /*
  * @lc app=leetcode id=452 lang=java
  *
- * [452] Minimum Number of Arrows to Burst Balloons
+ * 
  */
 
 // @lc code=start
@@ -9,6 +9,7 @@ class Solution {
   //// ------------------start(Approach1)-------------------------
   // 20200323, by myself
   // greedy. sort the input array by start.
+  // Your runtime beats 41.04 % of java submissions
   public int findMinArrowShots1(int[][] points) {
     if (points == null || points.length == 0) {
       return 0;
@@ -38,6 +39,7 @@ class Solution {
   //// ------------------start(Approach1)-------------------------
   // 20200323, by myself
   // greedy. sort the input array by start.
+  // Your runtime beats 98.04 % of java submissions
   public int findMinArrowShots(int[][] points) {
     if (points == null || points.length == 0) {
       return 0;

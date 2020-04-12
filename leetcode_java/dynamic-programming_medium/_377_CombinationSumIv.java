@@ -7,7 +7,7 @@
 // @lc code=start
 class Solution {
   //// --------------------start(Apprpach1)------------------------------------
-  // by myself, backtracking
+  // 20200228, by myself, backtracking
   int res1 = 0;
 
   public int combinationSum4_1(int[] nums, int target) {
@@ -45,7 +45,7 @@ class Solution {
 
   //// -------------------- end (Apprpach1)------------------------------------
   //// --------------------start(Apprpach2)------------------------------------
-  // vanilla recursion
+  // 20200228, vanilla recursion
   public int combinationSum4_2(int[] nums, int target) {
     return helper2(nums, target);
   }
@@ -66,7 +66,7 @@ class Solution {
 
   //// -------------------- end (Apprpach2)------------------------------------
   //// --------------------start(Apprpach3)------------------------------------
-  // recursion with memo
+  // 20200228, recursion with memo
   public int combinationSum4_3(int[] nums, int target) {
     int[] dp = new int[target + 1];
     Arrays.fill(dp, -1);
@@ -94,8 +94,8 @@ class Solution {
 
   //// -------------------- end (Apprpach3)------------------------------------
   //// --------------------start(Apprpach4)------------------------------------
-  // dp, bottom up
-  public int combinationSum4(int[] nums, int target) {
+  // 20200228, dp, bottom up
+  public int combinationSum4_4(int[] nums, int target) {
     int[] dp = new int[target + 1];
     dp[0] = 1;
     for (int i = 1; i <= target; i++) {
@@ -107,6 +107,35 @@ class Solution {
     }
     return dp[target];
   }
+
   //// -------------------- end (Apprpach4)------------------------------------
+  //// --------------------start(Apprpach5)------------------------------------
+  // 20200407,
+  // Your runtime beats 100 % of java submissions
+  public int combinationSum4(int[] nums, int target) {
+    Integer[] memo = new Integer[target + 1];
+    return helper5(nums, target, memo);
+  }
+
+  private int helper5(int[] nums, int target, Integer[] memo) {
+    if (target == 0) {
+      return 1;
+    }
+
+    if (memo[target] != null) {
+      return memo[target];
+    }
+
+    int cnt = 0;
+    for (int num : nums) {
+      if (target >= num) {
+        cnt += helper5(nums, target - num, memo);
+      }
+    }
+
+    memo[target] = cnt;
+    return cnt;
+  }
+  //// -------------------- end (Apprpach5)------------------------------------
 }
 // @lc code=end
