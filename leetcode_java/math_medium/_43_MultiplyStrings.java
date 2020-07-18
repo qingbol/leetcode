@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //// ----------------start(Approach1)-------------------------
+  // 20200127
   public String multiply2(String num1, String num2) {
     // StringBuilder strRes = new StringBuilder();
     int i = 0;
@@ -41,6 +43,9 @@ class Solution {
     return Long.toString(sum);
   }
 
+  //// ---------------- end (Approach1)-------------------------
+  //// ----------------start(Approach2)-------------------------
+  // 20200127
   // optimal method
   public String multiply(String num1, String num2) {
     if (null == num1 || null == num2) {
@@ -71,5 +76,6 @@ class Solution {
     // System.out.println("strRes: " + strRes);
     return 0 == strRes.length() ? "0" : strRes.toString();
   }
+  //// ---------------- end (Approach2)-------------------------
 }
 // @lc code=end

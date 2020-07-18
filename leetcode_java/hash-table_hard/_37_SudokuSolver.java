@@ -6,7 +6,9 @@
 
 // @lc code=start
 class Solution {
-  // -------------------start(cspiration: stack overflow)-----
+  // -------------------start(Approach1)---------------------------
+  // 20200118.
+  // cspiration: stack overflow. backtrack
   public void solveSudoku(char[][] board) {
     solveSudokuHelper(board);
   }
@@ -47,9 +49,10 @@ class Solution {
     }
     return true;
   }
-  // ------------------- end (cspiration: stack overflow)-----
+  // ------------------- end (Approach1)-------------------------------
 
-  // -------------------start(dps)-----
+  // -------------------start(Appraoch2)-------------------------------
+  // 20200118
   public void solveSudoku1(char[][] board) {
     dfs(board, 0);
   }
@@ -93,7 +96,7 @@ class Solution {
         flag[board[r][c] - '0'] = false;
     }
   }
-  // ------------------- end (dps)-----
+  // ------------------- end (Approach2)--------------------------
 
 }
 // @lc code=end

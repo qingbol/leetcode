@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //// -----------------start(Appraoch1)----------------------
+  // 20200213.
   // By myself: error, logic confusion
   public String minWindow1(String s, String t) {
     int minl = s.length() - 1;
@@ -52,6 +54,9 @@ class Solution {
     return null;
   }
 
+  //// ----------------- end (Appraoch1)----------------------
+  //// -----------------start(Appraoch2)----------------------
+  // 20200213
   // the second try
   public String minWindow(String s, String t) {
     int fast = 0;
@@ -94,4 +99,5 @@ class Solution {
 
   }
 }
+//// ----------------- end (Appraoch2)----------------------
 // @lc code=end

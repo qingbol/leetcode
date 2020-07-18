@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //// ---------------start(Approach1)--------------------
+  // 20200219.
   // backtracking, optimal solution
   public List<String> generateParenthesis1(int n) {
     List<String> res = new ArrayList<>();
@@ -25,6 +27,9 @@ class Solution {
     }
   }
 
+  //// --------------- end (Approach1)--------------------
+  //// ---------------start(Approach2)--------------------
+  // 20200219.
   // brute force, recursion
   public List<String> generateParenthesis(int n) {
     if (n == 0) {
@@ -61,5 +66,6 @@ class Solution {
     }
     return num == 0 ? true : false;
   }
+  //// --------------- end (Approach2)--------------------
 }
 // @lc code=end

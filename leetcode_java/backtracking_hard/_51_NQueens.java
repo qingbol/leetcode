@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //// ----------------start(Approach1)-------------------
+  // 20200301.
   public List<List<String>> solveNQueens(int n) {
     List<List<String>> res = new ArrayList<>();
     if (n == 0) {
@@ -56,5 +58,6 @@ class Solution {
     }
     res.add(lst);
   }
+  //// ---------------- end (Approach1)-------------------
 }
 // @lc code=end

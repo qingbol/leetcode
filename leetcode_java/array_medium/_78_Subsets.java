@@ -39,6 +39,7 @@
 // @lc code=start
 class Solution {
   //// ---------------start(Approach1)----------------------------
+  // 20200227.
   // recursion
   public List<List<Integer>> subsets1(int[] nums) {
     // create res and initializing
@@ -62,6 +63,7 @@ class Solution {
 
   //// --------------- end (Approach1)----------------------------
   //// ---------------start(Approach2)----------------------------
+  // 20200227
   // Backtracking
   public List<List<Integer>> subsets2(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
@@ -85,6 +87,7 @@ class Solution {
 
   //// --------------- end (Approach2)----------------------------
   //// ---------------start(Approach3)----------------------------
+  // 20200227
   // Backtracking
   public List<List<Integer>> subsets3(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
@@ -112,6 +115,7 @@ class Solution {
 
   //// --------------- end (Approach3)----------------------------
   //// ---------------start(Approach4)----------------------------
+  // 20200227
   public List<List<Integer>> subsets(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
     int n = nums.length;

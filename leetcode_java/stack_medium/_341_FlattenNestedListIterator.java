@@ -24,11 +24,14 @@
 //// -------------------start(Approach1)----------------
 // 20200207.
 // Your runtime beats 5.98 % of java submissions
+
+// class NestedIterator1 implements Iterator<Integer> {
 public class NestedIterator implements Iterator<Integer> {
   // List<NestedInteger> lst;
   // NestedInteger it;
   Deque<NestedInteger> stack = new ArrayDeque<>();
 
+  // public NestedIterator1(List<NestedInteger> nestedList) {
   public NestedIterator(List<NestedInteger> nestedList) {
     for (int i = nestedList.size() - 1; i >= 0; i--) {
       stack.push(nestedList.get(i));
@@ -59,6 +62,46 @@ public class NestedIterator implements Iterator<Integer> {
 }
 
 //// ------------------- end (Approach1)----------------
+//// -------------------start(Approach2)----------------
+// 20200411
+// 34/44 cases passed (N/A).
+// Testcase // [[]] Answer [null] Expected Answer []
+// public class NestedIterator implements Iterator<Integer> {
+class NestedIterator2 implements Iterator<Integer> {
+  Deque<NestedInteger> stack = new ArrayDeque<>();
+  // List<NestedInteger> nestList;
+
+  // public NestedIterator(List<NestedInteger> nestedList) {
+  public NestedIterator2(List<NestedInteger> nestedList) {
+    // nestList = nestedList;
+    // System.out.format("nestList:%s\n", nestedList);
+    for (int i = nestedList.size() - 1; i >= 0; i--) {
+      stack.push(nestedList.get(i));
+    }
+  }
+
+  @Override
+  public Integer next() {
+    while (!stack.isEmpty()) {
+      NestedInteger curr = stack.pop();
+      if (curr.isInteger()) {
+        return curr.getInteger();
+      } else {
+        List<NestedInteger> tmp = curr.getList();
+        for (int i = tmp.size() - 1; i >= 0; i--) {
+          stack.push(tmp.get(i));
+        }
+      }
+    }
+    return null;
+  }
+
+  @Override
+  public boolean hasNext() {
+    return !stack.isEmpty();
+  }
+}
+//// ------------------- end (Approach2)----------------
 /**
  * Your NestedIterator object will be instantiated and called as such:
  * NestedIterator i = new NestedIterator(nestedList); while (i.hasNext()) v[f()]

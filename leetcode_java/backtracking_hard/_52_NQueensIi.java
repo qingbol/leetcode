@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //// ----------------start(Approach1)-------------------
+  // 20200301.
   private int res = 0;
 
   public int totalNQueens(int n) {
@@ -39,5 +41,6 @@ class Solution {
       dale[row - col + n - 1] = false;
     }
   }
+  //// ---------------- end (Approach1)-------------------
 }
 // @lc code=end

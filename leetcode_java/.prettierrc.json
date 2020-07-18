@@ -1,0 +1,34 @@
+{
+  "trailingComma": "none",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": "*.java",
+      "options": {
+        "tabWidth": 2,
+        "semi": true
+      }
+    },
+    {
+      "files": "*.cpp",
+      "options": {
+        "tabWidth": 2,
+        "semi": true
+      }
+    },
+    {
+      "files": "*.py",
+      "options": {
+        "tabWidth": 4,
+        "semi": false
+      }
+    },
+    {
+      "files": ["*.html", "legacy/**/*.js"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
+}

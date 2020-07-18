@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //// ---------------start(Approach1)----------------------------------
+  // 20200218
   public int lengthOfLongestSubstring1(String s) {
     if (null == s || s.length() < 2) {
       return s.length();
@@ -26,6 +28,8 @@ class Solution {
     return res;
   }
 
+  //// --------------- end (Approach1)----------------------------------
+  //// ---------------start(Approach2)----------------------------------
   // optimal solution
   public int lengthOfLongestSubstring(String s) {
     if (null == s || s.length() < 2) {
@@ -45,5 +49,6 @@ class Solution {
     }
     return res;
   }
+  //// --------------- end (Approach2)----------------------------------
 }
 // @lc code=end

@@ -7,6 +7,7 @@
 // @lc code=start
 class Solution {
   //// --------------------start(Approach1)----------------------------
+  // 20200227.
   public List<List<Integer>> permute1(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
     if (nums == null || nums.length == 0) {
@@ -37,6 +38,7 @@ class Solution {
 
   //// -------------------- end (Approach1)----------------------------
   //// --------------------start(Approach2)----------------------------
+  // 20200227.
   // optimal, no need to check lst.contains()
   public List<List<Integer>> permute(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();

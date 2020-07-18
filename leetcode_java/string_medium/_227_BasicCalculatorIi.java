@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //// --------------start(Approach1)------------------
+  // 20200207
   // stack. based on my own idea
   public int calculate1(String s) {
     Deque<Integer> numStack = new ArrayDeque<>();
@@ -61,6 +63,9 @@ class Solution {
     return res;
   }
 
+  //// -------------- end (Approach1)------------------
+  //// --------------start(Approach2)------------------
+  // 20200207
   // stack. based on my own idea. improve
   public int calculate(String s) {
     Deque<Integer> numStack = new ArrayDeque<>();
@@ -98,6 +103,9 @@ class Solution {
     return res;
   }
 
+  //// -------------- end (Approach2)------------------
+  //// --------------start(Approach3)------------------
+  // 20200207
   // stack
   public int calculate2(String s) {
     Deque<Integer> stack = new ArrayDeque<>();
@@ -143,6 +151,7 @@ class Solution {
     }
     return res;
   }
+  //// -------------- end (Approach3)------------------
 
 }
 // @lc code=end

@@ -6,7 +6,9 @@
 
 // @lc code=start
 class Solution {
-  // by myself. brute force method
+  //// ----------------start(Approach1)-----------------
+  // 20200219. // by myself. brute force method
+  // Your runtime beats 94.17 % of java submissions
   public int[] maxSlidingWindow1(int[] nums, int k) {
     if (null == nums || nums.length == 0) {
       return new int[0];
@@ -16,7 +18,7 @@ class Solution {
     // int nextMax = Integer.MIN_VALUE;
     int idx = 0;
 
-    System.out.format("res:%s\n", Arrays.toString(res));
+    // System.out.format("res:%s\n", Arrays.toString(res));
     for (int i = k - 1; i < nums.length; i++) {
       if (i == k - 1 || max == nums[i - k]) {
         max = findMax(nums, i - k + 1, i);
@@ -37,7 +39,10 @@ class Solution {
     return max;
   }
 
-  // use deque
+  //// ---------------- end (Approach1)-----------------
+  //// ----------------start(Approach2)-----------------
+  // 20200219, use deque
+  // Your runtime beats 69.42 % of java submissions
   public int[] maxSlidingWindow(int[] nums, int k) {
     if (null == nums || 0 == nums.length) {
       return new int[0];
@@ -69,6 +74,7 @@ class Solution {
     }
     return res;
   }
+  //// ---------------- end (Approach2)-----------------
 
 }
 // @lc code=end

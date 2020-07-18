@@ -5,16 +5,18 @@
  */
 
 // @lc code=start
-class RandomizedSet {
+//// ------------------start(Approach1)-----------------------
+// 20200127.
+public class RandomizedSet {
+  // class RandomizedSet1 {
 
-  //// ------------------start(Approach1)-----------------------
-  // 20200127.
   List<Integer> lst;
   Random rand;
   Map<Integer, Integer> map;
 
   /** Initialize your data structure here. */
   public RandomizedSet() {
+    // public RandomizedSet1() {
     lst = new ArrayList<>();
     rand = new Random();
     map = new HashMap<>();

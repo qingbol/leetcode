@@ -6,7 +6,11 @@
 
 // @lc code=start
 class Solution {
-  public boolean isValidSudoku1(char[][] board) {
+  //// -------------start(Approach1)------------------------
+  // 20200118, leetcode standard approach
+  // 504/504 cases passed (3 ms)
+  // Your runtime beats 53.15 % of java submissions
+  public boolean isValidSudoku(char[][] board) {
     Map<Character, Integer>[] rows = new Map[9];
     Map<Character, Integer>[] cols = new Map[9];
     Map<Character, Integer>[] boxes = new Map[9];
@@ -41,8 +45,12 @@ class Solution {
     return true;
   }
 
-  //
-  public boolean isValidSudoku(char[][] board) {
+  //// ------------- end (Approach1)------------------------
+  //// -------------start(Approach2)------------------------
+  // 20200118
+  // 504/504 cases passed (15 ms)
+  // Your runtime beats 16.26 % of java submissions
+  public boolean isValidSudoku2(char[][] board) {
     HashSet<String> set = new HashSet<>();
     for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
@@ -57,5 +65,6 @@ class Solution {
     }
     return true;
   }
+  //// ------------- end (Approach2)------------------------
 }
 // @lc code=end
