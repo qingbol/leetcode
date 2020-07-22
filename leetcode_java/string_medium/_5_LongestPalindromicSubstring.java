@@ -6,10 +6,13 @@
 
 // @lc code=start
 class Solution {
+  /////////////////////// first round(20200221)/////////////////////////////
+  /////////////////////// first round(20200221)/////////////////////////////
   //// :--------------------start(approach 1)------------------------------
   // 20200221, dp
   // Your runtime beats 24.62 % of java submissions
-  public String longestPalindrome(String s) {
+  // public String longestPalindrome(String s) {
+  public String longestPalindrome1(String s) {
     if (s.length() < 2) {
       return s;
     }
@@ -82,10 +85,8 @@ class Solution {
 
     for (int j = 0; j < n; j++) {
       for (int i = 0; i <= j; i++) {
-        // if (i == j) {
-        // dp[i][j] = true;
-
-        // } else {
+        
+          ////i + 1 >= j -1 is a special case.
         if (s.charAt(i) == s.charAt(j) && (i + 1 >= j - 1 || dp[i + 1][j - 1])) {
           dp[i][j] = true;
           if (j - i + 1 > max) {
@@ -104,6 +105,78 @@ class Solution {
     return s.substring(l, r + 1);
   }
 
-  //// :-------------------- end (approach 3)------------------------------
+  //// -------------------- end (approach 3)------------------------------
+  /////////////////////// second round(20200719)/////////////////////////////
+  /////////////////////// second round(20200719)/////////////////////////////
+  //// :--------------------start(approach 4)------------------------------
+  // 20200719, by myslef. two pointers
+  // 103/103 cases passed (26 ms)
+  // Your runtime beats 68.58 % of java submissions
+  // Your memory usage beats 50.43 % of java submissions (39.6 MB)
+  // public String longestPalindrome(String s) {
+  public String longestPalindrome4(String s) {
+    int n = s.length();
+    int max = 0;
+    String res = "";
+
+    for (int i = 0; i < n; i++) {
+      for (int l = 0; l <= Math.min(i, n - i - 1); l++) {
+        if (s.charAt(i + l) == s.charAt(i - l)) {
+          if (2 * l + 1 > max) {
+            max = 2 * l + 1;
+            res = s.substring(i - l, i + l + 1);
+            // System.out.format("max: %d, res: %s\n", max, res);
+          }
+        } else {
+          break;
+        }
+      }
+    }
+
+    // System.out.format("even number\n");
+    for (int i = 0; i < n - 1; i++) {
+      for (int l = 0; l <= Math.min(i, n - i - 2); l++) {
+        if (s.charAt(i - l) == s.charAt(i + 1 + l)) {
+          if (2 * l + 2 > max) {
+            max = 2 * l + 2;
+            res = s.substring(i - l, i + l + 2);
+            // System.out.format("max: %d, res: %s\n", max, res);
+          }
+        } else {
+          break;
+        }
+      }
+    }
+    return res;
+  }
+  //// -------------------- end (approach 4)------------------------------
+  //// :--------------------start(approach 5)------------------------------
+  // 20200719,  two pointers. refer to labladong<如何寻找最长回文子串>. 
+  public String longestPalindrome(String s) {
+  // public String longestPalindrome5(String s) {
+    String res = "";
+    // String test = "ab";
+    // System.out.println("test:" + test.substring(2, 2));
+    for (int i = 0; i < s.length(); i++) {
+      //odd number
+      String oddRes = palindrome5(s, i, i);
+      //even number
+      String evenRes = palindrome5(s, i , i + 1);
+
+      res = res.length() >= oddRes.length() ? res : oddRes;
+      res = res.length() >= evenRes.length() ? res : evenRes;
+    }
+    return res;
+  }
+
+  private String palindrome5(String s, int l, int r) {
+    while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+      l--;
+      r++;
+    }
+    
+    return s.substring(l + 1, r);
+  }
+  //// -------------------- end (approach 5)------------------------------
 }
 // @lc code=end

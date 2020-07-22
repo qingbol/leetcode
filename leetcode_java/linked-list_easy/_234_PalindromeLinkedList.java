@@ -10,6 +10,9 @@
  * next; ListNode(int x) { val = x; } }
  */
 class Solution {
+  //////////////////// first round(20200125)/////////////////////////
+  //// -------------------------start(Approach1)--------------------
+  // 20200125
   // reverse the second half (by myself)
   public boolean isPalindrome1(ListNode head) {
     if (null == head || null == head.next) {
@@ -70,6 +73,9 @@ class Solution {
     System.out.println();
   }
 
+  //// ------------------------- end (Approach1)--------------------
+  //// -------------------------start(Approach2)--------------------
+  // 20200125
   // reverse the first half in place
   public boolean isPalindrome2(ListNode head) {
     if (null == head || null == head.next) {
@@ -112,6 +118,9 @@ class Solution {
     return true;
   }
 
+  //// ------------------------- end (Approach2)--------------------
+  //// -------------------------start(Approach3)--------------------
+  // 20200125
   // recursion
   ListNode frontPtr;
 
@@ -133,6 +142,9 @@ class Solution {
     return true;
   }
 
+  //// ------------------------- end (Approach3)--------------------
+  //// -------------------------start(Approach4)--------------------
+  // 20200125
   // copy into arraylist
   public boolean isPalindrome4(ListNode head) {
     List<Integer> lst = new ArrayList<>();
@@ -151,9 +163,13 @@ class Solution {
     }
     return true;
   }
+  //// ------------------------- end (Approach4)--------------------
+  //// -------------------------start(Approach5)--------------------
+  // 20200125
 
   // Reverse second half in place
-  public boolean isPalindrome(ListNode head) {
+  // public boolean isPalindrome(ListNode head) {
+  public boolean isPalindrome5(ListNode head) {
     if (null == head || null == head.next) {
       return true;
     }
@@ -210,5 +226,83 @@ class Solution {
     }
     return prev;
   }
+  //// ------------------------- end (Approach5)--------------------
+  //////////////////// second round(20200720)/////////////////////////
+  //////////////////// second round(20200720)/////////////////////////
+  //// -------------------------start(Approach6)--------------------
+  // 20200720, recursive version
+  // Refer to labuladong <如何判断回文链表>
+
+  // 26/26 cases passed (3 ms)
+  // Your runtime beats 31.57 % of java submissions
+  // Your memory usage beats 5.09 % of java submissions (49.3 MB)
+
+  ListNode left = null;
+
+  // public boolean isPalindrome(ListNode head) {
+  public boolean isPalindrome6(ListNode head) {
+    left = head;
+    return helper6(head);
+  }
+
+  private boolean helper6(ListNode r) {
+    if (r == null) {
+      return true;
+    }
+
+    boolean ret = helper6(r.next);
+    boolean res = ret && r.val == left.val;
+    left = left.next;
+
+    return res;
+  }
+  //// ------------------------- end (Approach6)--------------------
+  //// -------------------------start(Approach7)--------------------
+  // 20200720, iterative version
+  // Refer to labuladong <如何判断回文链表>
+
+  // 26/26 cases passed (2 ms)
+  // Your runtime beats 48.61 % of java submissions
+  // Your memory usage beats 11.73 % of java submissions (45.6 MB)
+
+  public boolean isPalindrome(ListNode head) {
+    // public boolean isPalindrome7(ListNode head) {
+    // 1 find the middle node(actually, we need to find the head of second half)
+    ListNode slow = head, fast = head;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    if (fast != null) {
+      slow = slow.next;
+    }
+
+    // 2 reverse the second half.
+    ListNode right = reverseAll7(slow);
+
+    // 3 compaer
+    ListNode left = head;
+    while (right != null) {
+      if (right.val != left.val)
+        return false;
+      left = left.next;
+      right = right.next;
+    }
+
+    return true;
+  }
+
+  private ListNode reverseAll7(ListNode node) {
+    ListNode pre = null, cur = node, nxt = node;
+    while (cur != null) {
+      nxt = cur.next;
+      cur.next = pre;
+      pre = cur;
+      cur = nxt;
+    }
+
+    return pre;
+  }
+  //// ------------------------- end (Approach7)--------------------
 }
 // @lc code=end

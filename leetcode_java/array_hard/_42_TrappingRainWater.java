@@ -245,6 +245,7 @@ class Solution {
     int res = 0;
 
     for (int i = 0; i < n; i++) {
+      //note: should use while rather than if.
       while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
         int cur = stack.pop();
         if (stack.isEmpty())
