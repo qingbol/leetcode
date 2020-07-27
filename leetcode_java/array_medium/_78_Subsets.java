@@ -176,7 +176,7 @@ class Solution {
   // Your memory usage beats 18.59 % of java submissions (39.9 MB)
 
   public List<List<Integer>> subsets6(int[] nums) {
-  // public List<List<Integer>> subsets(int[] nums) {
+    // public List<List<Integer>> subsets(int[] nums) {
     int n = nums.length;
     List<List<Integer>> res = new ArrayList<>();
 
@@ -205,7 +205,7 @@ class Solution {
   // Your memory usage beats 81.75 % of java submissions (39.4 MB)
 
   // public List<List<Integer>> subsets7(int[] nums) {
-    public List<List<Integer>> subsets(int[] nums) {
+  public List<List<Integer>> subsets(int[] nums) {
     int n = nums.length;
     int p = 1 << n;
     List<List<Integer>> res = new ArrayList<>();

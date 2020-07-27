@@ -130,9 +130,9 @@ class Solution {
   // Expected Answer
   // [[2,6],[3,4],[2,2,3]
 
-//   21/21 cases passed (120 ms)
-// Your runtime beats 48.18 % of java submissions
-// Your memory usage beats 50.45 % of java submissions (37.1 MB)
+  // 21/21 cases passed (120 ms)
+  // Your runtime beats 48.18 % of java submissions
+  // Your memory usage beats 50.45 % of java submissions (37.1 MB)
 
   public List<List<Integer>> getFactors(int n) {
     // public List<List<Integer>> getFactors4(int n) {

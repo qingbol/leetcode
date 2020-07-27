@@ -75,11 +75,11 @@ class Solution {
   /////////////////////// second round(20200726)///////////////////////
   /////////////////////// second round(20200726)///////////////////////
   //// --------------------start(Approach3)-------------------------
-  // 20200726. by my
+  // 20200726. 
 
-//   168/168 cases passed (4 ms)
-// Your runtime beats 65.22 % of java submissions
-// Your memory usage beats 57.84 % of java submissions (39.6 MB)
+  // 168/168 cases passed (4 ms)
+  // Your runtime beats 65.22 % of java submissions
+  // Your memory usage beats 57.84 % of java submissions (39.6 MB)
 
   // public List<List<Integer>> combinationSum3(int[] candidates, int target) {
   public List<List<Integer>> combinationSum(int[] candidates, int target) {
@@ -97,7 +97,7 @@ class Solution {
     }
 
     for (int i = start; i < nums.length; i++) {
-    // for (int i = 0; i < nums.length; i++) {
+      // for (int i = 0; i < nums.length; i++) {
       track.add(nums[i]);
       helper3(nums, target, locSum + nums[i], track, res, i);
       // helper3(nums, target, locSum + nums[i], track, res);
