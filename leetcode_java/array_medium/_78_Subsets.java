@@ -19,8 +19,6 @@
  * Note: The solution set must not contain duplicate subsets.
  * 
  * Example:
- * 
- * 
  * Input: nums = [1,2,3]
  * Output:
  * [
@@ -38,9 +36,12 @@
 
 // @lc code=start
 class Solution {
+  ////////////////////// first round(20200227)/////////////////////
+  ////////////////////// first round(20200227)/////////////////////
   //// ---------------start(Approach1)----------------------------
   // 20200227.
-  // recursion
+  // Approach 1: Cascading
+
   public List<List<Integer>> subsets1(int[] nums) {
     // create res and initializing
     List<List<Integer>> res = new ArrayList<>();
@@ -116,7 +117,10 @@ class Solution {
   //// --------------- end (Approach3)----------------------------
   //// ---------------start(Approach4)----------------------------
   // 20200227
-  public List<List<Integer>> subsets(int[] nums) {
+  // Approach 3: Lexicographic (Binary Sorted) Subsets
+
+  // public List<List<Integer>> subsets(int[] nums) {
+  public List<List<Integer>> subsets4(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
     int n = nums.length;
 
@@ -135,5 +139,88 @@ class Solution {
     return res;
   }
   //// --------------- end (Approach4)----------------------------
+  ////////////////////// second round(20200726)/////////////////////
+  ////////////////////// second round(20200726)/////////////////////
+  //// ---------------start(Approach5)----------------------------
+  // 20200726. by myself, backtrack + use start to mark the used element
+  // refer to labuladong < 回溯算法团灭子集、排列、组合问题>
+
+  // 10/10 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 11.28 % of java submissions (40 MB)
+
+  public List<List<Integer>> subsets5(int[] nums) {
+    // public List<List<Integer>> subsets(int[] nums) {
+    List<List<Integer>> res = new ArrayList<>();
+    helper5(nums, new ArrayList<>(), 0, res);
+    return res;
+  }
+
+  private void helper5(int[] nums, List<Integer> track, int start, List<List<Integer>> res) {
+    res.add(new ArrayList<>(track));
+
+    for (int i = start; i < nums.length; i++) {
+      track.add(nums[i]);
+      helper5(nums, track, i + 1, res);
+      // helper5(nums, track, start + 1, res);
+      track.remove(track.size() - 1);
+    }
+  }
+  //// --------------- end (Approach5)----------------------------
+  //// ---------------start(Approach6)----------------------------
+  // 20200726. bit manipulation
+  // refer to leetcode standard soluton
+
+  // 10/10 cases passed (1 ms)
+  // Your runtime beats 77.07 % of java submissions
+  // Your memory usage beats 18.59 % of java submissions (39.9 MB)
+
+  public List<List<Integer>> subsets6(int[] nums) {
+  // public List<List<Integer>> subsets(int[] nums) {
+    int n = nums.length;
+    List<List<Integer>> res = new ArrayList<>();
+
+    for (int i = (int) Math.pow(2, n); i < (int) Math.pow(2, n + 1); i++) {
+      String bitMask = Integer.toBinaryString(i).substring(1);
+
+      List<Integer> cur = new ArrayList<>();
+      for (int j = 0; j < n; j++) {
+        if (bitMask.charAt(j) == '1') {
+          cur.add(nums[j]);
+        }
+      }
+      res.add(cur);
+    }
+    return res;
+  }
+  //// --------------- end (Approach6)----------------------------
+  //// ---------------start(Approach7)----------------------------
+  // 20200726. bit manipulation
+  // optimal
+  // refer to leetcode discussion
+  // https://leetcode.com/problems/subsets/discuss/27278/C%2B%2B-RecursiveIterativeBit-Manipulation
+
+  // 10/10 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 81.75 % of java submissions (39.4 MB)
+
+  // public List<List<Integer>> subsets7(int[] nums) {
+    public List<List<Integer>> subsets(int[] nums) {
+    int n = nums.length;
+    int p = 1 << n;
+    List<List<Integer>> res = new ArrayList<>();
+
+    for (int i = 0; i < p; i++) {
+      List<Integer> cur = new ArrayList<>();
+      for (int j = 0; j < n; j++) {
+        if ((i >> j & 1) == 1) {
+          cur.add(nums[j]);
+        }
+      }
+      res.add(cur);
+    }
+    return res;
+  }
+  //// --------------- end (Approach7)----------------------------
 }
 // @lc code=end

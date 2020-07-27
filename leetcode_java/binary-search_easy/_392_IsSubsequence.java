@@ -103,9 +103,9 @@ class Solution {
   // 20200722. binary search
   // refer to labuladong <二分查找高效判定子序列>.
 
-//   15/15 cases passed (3 ms)
-// Your runtime beats 17.89 % of java submissions
-// Your memory usage beats 14.41 % of java submissions (39.2 MB)
+  // 15/15 cases passed (3 ms)
+  // Your runtime beats 17.89 % of java submissions
+  // Your memory usage beats 14.41 % of java submissions (39.2 MB)
 
   public boolean isSubsequence(String s, String t) {
     // public boolean isSubsequence5(String s, String t) {
@@ -122,7 +122,7 @@ class Solution {
       int pos = leftBound(dict.get(ch), curPtr);
       if (pos == dict.get(ch).size())
         return false;
-        ////note: remember to convert pos to index
+      //// note: remember to convert pos to index
       // curPtr = pos + 1;
       curPtr = dict.get(ch).get(pos) + 1;
     }

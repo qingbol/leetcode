@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  /////////////////////////// first round(20200228)//////////////////////////
+  /////////////////////////// first round(20200228)//////////////////////////
   //// --------------------start(Apprpach1)------------------------------------
   // 20200228, by myself, backtracking
   int res1 = 0;
@@ -112,7 +114,8 @@ class Solution {
   //// --------------------start(Apprpach5)------------------------------------
   // 20200407,
   // Your runtime beats 100 % of java submissions
-  public int combinationSum4(int[] nums, int target) {
+  // public int combinationSum4(int[] nums, int target) {
+  public int combinationSum4_5(int[] nums, int target) {
     Integer[] memo = new Integer[target + 1];
     return helper5(nums, target, memo);
   }
@@ -137,5 +140,46 @@ class Solution {
     return cnt;
   }
   //// -------------------- end (Apprpach5)------------------------------------
+  /////////////////////////// second round(20200726)//////////////////////////
+  /////////////////////////// second round(20200726)//////////////////////////
+  //// --------------------start(Apprpach6)------------------------------------
+  // 20200726. backtracking, by myself.
+
+  // 17/17 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 47.33 % of java submissions (37 MB)
+
+  // public int combinationSum4_6(int[] nums, int target) {
+  public int combinationSum4(int[] nums, int target) {
+    int[] memo = new int[target + 1];
+    Arrays.fill(memo, -1);
+    memo[0] = 1;
+
+    helper6(nums, target, memo);
+    // System.out.format("memo:%s\n", Arrays.toString(memo));
+    return memo[target];
+  }
+
+  private int helper6(int[] nums, int target, int[] memo) {
+    if (target < 0)
+      return -1;
+    if (memo[target] != -1)
+      return memo[target];
+    // if (target == 0)
+    // return 1;
+
+    int count = 0;
+    for (int i = 0; i < nums.length; i++) {
+      // System.out.format("i: %d\n", i);
+      int ret = helper6(nums, target - nums[i], memo);
+      if (ret != -1) {
+        count += ret;
+      }
+    }
+
+    memo[target] = count;
+    return memo[target];
+  }
+  //// -------------------- end (Apprpach6)------------------------------------
 }
 // @lc code=end

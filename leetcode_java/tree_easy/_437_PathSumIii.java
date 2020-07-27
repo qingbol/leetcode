@@ -20,11 +20,12 @@
 //  * }
 class Solution {
   //// ------------start(Approach1)--------------------------
-  public int pathSum(TreeNode root, int sum) {
+  //20200718.
     //refer to <labladong 递归详解>
     //https://labuladong.gitbook.io/algo/suan-fa-si-wei-xi-lie/di-gui-xiang-jie
     // 126/126 cases passed (20 ms)
     // Your runtime beats 52.32 % of java submissions
+  public int pathSum(TreeNode root, int sum) {
     if (root == null)
       return 0;
     int rootPathSum = count(root, sum);

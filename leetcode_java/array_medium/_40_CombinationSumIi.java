@@ -6,7 +6,13 @@
 
 // @lc code=start
 class Solution {
-  public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+  /////////////////////////// first round(20200228)//////////////////////////
+  /////////////////////////// first round(20200228)//////////////////////////
+  //// --------------------start(Approach1)-------------------------
+  // 20200228
+
+  public List<List<Integer>> combinationSum2_1(int[] candidates, int target) {
+    // public List<List<Integer>> combinationSum2(int[] candidates, int target) {
     List<List<Integer>> res = new ArrayList<>();
     if (candidates == null || candidates.length == 0) {
       return res;
@@ -33,5 +39,39 @@ class Solution {
       lst.remove(lst.size() - 1);
     }
   }
+  //// -------------------- end (Approach1)-------------------------
+  /////////////////////////// second round(20200726)//////////////////////////
+  /////////////////////////// second round(20200726)//////////////////////////
+  //// --------------------start(Approach2)-------------------------
+  // 20200726.
+  // 172/172 cases passed (4 ms)
+  // Your runtime beats 74.96 % of java submissions
+  // Your memory usage beats 76.96 % of java submissions (39.5 MB)
+
+  public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    // public List<List<Integer>> combinationSum2_2(int[] candidates, int target) {
+    List<List<Integer>> res = new ArrayList<>();
+    Arrays.sort(candidates);
+
+    helper2(candidates, target, new ArrayList<>(), res, 0);
+    return res;
+  }
+
+  private void helper2(int[] nums, int target, List<Integer> track, List<List<Integer>> res, int start) {
+    if (target <= 0) {
+      if (target == 0)
+        res.add(new ArrayList<>(track));
+      return;
+    }
+
+    for (int i = start; i < nums.length; i++) {
+      if (i != start && nums[i] == nums[i - 1])
+        continue;
+      track.add(nums[i]);
+      helper2(nums, target - nums[i], track, res, i + 1);
+      track.remove(track.size() - 1);
+    }
+  }
+  //// -------------------- end (Approach2)-------------------------
 }
 // @lc code=end
