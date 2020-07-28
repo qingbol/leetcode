@@ -10,6 +10,8 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
+  ////////////////// first round(20200316)///////////////////////////////////
+  ////////////////// first round(20200316)///////////////////////////////////
   //// ----------------start(Approach1)----------------------
   // 20200316
   // by myselft
@@ -96,7 +98,8 @@ class Solution {
 
   //// ---------------- end (Approach4)----------------------
   //// ----------------start(Approach5)----------------------
-  public int minDepth(TreeNode root) {
+  // public int minDepth(TreeNode root) {
+  public int minDepth5(TreeNode root) {
     if (root == null) {
       return 0;
     }
@@ -109,5 +112,44 @@ class Solution {
     return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
   }
   //// ---------------- end (Approach5)----------------------
+  ////////////////// second round(20200728)///////////////////////////////////
+  ////////////////// second round(20200728)///////////////////////////////////
+  //// ----------------start(Approach6)----------------------
+  // 20200728
+  // by myselft, refer to labuladong <BFS算法套路框架>
+
+  //41/41 cases passed (1 ms)
+// Your runtime beats 21.75 % of java submissions
+// Your memory usage beats 5.52 % of java submissions (40.9 MB)
+
+  public int minDepth(TreeNode root) {
+    // public int minDepth6(TreeNode root) {
+    if (root == null)
+      return 0;
+    Queue<TreeNode> q = new ArrayDeque<>();
+    q.offer(root);
+    int step = 1;
+
+    while (!q.isEmpty()) {
+      int sz = q.size();
+      for (int i = 0; i < sz; i++) {
+        TreeNode cur = q.poll();
+        if (cur.left == null && cur.right == null) {
+          return step;
+        }
+        
+        if (cur.left != null) {
+          q.offer(cur.left);
+        }
+        if (cur.right != null) {
+          q.offer(cur.right);
+        }
+      }
+      step++;
+    }
+    return step;
+    // return -1;
+  }
+  //// ---------------- end (Approach6)----------------------
 }
 // @lc code=end
