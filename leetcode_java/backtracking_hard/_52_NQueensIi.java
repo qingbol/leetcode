@@ -49,6 +49,13 @@ class Solution {
   ////////////////// second round(202000727)////////////////////////////////////
   ////////////////// second round(202000727)////////////////////////////////////
   //// ----------------start(Approach1)-----------------------------------------
+  //20200727, 
+  //refer to labuladong <回溯算法解题套路框架>
+  1
+  //9/9 cases passed (19 ms)
+// Your runtime beats 5.61 % of java submissions
+// Your memory usage beats 5.22 % of java submissions (39.3 MB)
+// 
   public int totalNQueens(int n) {
     // public int totalNQueens2(int n) {
     int[] res = new int[1];
@@ -94,7 +101,6 @@ class Solution {
       if (board.get(i).charAt(col) == 'Q')
         return false;
     }
-
     // check the hill direction on the right above
     for (int i = row - 1, j = col + 1; i >= 0 && j < board.size(); i--, j++) {
       if (board.get(i).charAt(j) == 'Q')

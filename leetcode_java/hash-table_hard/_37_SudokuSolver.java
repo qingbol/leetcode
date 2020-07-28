@@ -6,10 +6,14 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200118)//////////////////////////////////////
+  ////////////////// first round(20200118)//////////////////////////////////////
   // -------------------start(Approach1)---------------------------
   // 20200118.
   // cspiration: stack overflow. backtrack
-  public void solveSudoku(char[][] board) {
+
+  // public void solveSudoku(char[][] board) {
+  public void solveSudoku1(char[][] board) {
     solveSudokuHelper(board);
   }
 
@@ -21,7 +25,7 @@ class Solution {
           continue;
         }
         for (char k = '1'; k <= '9'; k++) {
-          if (isValid(board, i, j, k)) {
+          if (isValid1(board, i, j, k)) {
             board[i][j] = k;
             if (solveSudokuHelper(board)) {
               return true;
@@ -36,7 +40,7 @@ class Solution {
     return true;
   }
 
-  private boolean isValid(char[][] board, int row, int col, int letter) {
+  private boolean isValid1(char[][] board, int row, int col, int letter) {
     // int idx = row / 3 * 3 + col / 3;
     for (int i = 0; i < 9; i++) {
       if (board[row][i] == letter)
@@ -53,7 +57,14 @@ class Solution {
 
   // -------------------start(Appraoch2)-------------------------------
   // 20200118
-  public void solveSudoku1(char[][] board) {
+  //optimal
+
+  // 6/6 cases passed (7 ms)
+  // Your runtime beats 79.69 % of java submissions
+  // Your memory usage beats 19.32 % of java submissions (39.1 MB)
+
+  public void solveSudoku2(char[][] board) {
+    // public void solveSudoku(char[][] board) {
     dfs(board, 0);
   }
 
@@ -97,6 +108,122 @@ class Solution {
     }
   }
   // ------------------- end (Approach2)--------------------------
+  //////////////// second round(20200727)//////////////////////////////////////
+  //////////////// second round(20200727)//////////////////////////////////////
+  // -------------------start(Approach3)---------------------------
+  // 20200727. by myself.
+
+  // Time Limit Exceeded
+  // Your Input
+  // [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
+
+  public void solveSudoku(char[][] board) {
+  // public void solveSudoku3(char[][] board) {
+    helper3(board, 0);
+  }
+
+  private boolean helper3(char[][] board, int idx) {
+    int n = board.length;
+    int row = idx / n;
+    int col = idx % n;
+
+    if (idx == 81) {
+      return true;
+    }
+    // System.out.format("board: %s\n", Arrays.deepToString(board));
+
+    if (board[row][col] != '.')
+      helper3(board, idx + 1);
+
+    for (int i = 1; i <= 9; i++) {
+      if (!isValid3(board, row, col, i))
+        // if (!isValid3(board, row, col, (char)(i + '0')))
+        continue;
+      board[row][col] = (char) (i + '0');
+      boolean ret = helper3(board, idx + 1);
+      if (ret)
+        return true;
+      board[row][col] = '.';
+    }
+    return false;
+  }
+
+  private boolean isValid3(char[][] board, int row, int col, int num) {
+    // System.out.format("row: %d, col: %d\n", row, col);
+    int n = board.length;
+    int ch = (char) (num + '0');
+    // check col.
+    for (int i = 0; i < n; i++) {
+      if (board[i][col] == ch)
+        return false;
+    }
+    // check row
+    for (int j = 0; j < n; j++) {
+      if (board[row][j] == ch)
+        return false;
+    }
+    // check sub-boxes
+    int r = row / 3 * 3;
+    int l = col / 3 * 3;
+    // System.out.format("r: %d, l: %d\n", r, l);
+    for (int i = r; i < r + 3; i++) {
+      for (int j = l; j < l + 3; j++) {
+        // System.out.format("i: %d, j: %d\n", i, j);
+        if (board[i][j] == ch)
+          return false;
+      }
+    }
+    return true;
+  }
+
+  // ------------------- end (Approach3)---------------------------
+  // -------------------start(Approach4)---------------------------
+  //20200727. 
+  //refer to leetcode discussion.
+  //https://leetcode.com/problems/sudoku-solver/discuss/15752/Straight-Forward-Java-Solution-Using-Backtracking
+
+  // public void solveSudoku(char[][] board) {
+  public void solveSudoku4(char[][] board) {
+    if (board == null || board.length == 0)
+      return;
+    solve(board);
+  }
+
+  public boolean solve(char[][] board) {
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[0].length; j++) {
+        if (board[i][j] == '.') {
+          for (char c = '1'; c <= '9'; c++) {// trial. Try 1 through 9
+            if (isValid(board, i, j, c)) {
+              board[i][j] = c; // Put c for this cell
+
+              if (solve(board))
+                return true; // If it's the solution return true
+              else
+                board[i][j] = '.'; // Otherwise go back
+            }
+          }
+
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  private boolean isValid(char[][] board, int row, int col, char c) {
+    for (int i = 0; i < 9; i++) {
+      if (board[i][col] != '.' && board[i][col] == c)
+        return false; // check row
+      if (board[row][i] != '.' && board[row][i] == c)
+        return false; // check column
+      if (board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] != '.'
+          && board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c)
+        return false; // check 3*3 block
+    }
+    return true;
+  }
+  // ------------------- end (Approach4)---------------------------
 
 }
 // @lc code=end

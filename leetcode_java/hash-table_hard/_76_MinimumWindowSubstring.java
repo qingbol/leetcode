@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /*
  * @lc app=leetcode id=76 lang=java
  *
@@ -6,9 +8,11 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200213)//////////////////////////////////////
   //// -----------------start(Appraoch1)----------------------
   // 20200213.
   // By myself: error, logic confusion
+
   public String minWindow1(String s, String t) {
     int minl = s.length() - 1;
     int maxr = 0;
@@ -58,7 +62,8 @@ class Solution {
   //// -----------------start(Appraoch2)----------------------
   // 20200213
   // the second try
-  public String minWindow(String s, String t) {
+  // public String minWindow(String s, String t) {
+  public String minWindow2(String s, String t) {
     int fast = 0;
     int slow = 0;
 
@@ -98,6 +103,119 @@ class Solution {
     return windowSize < Integer.MAX_VALUE ? s.substring(windowStart, windowStart + windowSize) : "";
 
   }
+
+  //// ----------------- end (Appraoch2)----------------------
+  ////////////////// second round(20200727)/////////////////////////////////////
+  ////////////////// second round(20200727)/////////////////////////////////////
+  //// -----------------start(Appraoch3)----------------------
+  // 20200727. by myself, wrong.
+  // By myself: error, logic confusion
+
+  // public String minWindow(String s, String t) {
+  public String minWindow3(String s, String t) {
+    HashMap<Character, Integer> need = new HashMap<>();
+    HashMap<Character, Integer> window = new HashMap<>();
+    for (char ch : t.toCharArray()) {
+      need.put(ch, need.getOrDefault(ch, 0) + 1);
+    }
+
+    int left = 0;
+    int right = 0;
+    int idx = 0;
+    int len = Integer.MAX_VALUE;
+    while (right < s.length()) {
+      char rChar = s.charAt(right);
+      right++;
+      // core part
+      window.put(rChar, window.getOrDefault(rChar, 0) + 1);
+
+      char lChar = s.charAt(left);
+      while (!need.containsKey(lChar) || window.get(lChar) > need.get(lChar)) {
+        window.put(lChar, window.getOrDefault(lChar, 0) - 1);
+        left++;
+      }
+
+      boolean flag = true;
+      for (char k : need.keySet()) {
+        if (!window.containsKey(k) || window.get(k) < need.get(k))
+          flag = false;
+      }
+      if (flag) {
+        if (right - left + 1 < len) {
+          idx = left;
+          len = right - left + 1;
+        }
+      }
+
+    }
+
+    return s.substring(idx, idx + len);
+  }
+  //// ----------------- end (Appraoch3)----------------------
+  //// -----------------start(Appraoch4)----------------------
+  // 20200727.
+  // refer to labuladong <滑动窗口解题套路框架>
+
+  // 268/268 cases passed (21 ms)
+  // Your runtime beats 30.57 % of java submissions
+  // Your memory usage beats 5.97 % of java submissions (44.3 MB)
+
+  public String minWindow(String s, String t) {
+    // public String minWindow4(String s, String t) {
+    HashMap<Character, Integer> need = new HashMap<>();
+    HashMap<Character, Integer> window = new HashMap<>();
+    for (char ch : t.toCharArray()) {
+      need.put(ch, need.getOrDefault(ch, 0) + 1);
+    }
+    // for ( char ch : s.toCharArray()) {
+    // window.put(ch, window.getOrDefault(ch, 0) + 1);
+    // }
+    // System.out.format("need: %s\n", need);
+    // System.out.format("window: %s\n", window);
+
+    int left = 0, right = 0;
+    int start = 0;
+    int len = Integer.MAX_VALUE;
+    // int start = 0, len = Integer.MAX_VALUE;
+    int matched = 0;
+
+    while (right < s.length()) {
+      char rChar = s.charAt(right);
+      right++;
+      if (need.containsKey(rChar)) {
+        window.put(rChar, window.getOrDefault(rChar, 0) + 1);
+        // if (window.get(rChar) > 300)
+        // System.out.format("win: %d, need: %d\n", window.get(rChar), need.get(rChar));
+        if ((window.get(rChar)).equals(need.get(rChar)))
+          // if (window.get(rChar) == need.get(rChar))
+          matched++;
+      }
+
+      // debugl
+      // System.out.format("matched: %d, window: %s\n", matched, window);
+      // if (matched > 0)
+      // System.out.format("window:[%d, %d), matched: %d\n", left, right, matched);
+
+      while (matched == need.size()) {
+        if (right - left < len) {
+          start = left;
+          len = right - left;
+        }
+
+        char lChar = s.charAt(left);
+        left++;
+        if (need.containsKey(lChar)) {
+          if (need.get(lChar).equals(window.get(lChar))) {
+            // if (need.get(lChar) == window.get(lChar)) {
+            matched--;
+          }
+          window.put(lChar, window.get(lChar) - 1);
+        }
+      }
+    }
+
+    return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
+  }
+  //// ----------------- end (Appraoch3)----------------------
 }
-//// ----------------- end (Appraoch2)----------------------
 // @lc code=end
