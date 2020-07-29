@@ -10,6 +10,8 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
+  ////////////////// first round(20200312)///////////////////////////////////
+  ////////////////// first round(20200312)///////////////////////////////////
   //// ----------------start(Approach1)----------------------------
   // 20200312
   // by myself.
@@ -69,8 +71,32 @@ class Solution {
     return true;
   }
 
-  public boolean isValidBST(TreeNode root) {
+  // public boolean isValidBST(TreeNode root) {
+  public boolean isValidBST2(TreeNode root) {
     return helper(root, null, null);
+  }
+
+  //// ---------------- end (Approach2)----------------------------
+  ////////////////// second round(20200728)///////////////////////////////////
+  ////////////////// second round(20200728)///////////////////////////////////
+  //// ----------------start(Approach3)----------------------------
+  // 20200312
+  //refer to labuladong <二叉搜索树操作集锦>
+  // Your runtime beats 100 % of java submissions
+  public boolean isValidBST(TreeNode root) {
+    // public boolean isValidBST3(TreeNode root) {
+    return helper3(root, null, null);
+  }
+
+  private boolean helper3(TreeNode node, TreeNode lower, TreeNode upper) {
+    if (node == null)
+      return true;
+    if (lower != null && node.val <= lower.val)
+      return false;
+    if (upper != null && node.val >= upper.val)
+      return false;
+
+    return helper3(node.left, lower, node) && helper3(node.right, node, upper);
   }
   //// ---------------- end (Approach2)----------------------------
 }
