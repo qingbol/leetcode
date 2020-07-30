@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200219)///////////////////////////////////
+  ////////////////// first round(20200219)///////////////////////////////////
   //// ----------------start(Approach1)-----------------
   // 20200219. // by myself. brute force method
   // Your runtime beats 94.17 % of java submissions
@@ -43,7 +45,9 @@ class Solution {
   //// ----------------start(Approach2)-----------------
   // 20200219, use deque
   // Your runtime beats 69.42 % of java submissions
-  public int[] maxSlidingWindow(int[] nums, int k) {
+
+  // public int[] maxSlidingWindow(int[] nums, int k) {
+  public int[] maxSlidingWindow2(int[] nums, int k) {
     if (null == nums || 0 == nums.length) {
       return new int[0];
     }
@@ -75,6 +79,60 @@ class Solution {
     return res;
   }
   //// ---------------- end (Approach2)-----------------
+  ////////////////// second round(20200729)///////////////////////////////////
+  ////////////////// second round(20200729)///////////////////////////////////
+  //// ----------------start(Approach3)-----------------
+  // 20200729
+  //refer to labuladong <特殊数据结构：单调队列>
+
+  // 18/18 cases passed (17 ms)
+  // Your runtime beats 42.42 % of java submissions
+  // Your memory usage beats 72.41 % of java submissions (51.6 MB)
+
+  public int[] maxSlidingWindow(int[] nums, int k) {
+    // public int[] maxSlidingWindow3(int[] nums, int k) {
+    int n = nums.length;
+    int[] res = new int[n - k + 1];
+    MonotonicQueue<Integer> mq = new MonotonicQueue<>();
+
+    for (int i = 0; i < n; i++) {
+      if (i < k - 1) {
+        mq.offer(nums[i]);
+      } else {
+        mq.offer(nums[i]);
+        res[i - k + 1] = mq.getMax();
+        mq.remove(nums[i - k + 1]);
+      }
+    }
+
+    return res;
+  }
+
+  class MonotonicQueue<T extends Comparable<T>> {
+    Deque<T> q;
+
+    public MonotonicQueue() {
+      q = new ArrayDeque<>();
+    }
+
+    public void offer(T elem) {
+      while (!q.isEmpty() && q.peekLast().compareTo(elem) < 0) {
+        q.pollLast();
+      }
+      q.offer(elem);
+    }
+
+    public T getMax() {
+      return q.peek();
+    }
+
+    public void remove(T elem) {
+      if (!q.isEmpty() && q.peek().equals(elem)) {
+        q.poll();
+      }
+    }
+  }
+  //// ---------------- end (Approach3)-----------------
 
 }
 // @lc code=end
