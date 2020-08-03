@@ -5,12 +5,18 @@
  */
 
 // @lc code=start
-class MyStack {
+////////////////// first round(20200211)///////////////////////////////////
+////////////////// first round(20200211)///////////////////////////////////
+//// ----------------start(Approach1)-------------------------------------
+// 20200207, bad practice
+class MyStack1 {
+// public class MyStack {
   Deque<Integer> que;
   Deque<Integer> queHelper;
 
   /** Initialize your data structure here. */
-  public MyStack() {
+  // public MyStack() {
+  public MyStack1() {
     que = new ArrayDeque<>();
     queHelper = new ArrayDeque<>();
   }
@@ -68,6 +74,57 @@ class MyStack {
     return que.isEmpty() && queHelper.isEmpty();
   }
 }
+//// ----------------end (Approach1)-------------------------------------
+////////////////// second round(20200802)///////////////////////////////////
+////////////////// second round(20200802)///////////////////////////////////
+//// ----------------start(Approach2)-------------------------------------
+// 20200802
+//refer to labuladong <队列实现栈|栈实现队列>
+
+// 16/16 cases passed (0 ms)
+// Your runtime beats 100 % of java submissions
+// Your memory usage beats 41.97 % of java submissions (37.1 MB)
+
+// class MyStack2 {
+public class MyStack {
+  Queue<Integer> q;
+  int fakeTop;
+  /** Initialize your data structure here. */
+  public MyStack() {
+  // public MyStack2() {
+    q = new ArrayDeque<>();
+    fakeTop = -1;
+  }
+
+  /** Push element x onto stack. */
+  public void push(int x) {
+    q.offer(x);
+    fakeTop = x;
+  }
+
+  /** Removes the element on top of the stack and returns that element. */
+  public int pop() {
+    int sz = q.size();
+    while (sz > 2) {
+      q.offer(q.poll());
+      sz--;
+    }
+    fakeTop = q.peek();
+    q.offer(q.poll());
+    return q.poll();
+  }
+
+  /** Get the top element. */
+  public int top() {
+    return fakeTop;
+  }
+
+  /** Returns whether the stack is empty. */
+  public boolean empty() {
+    return q.isEmpty();
+  }
+}
+//// ----------------end (Approach2)-------------------------------------
 
 /**
  * Your MyStack object will be instantiated and called as such: MyStack obj =

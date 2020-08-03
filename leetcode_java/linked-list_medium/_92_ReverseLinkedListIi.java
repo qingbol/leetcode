@@ -6,10 +6,14 @@
 
 // @lc code=start
 /**
- * Definition for singly-linked list. public class ListNode { int val; ListNode
- * next; ListNode(int x) { val = x; } }
+ * Definition for singly-linked list. public class ListNode { int val; ListNode next; ListNode(int
+ * x) { val = x; } }
  */
 class Solution {
+  ////////////////// first round(20200123)///////////////////////////////////
+  ////////////////// first round(20200123)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200123
   public ListNode reverseBetween1(ListNode head, int m, int n) {
     if (null == head || null == head.next || m == n) {
       return head;
@@ -50,8 +54,11 @@ class Solution {
     System.out.println();
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // iterative
-  public ListNode reverseBetween(ListNode head, int m, int n) {
+  // public ListNode reverseBetween(ListNode head, int m, int n) {
+  public ListNode reverseBetween2(ListNode head, int m, int n) {
     if (null == head || null == head.next) {
       return head;
     }
@@ -88,5 +95,73 @@ class Solution {
     tail.next = cur;
     return head;
   }
+
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200730)///////////////////////////////////
+  ////////////////// second round(20200730)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200730, by myself.
+  // refer to labuladong <递归反转链表的一部分>
+
+  // 44/44 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 59.6 % of java submissions (37 MB)
+
+  ListNode successor3 = null;
+
+  public ListNode reverseBetween3(ListNode head, int m, int n) {
+    // public ListNode reverseBetween(ListNode head, int m, int n) {
+    if (m == 1) {
+      return helper3(head, n);
+    }
+    ListNode cur = head;
+    for (int i = 0; i < m - 2; i++) {
+      cur = cur.next;
+    }
+    if (cur.next != null)
+      cur.next = helper3(cur.next, n - m + 1);
+    return head;
+  }
+
+  private ListNode helper3(ListNode node, int n) {
+    if (n == 1) {
+      successor3 = node.next;
+      return node;
+    }
+    ListNode last = helper3(node.next, n - 1);
+    node.next.next = node;
+    node.next = successor3;
+    return last;
+  }
+  //// ---------------- end (Approach3)-------------------------------------
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200730,
+  // refer to labuladong <递归反转链表的一部分>
+
+//   44/44 cases passed (0 ms)
+// Your runtime beats 100 % of java submissions
+// Your memory usage beats 5.2 % of java submissions (39.1 MB)
+
+  ListNode successor4 = null;
+
+  // public ListNode reverseBetween4(ListNode head, int m, int n) {
+  public ListNode reverseBetween(ListNode head, int m, int n) {
+    if (m == 1)
+      return helper4(head, n);
+    head.next = reverseBetween(head.next, m - 1, n - 1);
+    return head;
+  }
+
+  private ListNode helper4(ListNode node, int n) {
+    if (n == 1) {
+      successor4 = node.next;
+      return node;
+    }
+    ListNode last = helper4(node.next, n - 1);
+    node.next.next = node;
+    node.next = successor4;
+    return last;
+  }
+  //// ---------------- end (Approach4)-------------------------------------
 }
 // @lc code=end

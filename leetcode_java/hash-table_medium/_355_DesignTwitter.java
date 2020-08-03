@@ -5,9 +5,11 @@
  */
 
 // @lc code=start
-////------------------------start(Approach1)-----------------------
-//20200410, by myself. map + hashset + pq. Not ood based.
-//Your runtime beats 48.58 % of java submissions
+////////////////// first round(20200410)///////////////////////////////////
+////////////////// first round(20200410)///////////////////////////////////
+//// ------------------------start(Approach1)-----------------------
+// 20200410, by myself. map + hashset + pq. Not ood based.
+// Your runtime beats 48.58 % of java submissions
 class Twitter1 {
   // public class Twitter {
   int seq;
@@ -43,14 +45,15 @@ class Twitter1 {
   }
 
   /**
-   * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in
-   * the news feed must be posted by users who the user followed or by the user
-   * herself. Tweets must be ordered from most recent to least recent.
+   * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must
+   * be posted by users who the user followed or by the user herself. Tweets must be ordered from
+   * most recent to least recent.
    */
   public List<Integer> getNewsFeed(int userId) {
     List<Integer> res = new ArrayList<>();
     // System.out.format("ownPost:%s\n", ownPost.get(userId));
-    PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> b.getKey() - a.getKey());
+    PriorityQueue<Pair<Integer, Integer>> pq =
+        new PriorityQueue<>((a, b) -> b.getKey() - a.getKey());
 
     // System.out.format("follower:%s\n", follower.get(userId));
     // if (ownPost.containsKey(userId)) {
@@ -74,8 +77,7 @@ class Twitter1 {
   }
 
   /**
-   * Follower follows a followee. If the operation is invalid, it should be a
-   * no-op.
+   * Follower follows a followee. If the operation is invalid, it should be a no-op.
    */
   public void follow(int followerId, int followeeId) {
     // System.out.format("check point 6\n");
@@ -88,8 +90,7 @@ class Twitter1 {
   }
 
   /**
-   * Follower unfollows a followee. If the operation is invalid, it should be a
-   * no-op.
+   * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
    */
   public void unfollow(int followerId, int followeeId) {
     // System.out.format("check point 10\n");
@@ -110,15 +111,18 @@ class Twitter1 {
 // timeStamp is not static : Your runtime beats 90.37 % of java submissions
 // timeStamp is static: Your runtime beats 96.42 % of java submissions
 
+
 // class Twitter2 {
-public class Twitter {
+// public class Twitter {
+class Twitter2 {
 
   private Map<Integer, User> userMap;
   private static int timeStamp = 0;
 
   /** Initialize your data structure here. */
   // public Twitter2() {
-  public Twitter() {
+  public Twitter2() {
+    // public Twitter() {
     userMap = new HashMap<>();
   }
 
@@ -129,9 +133,9 @@ public class Twitter {
   }
 
   /**
-   * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in
-   * the news feed must be posted by users who the user followed or by the user
-   * herself. Tweets must be ordered from most recent to least recent.
+   * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must
+   * be posted by users who the user followed or by the user herself. Tweets must be ordered from
+   * most recent to least recent.
    */
   public List<Integer> getNewsFeed(int userId) {
     List<Integer> res = new ArrayList<>();
@@ -161,8 +165,7 @@ public class Twitter {
   }
 
   /**
-   * Follower follows a followee. If the operation is invalid, it should be a
-   * no-op.
+   * Follower follows a followee. If the operation is invalid, it should be a no-op.
    */
   public void follow(int followerId, int followeeId) {
     userMap.putIfAbsent(followerId, new User(followerId));
@@ -171,8 +174,7 @@ public class Twitter {
   }
 
   /**
-   * Follower unfollows a followee. If the operation is invalid, it should be a
-   * no-op.
+   * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
    */
   public void unfollow(int followerId, int followeeId) {
     if (!userMap.containsKey(followerId) || followerId == followeeId) {
@@ -220,12 +222,124 @@ public class Twitter {
     }
   }
 }
+
+
 //// ------------------------ end (Approach2)-----------------------
+////////////////// second round(20200730)///////////////////////////////////
+////////////////// second round(20200730)///////////////////////////////////
+//// ------------------------start(Approach3)-----------------------
+// 20200730 by myself.
+//problem: should use LinkedList to store tweet(blog).
+
+// 23/23 cases passed (33 ms)
+// Your runtime beats 59.41 % of java submissions
+// Your memory usage beats 19.05 % of java submissions (45.2 MB)
+
+// class Twitter3 {
+public class Twitter {
+  // public class Twitter {
+
+  static int timestamp = 0;
+  Map<Integer, User> users;
+
+  /** Initialize your data structure here. */
+  public Twitter() {
+    // public Twitter3() {
+    users = new HashMap<>();
+  }
+
+  /** Compose a new tweet. */
+  public void postTweet(int userId, int tweetId) {
+    if (!users.containsKey(userId)) {
+      users.put(userId, new User(userId));
+    }
+    Blog newBlog = new Blog(tweetId, timestamp++);
+    users.get(userId).blogs.add(newBlog);
+  }
+
+  /**
+   * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must
+   * be posted by users who the user followed or by the user herself. Tweets must be ordered from
+   * most recent to least recent.
+   */
+  public List<Integer> getNewsFeed(int userId) {
+    List<Integer> res = new ArrayList<>(10);
+    PriorityQueue<Blog> pq = new PriorityQueue<>((a, b) -> b.timestamp - a.timestamp);
+
+    // check the existence of userId
+    if (!users.containsKey(userId)) {
+      return res;
+    }
+
+    // pq.addAll(users.get(userId).blogs);
+    // System.out.format("pq: %s\n", pq);
+    for (User followee : users.get(userId).followees) {
+      pq.addAll(followee.blogs);
+    }
+
+    while (!pq.isEmpty() && res.size() < 10) {
+      // for (int i = 0; i < 10; i++) {
+      res.add(pq.poll().blogId);
+    }
+    return res;
+  }
+
+  /**
+   * Follower follows a followee. If the operation is invalid, it should be a no-op.
+   */
+  public void follow(int followerId, int followeeId) {
+    if (!users.containsKey(followerId))
+      users.put(followerId, new User(followerId));
+    if (!users.containsKey(followeeId))
+      users.put(followeeId, new User(followeeId));
+    users.get(followerId).followees.add(users.get(followeeId));
+  }
+
+  /**
+   * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+   */
+  public void unfollow(int followerId, int followeeId) {
+    if (followerId != followeeId && users.containsKey(followerId)
+        && users.containsKey(followeeId)) {
+      users.get(followerId).followees.remove(users.get(followeeId));
+    }
+  }
+
+  private class User {
+    int userId;
+    Set<User> followees;
+    // List<User> followees;
+    List<Blog> blogs;
+
+    public User(int userId) {
+      this.userId = userId;
+      followees = new HashSet<>();
+      // followees = new ArrayList<>();
+      blogs = new ArrayList<>();
+      followees.add(this);
+    }
+  }
+
+  private class Blog {
+    int blogId;
+    int timestamp;
+
+    public Blog(int blogId, int timestamp) {
+      this.blogId = blogId;
+      this.timestamp = timestamp;
+    }
+
+    public String toString() {
+      return String.valueOf(blogId);
+    }
+  }
+}
+
+//// ------------------------ end (Approach3)-----------------------
 
 /**
- * Your Twitter object will be instantiated and called as such: Twitter obj =
- * new Twitter(); obj.postTweet(userId,tweetId); List<Integer> param_2 =
- * obj.getNewsFeed(userId); obj.follow(followerId,followeeId);
- * obj.unfollow(followerId,followeeId);
+ * Your Twitter object will be instantiated and called as such: Twitter obj = new Twitter();
+ * obj.postTweet(userId,tweetId); List<Integer> param_2 = obj.getNewsFeed(userId);
+ * obj.follow(followerId,followeeId); obj.unfollow(followerId,followeeId);
  */
 // @lc code=end

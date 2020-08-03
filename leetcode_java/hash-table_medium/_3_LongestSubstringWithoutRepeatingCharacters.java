@@ -39,7 +39,7 @@ class Solution {
   // Your memory usage beats 5.01 % of java submissions (43 MB)
 
   // public int lengthOfLongestSubstring(String s) {
-    public int lengthOfLongestSubstring2(String s) {
+  public int lengthOfLongestSubstring2(String s) {
     if (null == s || s.length() < 2) {
       return s.length();
     }
@@ -104,36 +104,36 @@ class Solution {
     return res;
   }
   //// --------------- end (Approach3)----------------------------------
-  //// ---------------start(Approach3)----------------------------------
-  // 20200728. 
+  //// ---------------start(Approach4)----------------------------------
+  // 20200728. much better than approach3.
   // refer to labuladong <滑动窗口解题套路框架>
 
-  //987/987 cases passed (11 ms)
-// Your runtime beats 40.06 % of java submissions
-// Your memory usage beats 5.01 % of java submissions (41.6 MB)
+  // 987/987 cases passed (11 ms)
+  // Your runtime beats 40.06 % of java submissions
+  // Your memory usage beats 5.01 % of java submissions (41.6 MB)
 
   // public int lengthOfLongestSubstring4(String s) {
-    public int lengthOfLongestSubstring(String s) {
-      HashMap<Character,Integer> window = new HashMap<>();
+  public int lengthOfLongestSubstring(String s) {
+    HashMap<Character, Integer> window = new HashMap<>();
 
-      int left = 0, right = 0;
-      int res = 0; 
+    int left = 0, right = 0;
+    int res = 0;
 
-      while (right < s.length()) {
-        char r = s.charAt(right);
-        right++;
-        window.put(r, window.getOrDefault(r, 0) + 1);
+    while (right < s.length()) {
+      char r = s.charAt(right);
+      right++;
+      window.put(r, window.getOrDefault(r, 0) + 1);
 
-        while (window.get(r) > 1) {
-          char l = s.charAt(left);
-          left++;
-          window.put(l, window.get(l) - 1);
-        }
-
-        res =Math.max(res, right -left);
+      while (window.get(r) > 1) {
+        char l = s.charAt(left);
+        left++;
+        window.put(l, window.get(l) - 1);
       }
-      return res;
+
+      res = Math.max(res, right - left);
+    }
+    return res;
   }
-  //// --------------- end (Approach3)----------------------------------
+  //// --------------- end (Approach4)----------------------------------
 }
 // @lc code=end

@@ -8,7 +8,19 @@ import java.util.HashMap;
 
 // @lc code=start
 class Solution {
-  public List<Integer> findAnagrams(String s, String p) {
+
+  ////////////////// first round(20200728)///////////////////////////////////
+  ////////////////// first round(20200728)///////////////////////////////////
+  //// -----------------start(Appraoch1)----------------------
+  // 20200728. by myself.
+  // refer to labuladong <滑动窗口解题套路框架>
+
+  // 36/36 cases passed (39 ms)
+  // Your runtime beats 30.16 % of java submissions
+  // Your memory usage beats 5.02 % of java submissions (46.5 MB)
+
+  // public List<Integer> findAnagrams(String s, String p) {
+  public List<Integer> findAnagrams1(String s, String p) {
     HashMap<Character, Integer> need = new HashMap<>();
     HashMap<Character, Integer> window = new HashMap<>();
     for (char ch : p.toCharArray())
@@ -47,5 +59,6 @@ class Solution {
 
     return res;
   }
+  //// ----------------- end (Appraoch1)----------------------
 }
 // @lc code=end

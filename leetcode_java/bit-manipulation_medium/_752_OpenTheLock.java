@@ -7,13 +7,14 @@
 // @lc code=start
 class Solution {
   ////////////////// first round(20200728)///////////////////////////////////
+  ////////////////// first round(20200728)///////////////////////////////////
   //// ----------------start(Approach6)----------------------
   // 20200728
-  //refer to labuladong <BFS算法套路框架>
+  // refer to labuladong <BFS算法套路框架>
 
-//   43/43 cases passed (92 ms)
-// Your runtime beats 73.25 % of java submissions
-// Your memory usage beats 63.14 % of java submissions (45.9 MB)
+  // 43/43 cases passed (92 ms)
+  // Your runtime beats 73.25 % of java submissions
+  // Your memory usage beats 63.14 % of java submissions (45.9 MB)
 
   public int openLock(String[] deadends, String target) {
     // public int openLock1(String[] deadends, String target) {
