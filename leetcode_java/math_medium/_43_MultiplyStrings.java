@@ -6,9 +6,12 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200127)///////////////////////////////////
+  ////////////////// first round(20200127)///////////////////////////////////
   //// ----------------start(Approach1)-------------------------
   // 20200127
-  public String multiply2(String num1, String num2) {
+
+  public String multiply1(String num1, String num2) {
     // StringBuilder strRes = new StringBuilder();
     int i = 0;
     // int i = num1.length() - 1;
@@ -47,7 +50,8 @@ class Solution {
   //// ----------------start(Approach2)-------------------------
   // 20200127
   // optimal method
-  public String multiply(String num1, String num2) {
+  public String multiply2(String num1, String num2) {
+    // public String multiply(String num1, String num2) {
     if (null == num1 || null == num2) {
       return null;
     }
@@ -77,5 +81,42 @@ class Solution {
     return 0 == strRes.length() ? "0" : strRes.toString();
   }
   //// ---------------- end (Approach2)-------------------------
+  ////////////////// second round(20200805)///////////////////////////////////
+  ////////////////// second round(20200805)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------
+  // 20200805. can't come up by myself.
+  // refer to labuladong <字符串乘法>
+
+//   311/311 cases passed (3 ms)
+// Your runtime beats 94.66 % of java submissions
+// Your memory usage beats 19.39 % of java submissions (39.8 MB)
+
+  // public String multiply3(String num1, String num2) {
+  public String multiply(String num1, String num2) {
+    int n1 = num1.length();
+    int n2 = num2.length();
+    if (n1 == 0 || n1 == 0)
+      return "";
+    int[] res = new int[n1 + n2];
+
+    for (int i = n1 - 1; i >= 0; i--) {
+      for (int j = n2 - 1; j >= 0; j--) {
+        int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+        int sum = mul + res[i + j + 1];
+        res[i + j + 1] = sum % 10;
+        res[i + j] += sum / 10;
+      }
+    }
+
+    int i = 0;
+    while (i < n1 + n2 && res[i] == 0)
+      i++;
+
+    StringBuilder sb = new StringBuilder();
+    for (; i < n1 + n2; i++)
+      sb.append(res[i]);
+    return sb.length() == 0 ? "0" : sb.toString();
+  }
+  //// ---------------- end (Approach3)-------------------------
 }
 // @lc code=end

@@ -1,3 +1,5 @@
+import jdk.javadoc.internal.doclets.toolkit.resources.doclets;
+
 /*
  * @lc app=leetcode id=227 lang=java
  *
@@ -6,6 +8,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200207)///////////////////////////////////
+  ////////////////// first round(20200207)///////////////////////////////////
   //// --------------start(Approach1)------------------
   // 20200207
   // stack. based on my own idea
@@ -67,7 +71,8 @@ class Solution {
   //// --------------start(Approach2)------------------
   // 20200207
   // stack. based on my own idea. improve
-  public int calculate(String s) {
+  // public int calculate(String s) {
+  public int calculate2(String s) {
     Deque<Integer> numStack = new ArrayDeque<>();
     Character sign = '+';
     int idx = 0;
@@ -105,9 +110,10 @@ class Solution {
 
   //// -------------- end (Approach2)------------------
   //// --------------start(Approach3)------------------
-  // 20200207
+  // 20200207. optimal
   // stack
-  public int calculate2(String s) {
+  public int calculate3(String s) {
+    // public int calculate(String s) {
     Deque<Integer> stack = new ArrayDeque<>();
     int res = 0;
     Character sign = '+';
@@ -128,7 +134,8 @@ class Solution {
       // } else if (ch.equals('+') || ch.equals('-') || ch.equals('*') ||
       // ch.equals('/') || idx == s.length()) {
 
-      if (ch.equals('+') || ch.equals('-') || ch.equals('*') || ch.equals('/') || idx == s.length()) {
+      if (ch.equals('+') || ch.equals('-') || ch.equals('*') || ch.equals('/')
+          || idx == s.length()) {
         if (sign.equals('+')) {
           stack.push(val);
         } else if (sign.equals('-')) {
@@ -149,6 +156,83 @@ class Solution {
     for (int num : stack) {
       res += num;
     }
+    return res;
+  }
+  //// -------------- end (Approach3)------------------
+  ////////////////// first round(20200207)///////////////////////////////////
+  //// --------------start(Approach1)------------------
+  // 20200804, totally by myself.
+
+  // 109/109 cases passed (17 ms)
+  // Your runtime beats 41.02 % of java submissions
+  // Your memory usage beats 20.72 % of java submissions (41.9 MB)
+
+  // public int calculate4(String s) {
+  public int calculate(String s) {
+    // System.out.format("s:%s\n", s);
+    Deque<Integer> stack = new ArrayDeque<>();
+    int sign = 1;
+    char operator = '+';
+    int operand = 0;
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (Character.isDigit(c)) {
+        operand = operand * 10 + (int) (c - '0');
+        // } else if (c == ' ') {
+        // continue;
+      }
+      // } else {
+      // cal the former operand.
+      if (c == '+' || c == '*' || c == '/' || c == '-' || i == s.length() - 1) {
+        operand *= sign;
+        if (operator == '+') {
+          stack.push(operand);
+        } else if (operator == '*') {
+          int part1 = stack.pop();
+          stack.push(part1 * operand);
+        } else if (operator == '/') {
+          int part1 = stack.pop();
+          stack.push(part1 / operand);
+        }
+
+        // System.out.format("i: %d, operator: %c\n", i, operator);
+        // System.out.format("stack: %s\n", stack);
+
+        // update the sign and operator
+        if (c == '+' || c == '*' || c == '/') {
+          // dont forget to change sign
+          sign = 1;
+          operator = c;
+        } else if (c == '-') {
+          sign = -1;
+          // dont forget to change the operator
+          operator = '+';
+        }
+        // reset the operand
+        operand = 0;
+      }
+      // skip the space sign
+      if (c == ' ')
+        continue;
+    }
+    // cal the former operand.
+    // operand *= sign;
+    // if (operator == '+') {
+    // stack.push(operand);
+    // } else if (operator == '*') {
+    // int part1 = stack.pop();
+    // stack.push(part1 * operand);
+    // } else if (operator == '/') {
+    // int part1 = stack.pop();
+    // stack.push(part1 / operand);
+    // }
+
+    // add the nums in stack
+    int res = 0;
+    while (!stack.isEmpty()) {
+      res += stack.pop();
+    }
+
     return res;
   }
   //// -------------- end (Approach3)------------------

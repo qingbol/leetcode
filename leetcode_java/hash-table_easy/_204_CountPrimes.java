@@ -8,6 +8,10 @@ import java.beans.FeatureDescriptor;
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200106)///////////////////////////////////
+  ////////////////// first round(20200106)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200106
   public int countPrimes1(int n) {
     if (n < 2) {
       return 0;
@@ -33,7 +37,7 @@ class Solution {
   }
 
   // optimal solution
-  public int countPrimes(int n) {
+  public int countPrimes2(int n) {
     boolean[] isPrime = new boolean[n];
     int res = 0;
     for (int i = 2; i < n; i++) {
@@ -46,5 +50,39 @@ class Solution {
     }
     return res;
   }
+
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200806)///////////////////////////////////
+  ////////////////// second round(20200806)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200806
+  //refer to labuladong<如何高效寻找素数>
+
+//   20/20 cases passed (13 ms)
+// Your runtime beats 86.03 % of java submissions
+// Your memory usage beats 13.17 % of java submissions (38.2 MB)
+
+  // public int countPrimes3(int n) {
+  public int countPrimes(int n) {
+    boolean[] isPrime = new boolean[n];
+    Arrays.fill(isPrime, true);
+
+    // for (int i = 2; i < Math.sqrt(n); i++) {
+    for (int i = 2; i * i < n; i++) {
+      if (isPrime[i]) {
+        for (int j = i * i; j < n; j += i) {
+          isPrime[j] = false;
+        }
+      }
+    }
+
+    int res = 0;
+    for (int i = 2; i < n; i++) {
+      if (isPrime[i])
+        res++;
+    }
+    return res;
+  }
+  //// ---------------- end (Approach3)-------------------------------------
 }
 // @lc code=end

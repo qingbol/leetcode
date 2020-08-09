@@ -81,6 +81,9 @@ class Solution {
   // 20200729, by myself. better than approach1
   // refer to labuladong <二叉搜索树操作集锦>
 
+  // 85/85 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 23.48 % of java submissions (40 MB)
 
   public TreeNode deleteNode(TreeNode root, int key) {
     // public TreeNode deleteNode2(TreeNode root, int key) {

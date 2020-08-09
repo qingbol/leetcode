@@ -9,8 +9,9 @@
 ////////////////// first round(20200211)///////////////////////////////////
 //// ----------------start(Approach1)-------------------------------------
 // 20200207, bad practice
+
 class MyStack1 {
-// public class MyStack {
+  // public class MyStack {
   Deque<Integer> que;
   Deque<Integer> queHelper;
 
@@ -79,19 +80,21 @@ class MyStack1 {
 ////////////////// second round(20200802)///////////////////////////////////
 //// ----------------start(Approach2)-------------------------------------
 // 20200802
-//refer to labuladong <队列实现栈|栈实现队列>
+// refer to labuladong <队列实现栈|栈实现队列>
 
 // 16/16 cases passed (0 ms)
 // Your runtime beats 100 % of java submissions
 // Your memory usage beats 41.97 % of java submissions (37.1 MB)
 
+
 // class MyStack2 {
 public class MyStack {
   Queue<Integer> q;
   int fakeTop;
+
   /** Initialize your data structure here. */
   public MyStack() {
-  // public MyStack2() {
+    // public MyStack2() {
     q = new ArrayDeque<>();
     fakeTop = -1;
   }
@@ -127,8 +130,7 @@ public class MyStack {
 //// ----------------end (Approach2)-------------------------------------
 
 /**
- * Your MyStack object will be instantiated and called as such: MyStack obj =
- * new MyStack(); obj.push(x); int param_2 = obj.pop(); int param_3 = obj.top();
- * boolean param_4 = obj.empty();
+ * Your MyStack object will be instantiated and called as such: MyStack obj = new MyStack();
+ * obj.push(x); int param_2 = obj.pop(); int param_3 = obj.top(); boolean param_4 = obj.empty();
  */
 // @lc code=end

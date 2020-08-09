@@ -43,8 +43,11 @@ class Solution {
   //// --------------- end (Approach1)---------------------------------
   //// ---------------start(Approach2)---------------------------------
   // 20200718, best solution on leetcode discussion
+  //refer to labuladong<如何高效进行模幂运算>
+
   // 54/54 cases passed (8 ms)
   // Your runtime beats 42.35 % of java submissions
+
   // public int superPow2(int a, int[] b) {
   private static final int MOD = 1337;
 

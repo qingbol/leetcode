@@ -136,8 +136,8 @@ class Solution {
   // public boolean stoneGame3(int[] piles) {
   public boolean stoneGame(int[] piles) {
     int n = piles.length;
-    int[][] dp = new int[n + 2][n + 2];
-    // int[][] dp = new int[n][n];
+    // int[][] dp = new int[n + 2][n + 2];
+    int[][] dp = new int[n][n];
 
     for (int size = 1; size <= n; size++) {
       for (int l = 0; l < n - size + 1; l++) {
@@ -146,7 +146,8 @@ class Solution {
         boolean isAlex = size % 2 == 0;
         if (isAlex) {
           // dp[l+1][r+1] = the value of the game [plles[l], ..., plles[r]].
-          dp[l + 1][r + 1] = Math.max(piles[l] + dp[l + 2][r + 1], piles[r] + dp[l + 1][r]);
+          // dp[l + 1][r + 1] = Math.max(piles[l] + dp[l + 2][r + 1], piles[r] + dp[l + 1][r]);
+          dp[l][r] = Math.max(piles[l] + dp[l + 1][r], piles[r] + dp[l][r - 1]);
         } else {
           dp[l + 1][r + 1] = Math.min(-piles[l] + dp[l + 2][r + 1], -piles[r] + dp[l + 1][r]);
         }

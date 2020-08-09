@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200112)///////////////////////////////////
+  ////////////////// first round(20200112)///////////////////////////////////
   // ------------start(Approach 1)------------------------------------------
   public int[][] merge1(int[][] intervals) {
     if (null == intervals || 0 == intervals.length) {
@@ -62,7 +64,8 @@ class Solution {
   // ------------ end (Approach 2)------------------------------------------
   // ------------start(Approach 3)------------------------------------------
   // optimal
-  public int[][] merge(int[][] intervals) {
+  // public int[][] merge(int[][] intervals) {
+  public int[][] merge3(int[][] intervals) {
     if (null == intervals || 0 == intervals.length) {
       return new int[][] {};
     }
@@ -79,16 +82,41 @@ class Solution {
       if (interval[0] <= end) {
         end = Math.max(end, interval[1]);
       } else {
-        res.add(new int[] { start, end });
+        res.add(new int[] {start, end});
         start = interval[0];
         end = interval[1];
       }
     }
-    res.add(new int[] { start, end });
+    res.add(new int[] {start, end});
 
     return res.toArray(new int[][] {});
   }
 
   // ------------ end (Approach 3)------------------------------------------
+  ////////////////// second round(20200805)///////////////////////////////////
+  ////////////////// second round(20200805)///////////////////////////////////
+  // ------------start(Approach 4)------------------------------------------
+  // public int[][] merge4(int[][] intervals) {
+  public int[][] merge(int[][] intervals) {
+    if (null == intervals || intervals.length == 0)
+      return new int[][] {};
+    List<int[]> res = new ArrayList<>();
+    Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+
+    int[] cur = new int[] {intervals[0][0], intervals[0][1]};
+    for (int i = 1; i < intervals.length; i++) {
+      if (cur[1] >= intervals[i][0]) {
+        cur[1] = Math.max(cur[1], intervals[i][1]);
+      } else {
+        res.add(new int[] {cur[0], cur[1]});
+        cur[0] = intervals[i][0];
+        cur[1] = intervals[i][1];
+      }
+    }
+    res.add(cur);
+
+    return res.toArray(new int[][] {});
+  }
+  // ------------ end (Approach 4)------------------------------------------
 }
 // @lc code=end

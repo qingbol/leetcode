@@ -6,7 +6,17 @@
 
 // @lc code=start
 class Solution {
-  public int calculate(String s) {
+  ////////////////// first round(20200206)///////////////////////////////////
+  ////////////////// first round(20200206)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200206
+
+  // 37/37 cases passed (9 ms)
+  // Your runtime beats 61.7 % of java submissions
+  // Your memory usage beats 30.07 % of java submissions (40.2 MB)
+
+  // public int calculate(String s) {
+    public int calculate1(String s) {
     if (null == s || 0 == s.length()) {
       return 0;
     }
@@ -52,5 +62,86 @@ class Solution {
     // }
     return res;
   }
-};
+
+  //// ---------------- end (Approach1)-------------------------------------
+  ////////////////// second round(20200804)///////////////////////////////////
+  ////////////////// second round(20200804)///////////////////////////////////
+  //// ----------------start(Approach2)-------------------------------------
+  // 20200804, most part by myself.
+
+  // 37/37 cases passed (42 ms)
+  // Your runtime beats 15.19 % of java submissions
+  // Your memory usage beats 21.05 % of java submissions (41.3 MB)
+
+  // if i use res += operand * sign;
+  // instead of
+  // if (operator == '+') {
+  // res += operand;
+  // } else if (operator == '-') {
+  // res -= operand;
+  // }
+
+  // 37/37 cases passed (9 ms)
+  // Your runtime beats 61.7 % of java submissions
+  // Your memory usage beats 30.07 % of java submissions (40.1 MB)
+
+  public int calculate(String s) {
+  // public int calculate2(String s) {
+    Deque<Integer> stack = new ArrayDeque<>();
+
+    int idx = 0;
+    int operand = 0;
+    int res = 0;
+    // char operator = '+';
+    int sign = 1;
+    while (idx < s.length()) {
+      Character ch = s.charAt(idx);
+      if (Character.isDigit(ch)) {
+        operand = operand * 10 + (ch - '0');
+        idx++;
+        } else if (Character.isSpace(ch)) {
+        idx++;
+      }
+      // } else {
+      if (ch.equals('+') || ch.equals('-') || ch.equals(')') || idx == s.length()) {
+        // if (ch.equals('+') || ch.equals('-') || ch.equals('(') || ch.equals(')')
+        // || idx == s.length()) {
+        res += operand * sign;
+        // if (operator == '+') {
+        // res += operand;
+        // } else if (operator == '-') {
+        // res -= operand;
+        // }
+        operand = 0;
+      }
+      // System.out.format("res: %d\n", res);
+      // System.out.format("stack: %s\n", stack);
+
+      if (ch.equals('+')) {
+        // operator = '+';
+        sign = 1;
+        idx++;
+      } else if (ch.equals('-')) {
+        // operator = '-';
+        sign = -1;
+        idx++;
+      } else if (ch.equals('(')) {
+        stack.push(res);
+        stack.push(sign);
+        res = 0;
+        sign = 1;
+        // operator = '+';
+        idx++;
+      } else if (ch.equals(')')) {
+        res = res * stack.pop() + stack.pop();
+        idx++;
+      }
+      // }
+      // if (ch.equals(' '))
+      //   idx++;
+    }
+    return res;
+  }
+  //// ---------------- end (Approach2)-------------------------------------
+}
 // @lc code=end

@@ -66,6 +66,13 @@ class MyQueue1 {
 ////////////////// second round(20200802)///////////////////////////////////
 ////////////////// second round(20200802)///////////////////////////////////
 //// ----------------start(Approach2)-------------------------------------
+// 20200802. by myself.
+
+// 17/17 cases passed (0 ms)
+// Your runtime beats 100 % of java submissions
+// Your memory usage beats 20.44 % of java submissions (37.3 MB)
+
+
 public class MyQueue {
   // class MyQueue2 {
   Deque<Integer> offerStack;
