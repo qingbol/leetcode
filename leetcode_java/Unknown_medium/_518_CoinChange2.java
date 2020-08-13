@@ -7,6 +7,7 @@
 // @lc code=start
 class Solution {
   ////////////////// first round(20200809)///////////////////////////////////
+  ////////////////// first round(20200809)///////////////////////////////////
   // -------------------start(Approach1)-------------------
   // 20200809, by myself. dp
 
@@ -63,15 +64,15 @@ class Solution {
   }
   // ------------------- end (Approach2)-------------------
   // -------------------start(Approach3)-------------------
-  // 20200809,
+  // 20200809, optimized version
   // refer to labuladong<经典动态规划：完全背包问题>
 
-//   27/27 cases passed (2 ms)
-// Your runtime beats 100 % of java submissions
-// Your memory usage beats 91.03 % of java submissions (36.8 MB)
+  // 27/27 cases passed (2 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 91.03 % of java submissions (36.8 MB)
 
   public int change(int amount, int[] coins) {
-  // public int change3(int amount, int[] coins) {
+    // public int change3(int amount, int[] coins) {
     int n = coins.length;
     int[] dp = new int[amount + 1];
     dp[0] = 1;

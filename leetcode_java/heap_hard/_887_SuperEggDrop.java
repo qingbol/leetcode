@@ -49,9 +49,9 @@ class Solution {
   // 20200910,
   // refer to labuladong <经典动态规划：高楼扔鸡蛋>
 
-//   121/121 cases passed (620 ms)
-// Your runtime beats 5.02 % of java submissions
-// Your memory usage beats 34.04 % of java submissions (46.5 MB)
+  // 121/121 cases passed (620 ms)
+  // Your runtime beats 5.02 % of java submissions
+  // Your memory usage beats 34.04 % of java submissions (46.5 MB)
 
   public int superEggDrop(int K, int N) {
     // public int superEggDrop2(int K, int N) {

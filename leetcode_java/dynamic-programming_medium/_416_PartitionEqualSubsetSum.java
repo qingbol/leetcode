@@ -84,6 +84,10 @@ class Solution {
   // 20200809, dp
   // refer to labuladong<经典动态规划：子集背包问题>
 
+  // 105/105 cases passed (31 ms)
+  // Your runtime beats 52.55 % of java submissions
+  // Your memory usage beats 62.93 % of java submissions (39.5 MB)
+
   public boolean canPartition(int[] nums) {
     // public boolean canPartition3(int[] nums) {
     int n = nums.length;
@@ -106,7 +110,7 @@ class Solution {
           dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
         }
         // if (dp[i][j])
-        //   return true;
+        // return true;
       }
     }
 

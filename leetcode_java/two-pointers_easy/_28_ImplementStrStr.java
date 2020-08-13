@@ -33,9 +33,9 @@ class Solution {
   //// ----------start(Approach2)------------------------------------
   // 20200813
 
-//   77/77 cases passed (37 ms)
-// Your runtime beats 7.45 % of java submissions
-// Your memory usage beats 5.02 % of java submissions (69.5 MB)
+  // 77/77 cases passed (37 ms)
+  // Your runtime beats 7.45 % of java submissions
+  // Your memory usage beats 5.02 % of java submissions (69.5 MB)
 
   public int strStr(String haystack, String needle) {
     // public int strStr2(String haystack, String needle) {
