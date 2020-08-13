@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200302)///////////////////////////////////
+  ////////////////// first round(20200302)///////////////////////////////////
   // -------------------start(Approach1)-------------------
   // 20200302,
   // Approach 1: Brute Force
@@ -160,7 +162,7 @@ class Solution {
   // -------------------start(Approach6)-------------------
   // 20200324, try to write it again by myself when learning dp
   // Your runtime beats 36.24 % of java submissions
-  public int lengthOfLIS(int[] nums) {
+  public int lengthOfLIS6(int[] nums) {
     int n = nums.length;
     if (n <= 1) {
       return n;
@@ -182,5 +184,72 @@ class Solution {
     return res;
   }
   // ------------------- end (Approach6)-------------------
+  ////////////////// second round(20200808)///////////////////////////////////
+  ////////////////// second round(20200808)///////////////////////////////////
+  // -------------------start(Approach7)-------------------
+  // 20200808. dp + bottom up. by myselft
+  // refer to labuladong<动态规划设计：最长递增子序列>
+
+  // 24/24 cases passed (34 ms)
+  // Your runtime beats 9.21 % of java submissions
+  // Your memory usage beats 6.81 % of java submissions (40 MB)
+
+  public int lengthOfLIS7(int[] nums) {
+    // public int lengthOfLIS(int[] nums) {
+    if (nums.length == 0)
+      return 0;
+    int[] dp = new int[nums.length];
+    Arrays.fill(dp, 1);
+    int res = 1;
+
+    for (int i = 1; i < nums.length; i++) {
+      for (int j = 0; j < i; j++) {
+        if (nums[i] > nums[j]) {
+          dp[i] = Math.max(dp[i], dp[j] + 1);
+          res = Math.max(res, dp[i]);
+        }
+      }
+    }
+    // System.out.format("dp: %s\n", Arrays.toString(dp));
+
+    return res;
+  }
+  // ------------------- end (Approach7)-------------------
+  // -------------------start(Approach8)-------------------
+  // 20200808. binary search
+
+  // 24/24 cases passed (1 ms)
+  // Your runtime beats 90.51 % of java submissions
+  // Your memory usage beats 16.4 % of java submissions (39.6 MB)
+
+  // public int lengthOfLIS8(int[] nums) {
+  public int lengthOfLIS(int[] nums) {
+    int[] pile = new int[nums.length];
+    int cnt = 0;
+
+    for (int num : nums) {
+      int idx = leftBound8(pile, cnt, num);
+      if (idx == cnt)
+        cnt++;
+      pile[idx] = num;
+    }
+
+    return cnt;
+  }
+
+  private int leftBound8(int[] pile, int cnt, int num) {
+    int lo = 0, hi = cnt;
+    while (lo < hi) {
+      int mid = lo + (hi - lo) / 2;
+      if (pile[mid] >= num) {
+        hi = mid;
+      } else {
+        lo = mid + 1;
+      }
+    }
+
+    return lo;
+  }
+  // ------------------- end (Approach8)-------------------
 }
 // @lc code=end

@@ -7,6 +7,12 @@
 // @lc code=start
 class Solution {
 
+  ////////////////// first round(20200804)///////////////////////////////////
+  ////////////////// first round(20200804)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  //20200804, most part by my self. 
+  //refer to labuladong <烧饼排序>
+
 //   215/215 cases passed (1 ms)
 // Your runtime beats 100 % of java submissions
 // Your memory usage beats 15.22 % of java submissions (39.6 MB)
@@ -53,6 +59,7 @@ class Solution {
       hi--;
     }
   }
+  //// ---------------- end (Approach1)-------------------------------------
 }
 // @lc code=end
 

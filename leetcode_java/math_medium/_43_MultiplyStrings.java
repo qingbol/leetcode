@@ -87,9 +87,9 @@ class Solution {
   // 20200805. can't come up by myself.
   // refer to labuladong <字符串乘法>
 
-//   311/311 cases passed (3 ms)
-// Your runtime beats 94.66 % of java submissions
-// Your memory usage beats 19.39 % of java submissions (39.8 MB)
+  // 311/311 cases passed (3 ms)
+  // Your runtime beats 94.66 % of java submissions
+  // Your memory usage beats 19.39 % of java submissions (39.8 MB)
 
   // public String multiply3(String num1, String num2) {
   public String multiply(String num1, String num2) {

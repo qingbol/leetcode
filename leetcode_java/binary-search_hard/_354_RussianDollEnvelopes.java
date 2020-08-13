@@ -144,7 +144,7 @@ class Solution {
   // Your memory usage beats 5.47 % of java submissions (40.9 MB)
 
   public int maxEnvelopes4(int[][] envelopes) {
-  // public int maxEnvelopes(int[][] envelopes) {
+    // public int maxEnvelopes(int[][] envelopes) {
     if (envelopes.length == 0)
       return envelopes.length;
     Arrays.sort(envelopes, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
@@ -166,9 +166,9 @@ class Solution {
   //// ----------------start(Approach5)---------------------
   // 20200409. by myself. LIS + binary search
 
-//   85/85 cases passed (104 ms)
-// Your runtime beats 59.45 % of java submissions
-// Your memory usage beats 5.47 % of java submissions (47.2 MB)
+  // 85/85 cases passed (104 ms)
+  // Your runtime beats 59.45 % of java submissions
+  // Your memory usage beats 5.47 % of java submissions (47.2 MB)
 
   public int maxEnvelopes(int[][] envelopes) {
     // public int maxEnvelopes5(int[][] envelopes) {
@@ -192,6 +192,7 @@ class Solution {
     }
     return cnt;
   }
+
   private int leftBound5(int[] piles, int right, int num) {
     int left = 0;
     while (left < right) {

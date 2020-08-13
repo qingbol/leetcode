@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200329)//////////////////////////
+  //////////////////////// first round(20200329)//////////////////////////
   //// ---------------start(Approach1)----------------------------------
   // 20200329. recursion, traverse the stringw from right to end
   // 369/447 cases passed (N/A). wrong for test case:
@@ -277,7 +279,9 @@ class Solution {
   // 20200330. dp,
   // traverse the strings from right to left. by myself
   // Your runtime beats 75.3 % of java submissions:w
-  public boolean isMatch(String text, String pattern) {
+
+  // public boolean isMatch(String text, String pattern) {
+  public boolean isMatch8(String text, String pattern) {
     boolean[][] dp = new boolean[text.length() + 1][pattern.length() + 1];
 
     dp[0][0] = true;
@@ -303,5 +307,47 @@ class Solution {
     return dp[text.length()][pattern.length()];
   }
   //// --------------- end (Approach8)----------------------------------
+  //////////////////////// second round(20200811)//////////////////////////
+  //////////////////////// second round(20200811)//////////////////////////
+  //// ---------------start(Approach9)----------------------------------
+  // 20200329. recursion, traverse the stringw from right to end
+
+//   447/447 cases passed (3 ms)
+// Your runtime beats 87.87 % of java submissions
+// Your memory usage beats 63.32 % of java submissions (38.7 MB)
+
+  // public boolean isMatch9(String s, String p) {
+  public boolean isMatch(String s, String p) {
+    int n1 = s.length(), n2 = p.length();
+    boolean[][] dp = new boolean[n1 + 1][n2 + 1];
+    //base case
+    dp[0][0] = true;
+    for (int j = 1; j <= n2; j++) {
+      char c = p.charAt(j - 1);
+      if (c == '*') {
+        dp[0][j] = dp[0][j - 2];
+      // } else if (c == '.') {
+      //   dp[0][j] = dp[0][j - 1];
+      }
+    }
+    // System.out.format("dp:%s\n", Arrays.deepToString(dp));
+
+    for (int i = 1; i <= n1; i++) {
+      int c1 = s.charAt(i - 1);
+      for (int j = 1; j <= n2; j++) {
+        int c2 = p.charAt(j - 1);
+        if (c2 == '*') {
+          dp[i][j] = dp[i][j - 2] || dp[i - 1][j] && (c1 == p.charAt(j - 2) ||p.charAt(j - 2) == '.');
+          // dp[i][j] = dp[i][j - 2] || dp[i - 1][j - 1] && (c1 == p.charAt(j - 2) ||p.charAt(j - 2) == '.');
+        } else if (c2 == '.' || c1 == c2) {
+          dp[i][j] = dp[i - 1][j - 1];
+        }
+      }
+    }
+    // System.out.format("dp:%s\n", Arrays.deepToString(dp));
+
+    return dp[n1][n2];
+  }
+  //// --------------- end (Approach9)----------------------------------
 }
 // @lc code=end

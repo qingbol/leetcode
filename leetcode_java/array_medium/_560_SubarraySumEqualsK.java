@@ -126,6 +126,10 @@ class Solution {
   // preSum[i] = sum(nums[0...i-1])
   // preSum[i + 1] - preSum[j] = sum(nums[j...i])
 
+  // 81/81 cases passed (16 ms)
+  // Your runtime beats 61.46 % of java submissions
+  // Your memory usage beats 31.08 % of java submissions (40.5 MB)
+
   public int subarraySum(int[] nums, int k) {
     // public int subarraySum5(int[] nums, int k) {
     int[] preSum = new int[nums.length + 1];

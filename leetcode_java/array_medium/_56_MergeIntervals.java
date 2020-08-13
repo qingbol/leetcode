@@ -96,6 +96,12 @@ class Solution {
   ////////////////// second round(20200805)///////////////////////////////////
   ////////////////// second round(20200805)///////////////////////////////////
   // ------------start(Approach 4)------------------------------------------
+  // 20200805, by myself
+
+  // 169/169 cases passed (16 ms)
+  // Your runtime beats 11.07 % of java submissions
+  // Your memory usage beats 5.18 % of java submissions (44.3 MB)
+
   // public int[][] merge4(int[][] intervals) {
   public int[][] merge(int[][] intervals) {
     if (null == intervals || intervals.length == 0)

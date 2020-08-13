@@ -129,24 +129,25 @@ class Solution {
   // 20200721. backtracking + memoizaiton.
   // refer to leetcode standard solution
 
-//   46/46 cases passed (24 ms)
-// Your runtime beats 14.25 % of java submissions
-// Your memory usage beats 17.85 % of java submissions (45.4 MB)
+  // 46/46 cases passed (24 ms)
+  // Your runtime beats 14.25 % of java submissions
+  // Your memory usage beats 17.85 % of java submissions (45.4 MB)
 
-  // public boolean stoneGame3(int[] piles) {
-  public boolean stoneGame(int[] piles) {
+  public boolean stoneGame4(int[] piles) {
+    // public boolean stoneGame(int[] piles) {
     int n = piles.length;
     // int[][] dp = new int[n + 2][n + 2];
     int[][] dp = new int[n][n];
 
     for (int size = 1; size <= n; size++) {
       for (int l = 0; l < n - size + 1; l++) {
-      // for (int l = 0; l < n - size + 1; l++) {
+        // for (int l = 0; l < n - size + 1; l++) {
         int r = l + size - 1;
         boolean isAlex = size % 2 == 0;
         if (isAlex) {
           // dp[l+1][r+1] = the value of the game [plles[l], ..., plles[r]].
-          // dp[l + 1][r + 1] = Math.max(piles[l] + dp[l + 2][r + 1], piles[r] + dp[l + 1][r]);
+          // dp[l + 1][r + 1] = Math.max(piles[l] + dp[l + 2][r + 1], piles[r] + dp[l +
+          // 1][r]);
           dp[l][r] = Math.max(piles[l] + dp[l + 1][r], piles[r] + dp[l][r - 1]);
         } else {
           dp[l + 1][r + 1] = Math.min(-piles[l] + dp[l + 2][r + 1], -piles[r] + dp[l + 1][r]);
@@ -156,5 +157,62 @@ class Solution {
     return dp[1][n] > 0;
   }
   //// ------------------- end (Appraoch4)-------------------------------
+  //// -------------------start(Appraoch5)-------------------------------
+  // 20200811. dp
+  // refer to labuladong<动态规划之博弈问题>
+
+  // 46/46 cases passed (19 ms)
+  // Your runtime beats 17.29 % of java submissions
+  // Your memory usage beats 12.88 % of java submissions (49.3 MB)
+
+  class Pair {
+    // class Pair<T> {
+    // T first, second;
+    int first, second;
+
+    public Pair(int first, int second) {
+      // public Pair(T first, T second) {
+      this.first = first;
+      this.second = second;
+    }
+  }
+
+  // public boolean stoneGame5(int[] piles) {
+  public boolean stoneGame(int[] piles) {
+    int n = piles.length;
+    // Pair<Integer>[][] dp = (Pair<Integer>)new Object[n][n];
+    // Pair<Integer>[][] dp = new Pair<>[n][n];
+    Pair[][] dp = new Pair[n][n];
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+        dp[i][j] = new Pair(0, 0);
+      }
+    }
+
+    for (int i = 0; i < n; i++) {
+      dp[i][i].first = piles[i];
+      dp[i][i].second = 0;
+    }
+
+    // System.out.format("dp:%s\n", dp);
+    for (int l = 2; l <= n; l++) {
+      for (int i = 0; i <= n - l; i++) {
+        int j = i + l - 1;
+        int left = piles[i] + dp[i + 1][j].second;
+        int right = piles[j] + dp[i][j - 1].second;
+        if (left > right) {
+          dp[i][j].first = left;
+          dp[i][j].second = dp[i + 1][j].first;
+        } else {
+          dp[i][j].first = right;
+          dp[i][j].second = dp[i][j - 1].first;
+        }
+      }
+    }
+
+    Pair res = dp[0][n - 1];
+    return res.first - res.second > 0;
+  }
+  //// ------------------- end (Appraoch5)-------------------------------
 }
 // @lc code=end
