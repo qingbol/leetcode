@@ -62,8 +62,11 @@ class Solution {
   ////////////////// second round(20200814)///////////////////////////////////
   ////////////////// second round(20200814)///////////////////////////////////
   //// -------------start(Approach3)--------------------------
-  // 20200814. dp
+  // 20200814. by myself, dp
 
+  // 211/211 cases passed (1 ms)
+  // Your runtime beats 82.17 % of java submissions
+  // Your memory usage beats 90.84 % of java submissions (37.5 MB)
 
   // public int maxProfit3(int[] prices) {
   public int maxProfit(int[] prices) {
