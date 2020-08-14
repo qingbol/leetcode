@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200402)///////////////////////////////////
+  ////////////////// first round(20200402)///////////////////////////////////
   //// ------------start(Approch1)--------------------------
   // 20200402. by myself, brute force.
   // Your runtime beats 15.52 % of java submissions
@@ -111,7 +113,8 @@ class Solution {
   //// ------------start(Approch5)--------------------------
   // 20200403. dp
   // Your runtime beats 99.1% of java submissions
-  public int maxProfit(int[] prices) {
+  // public int maxProfit(int[] prices) {
+  public int maxProfit5(int[] prices) {
     int n = prices.length;
     if (n <= 1) {
       return 0;
@@ -130,5 +133,34 @@ class Solution {
     return dp_i0;
   }
   //// ------------ end (Approch5)--------------------------
+  ////////////////// second round(20200813)///////////////////////////////////
+  ////////////////// second round(20200813)///////////////////////////////////
+  //// ------------start(Approch6)--------------------------
+  // 20200813
+  // refer to approach5
+
+  // 200/200 cases passed (1 ms)
+  // Your runtime beats 99.38 % of java submissions
+  // Your memory usage beats 67.38 % of java submissions (39.5 MB)
+
+  public int maxProfit(int[] prices) {
+    // public int maxProfit6(int[] prices) {
+    int n = prices.length;
+    if (n == 0)
+      return 0;
+
+    int dp_noStock = 0;
+    int dp_hasStock = -prices[0];
+
+    for (int i = 1; i < n; i++) {
+      dp_noStock = Math.max(dp_noStock, dp_hasStock + prices[i]);
+      dp_hasStock = Math.max(dp_hasStock, -prices[i]);
+      // because you can only buy and sell once. you can't use the below equation.
+      // dp_hasStock = Math.max(dp_hasStock, dp_noStock - prices[i]);
+    }
+
+    return dp_noStock;
+  }
+  //// ------------ end (Approch6)--------------------------
 }
 // @lc code=end

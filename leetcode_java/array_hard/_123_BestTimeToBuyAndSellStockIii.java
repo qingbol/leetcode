@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200402)///////////////////////////////////
+  ////////////////// first round(20200402)///////////////////////////////////
   //// ---------------------start(Approach1)---------------------
   // 20200402,by myself.
   // wrong
@@ -72,7 +74,9 @@ class Solution {
   //// https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/tuan-mie-gu-piao-wen-ti
   // improvement of Approch2. simplify the base case initialization
   // Your runtime beats 18.44 % of java submissions
-  public int maxProfit(int[] prices) {
+
+  // public int maxProfit(int[] prices) {
+  public int maxProfit3(int[] prices) {
     int n = prices.length;
     if (n <= 1) {
       return 0;
@@ -148,7 +152,9 @@ class Solution {
   //// https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/tuan-mie-gu-piao-wen-ti
   // variation of Approch4. start from i = -1;
   // Your runtime beats 91.77 % of java submissions
+
   public int maxProfit5(int[] prices) {
+    // public int maxProfit(int[] prices) {
     int n = prices.length;
     if (n <= 1) {
       return 0;
@@ -177,5 +183,36 @@ class Solution {
     return dp_i20;
   }
   //// --------------------- end (Approach5)---------------------
+  ////////////////// second round(20200813)///////////////////////////////////
+  ////////////////// second round(20200813)///////////////////////////////////
+  //// ---------------------start(Approach6)---------------------
+  // 20200813
+  //refer to labuladong<团灭 LeetCode 股票买卖问题>
+
+  // 200/200 cases passed (5 ms)
+  // Your runtime beats 29.89 % of java submissions
+  // Your memory usage beats 42.52 % of java submissions (40.8 MB)
+
+  public int maxProfit(int[] prices) {
+    // public int maxProfit6(int[] prices) {
+    int n = prices.length;
+    int k = 2;
+    // int[day][transaction times][stock hold status]
+    // day1's price is prices[day1 - 1]
+    int[][][] profit = new int[n + 1][k + 1][2];
+    // base case
+    for (int l = 0; l <= k; l++) {
+      profit[0][l][1] = Integer.MIN_VALUE;
+    }
+
+    for (int i = 1; i <= n; i++) {
+      for (int l = 1; l <= k; l++) {
+        profit[i][l][0] = Math.max(profit[i - 1][l][0], profit[i - 1][l][1] + prices[i - 1]);
+        profit[i][l][1] = Math.max(profit[i - 1][l][1], profit[i - 1][l - 1][0] - prices[i - 1]);
+      }
+    }
+    return profit[n][k][0];
+  }
+  //// --------------------- end (Approach6)---------------------
 }
 // @lc code=end

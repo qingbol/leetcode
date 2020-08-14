@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200402)///////////////////////////////////
+  ////////////////// first round(20200402)///////////////////////////////////
   //// --------------start(Approach1)------------------------------
   // 20200402, by myself, one pass
   // Your runtime beats 91.29 % of java submissions
@@ -77,7 +79,9 @@ class Solution {
   // 20200403, dp
   // improvement of approach2
   // Your runtime beats 91.17 % of java submissions
-  public int maxProfit(int[] prices) {
+
+  // public int maxProfit(int[] prices) {
+  public int maxProfit4(int[] prices) {
     int n = prices.length;
     if (n <= 1) {
       return 0;
@@ -94,5 +98,30 @@ class Solution {
     return dp_i0;
   }
   //// -------------- end (Approach4)------------------------------
+  ////////////////// second round(20200813)///////////////////////////////////
+  ////////////////// second round(20200813)///////////////////////////////////
+  //// --------------start(Approach5)------------------------------
+  // 20200813,
+  // refer to approach4
+
+  // 200/200 cases passed (1 ms)
+  // Your runtime beats 94.51 % of java submissions
+  // Your memory usage beats 76.73 % of java submissions (39.4 MB)
+
+  public int maxProfit(int[] prices) {
+    // public int maxProfit5(int[] prices) {
+    int n = prices.length;
+    if (n == 0)
+      return 0;
+    int dp0 = 0;
+    int dp1 = -prices[0];
+    for (int i = 1; i < n; i++) {
+      dp0 = Math.max(dp0, dp1 + prices[i]);
+      dp1 = Math.max(dp1, dp0 - prices[i]);
+    }
+
+    return dp0;
+  }
+  //// -------------- end (Approach5)------------------------------
 }
 // @lc code=end
