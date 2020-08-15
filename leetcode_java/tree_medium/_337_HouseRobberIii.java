@@ -10,6 +10,8 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
+  ////////////////// first round(20200317)///////////////////////////////////
+  ////////////////// first round(20200317)///////////////////////////////////
   //// ---------------start(Approach1)-------------------------
   // 20200317
   // actually, this ia s dp problem. I can't figure it out myself.
@@ -79,7 +81,9 @@ class Solution {
   // reference to
   // https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/qiang-fang-zi
   // Your runtime beats 100 % of java submissions
-  public int rob(TreeNode root) {
+
+  // public int rob(TreeNode root) {
+  public int rob3(TreeNode root) {
     int[] dp = helper3(root);
     return Math.max(dp[0], dp[1]);
   }
@@ -99,5 +103,69 @@ class Solution {
   }
 
   //// --------------- end (Approach3)-------------------------
+  ////////////////// second round(20200814)///////////////////////////////////
+  ////////////////// second round(20200814)///////////////////////////////////
+  //// ---------------start(Approach4)-------------------------
+  // 20200814. recursive traversal without memo.
+  // refer to labuladong<团灭 LeetCode 打家劫舍问题>
+
+  // 124/124 cases passed (790 ms)
+  // Your runtime beats 15.85 % of java submissions
+  // Your memory usage beats 79.29 % of java submissions (39.1 MB)
+
+  // public int rob(TreeNode root) {
+  public int rob4(TreeNode root) {
+    if (root == null)
+      return 0;
+    // traverse
+    int left = rob(root.left);
+    int right = rob(root.right);
+    int ll = root.left == null ? 0 : rob(root.left.left);
+    int lr = root.left == null ? 0 : rob(root.left.right);
+    int rl = root.right == null ? 0 : rob(root.right.left);
+    int rr = root.right == null ? 0 : rob(root.right.right);
+    // post-order process
+    int noRob = left + right;
+    int yesRob = root.val + ll + lr + rl + rr;
+    return Math.max(noRob, yesRob);
+
+  }
+  //// --------------- end (Approach4)-------------------------
+  //// ---------------start(Approach5)-------------------------
+  // 20200814.
+  // refer to labuladong<团灭 LeetCode 打家劫舍问题>
+
+  // 124/124 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 66.68 % of java submissions (39.3 MB)
+
+  public int rob(TreeNode root) {
+    // public int rob5(TreeNode root) {
+    Pair5 res = helper5(root);
+    return Math.max(res.noRob, res.yesRob);
+  }
+
+  private Pair5 helper5(TreeNode node) {
+    if (node == null)
+      return new Pair5(0, 0);
+    // post-order traversal
+    Pair5 left = helper5(node.left);
+    Pair5 right = helper5(node.right);
+    int noRob = Math.max(left.noRob, left.yesRob) + Math.max(right.noRob, right.yesRob);
+    int yesRob = node.val + left.noRob + right.noRob;
+
+    return new Pair5(noRob, yesRob);
+  }
+
+  class Pair5 {
+    int noRob;
+    int yesRob;
+
+    public Pair5(int v1, int v2) {
+      noRob = v1;
+      yesRob = v2;
+    }
+  }
+  //// --------------- end (Approach5)-------------------------
 }
 // @lc code=end
