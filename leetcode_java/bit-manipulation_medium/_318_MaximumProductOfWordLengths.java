@@ -1,4 +1,4 @@
-//: bit-manipulation_medium/_318_.java
+// : bit-manipulation_medium/_318_.java
 package medium;
 
 import java.util.Arrays;
@@ -8,19 +8,26 @@ import java.util.Comparator;
  *
  * [318] Maximum Product of Word Lengths
  */
+import java.util.Map;
 
 public class _318_MaximumProductOfWordLengths {
   public static void main(String[] args) {
     Solution solution = new Solution();
-    String[] words = new String[] { "abcw", "baz", "foo", "bar", "xtfn", "abcdef" };
+    String[] words = new String[] {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
     int max = solution.maxProduct(words);
     System.out.println(max);
   }
 }
 
+
 // @lc code=start
 class Solution {
-  public int maxProduct2(String[] words) {
+  ////////////////// first round(20200103)///////////////////////////////////
+  ////////////////// first round(20200103)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200103
+  public int maxProduct1(String[] words) {
+    // public int maxProduct(String[] words) {
     int max = 0;
     int flagOuter = 0;
     int flagInsider = 0;
@@ -56,7 +63,11 @@ class Solution {
     return max;
   }
 
-  public int maxProduct(String[] words) {
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
+  // 20200103
+  // public int maxProduct(String[] words) {
+  public int maxProduct2(String[] words) {
     int res = 0;
 
     // In order to prune the choices, sort the array first,
@@ -91,6 +102,41 @@ class Solution {
     }
     return res;
   }
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200904)///////////////////////////////////
+  ////////////////// second round(20200904)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200904, bitmap, refer to leetcode standard solution
+  // can't come up with myself.
+
+//   174/174 cases passed (24 ms)
+// Your runtime beats 42.99 % of java submissions
+// Your memory usage beats 81.41 % of java submissions (39.5 MB)
+
+  public int maxProduct(String[] words) {
+    // public int maxProduct3(String[] words) {
+    Map<Integer, Integer> bitmap = new HashMap<>();
+
+    for (String word : words) {
+      int bitmask = 0;
+      for (char ch : word.toCharArray()) {
+        bitmask |= 1 << (ch - 'a');
+      }
+      bitmap.putIfAbsent(bitmask, 0);
+      bitmap.put(bitmask, Math.max(word.length(), bitmap.get(bitmask)));
+    }
+
+    int res = 0;
+    for (int x : bitmap.keySet()) {
+      for (int y : bitmap.keySet()) {
+        if ((x & y) == 0) {
+          res = Math.max(res, bitmap.get(x) * bitmap.get(y));
+        }
+      }
+    }
+    return res;
+  }
+  //// ---------------- end (Approach3)-------------------------------------
 
 }
 // @lc code=end

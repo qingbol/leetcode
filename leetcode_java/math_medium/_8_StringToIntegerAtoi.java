@@ -6,7 +6,13 @@
 
 // @lc code=start
 class Solution {
-  public int myAtoi2(String str) {
+  ////////////////// first round(20200104)///////////////////////////////////
+  ////////////////// first round(20200104)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200104
+
+  // public int myAtoi(String str) {
+  public int myAtoi1(String str) {
     long res = 0;
     int flag = 0;
     int sign = 0;
@@ -42,6 +48,9 @@ class Solution {
     return (int) res;
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
+  // 20200104
   public int myAtoi(String str) {
     str = str.trim();
     if (null == str || 0 == str.length()) {
@@ -81,5 +90,49 @@ class Solution {
 
     return (int) res * sign;
   }
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200904)///////////////////////////////////
+  ////////////////// second round(20200904)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200904
+  // refer to leetcode standard solution. && approach2
+
+  public int myAtoi(String str) {
+  // public int myAtoi3(String str) {
+    int n = str.length();
+    if (n == 0) return 0;
+    long res = 0; 
+    int sign = 1;
+    int idx = 0;
+
+    //1. skip space
+    while(idx < n && str.charAt(idx) == ' ') {
+      idx++;
+    }
+
+    //2. handle sign 
+    if (idx < n && str.charAt(idx) == '+') {
+      idx++;
+    } else if (idx < n && str.charAt(idx) == '-') {
+      sign = -1;
+      idx++;
+    }
+
+    while (idx < n && str.charAt(idx) >= '0' && str.charAt(idx) <= '9') {
+      res = res * 10 + (str.charAt(idx) - '0');
+      idx++;
+    }
+
+    if (res > Integer.MAX_VALUE) {
+      if (sign == 1) {
+        return Integer.MAX_VALUE;
+      } else {
+        return Integer.MIN_VALUE;
+      }
+    }
+
+    return (int) sign * res;
+  }
+  //// ---------------- end (Approach3)-------------------------------------
 }
 // @lc code=end

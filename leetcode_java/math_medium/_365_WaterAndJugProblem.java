@@ -6,7 +6,12 @@
 
 // @lc code=start
 class Solution {
-  public boolean canMeasureWater(int x, int y, int z) {
+  ////////////////// first round(20200106)///////////////////////////////////
+  ////////////////// first round(20200106)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------
+  // 20200106
+  // public boolean canMeasureWater(int x, int y, int z) {
+  public boolean canMeasureWater1(int x, int y, int z) {
     if (x + y < z) {
       return false;
     }
@@ -25,6 +30,15 @@ class Solution {
     }
     return a;
   }
-  HashMap
+  //// ---------------- end (Approach1)-------------------------
+  ////////////////// second round(20200906)///////////////////////////////////
+  ////////////////// second round(20200906)///////////////////////////////////
+  //// ----------------start(Approach2)-------------------------
+  //2020096
+
+  public boolean canMeasureWater(int x, int y, int z) {
+  // public boolean canMeasureWater2(int x, int y, int z) {
+  }
+  //// ---------------- end (Approach2)-------------------------
 }
 // @lc code=end

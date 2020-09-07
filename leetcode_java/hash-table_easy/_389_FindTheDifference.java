@@ -7,7 +7,13 @@ package easy;
 
 // @lc code=start
 class Solution {
-  public char findTheDifference(String s, String t) {
+  ////////////////// first round(20200102)///////////////////////////////////
+  ////////////////// first round(20200102)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  //20200102
+
+  // public char findTheDifference(String s, String t) {
+  public char findTheDifference1(String s, String t) {
     int strLen = t.length();
     char target = t.charAt(strLen - 1);
 
@@ -17,5 +23,24 @@ class Solution {
     }
     return target;
   }
+  //// ---------------- end (Approach1)-------------------------------------
+  ////////////////// second round(20200904)///////////////////////////////////
+  ////////////////// second round(20200904)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  //20200904
+
+  public char findTheDifference(String s, String t) {
+  // public char findTheDifference2(String s, String t) {
+    int l = s.length();
+    char res = t.charAt(l);
+
+    for (int i = 0;  i < l; i++) {
+      res ^= s.charAt(i);
+      res ^= t.charAt(i);
+    }
+
+    return res;
+  }
+  //// ---------------- end (Approach1)-------------------------------------
 }
 // @lc code=end
