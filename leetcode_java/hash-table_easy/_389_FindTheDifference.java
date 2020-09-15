@@ -10,7 +10,7 @@ class Solution {
   ////////////////// first round(20200102)///////////////////////////////////
   ////////////////// first round(20200102)///////////////////////////////////
   //// ----------------start(Approach1)-------------------------------------
-  //20200102
+  // 20200102
 
   // public char findTheDifference(String s, String t) {
   public char findTheDifference1(String s, String t) {
@@ -27,14 +27,18 @@ class Solution {
   ////////////////// second round(20200904)///////////////////////////////////
   ////////////////// second round(20200904)///////////////////////////////////
   //// ----------------start(Approach1)-------------------------------------
-  //20200904
+  // 20200904
+
+  // 54/54 cases passed (1 ms)
+  // Your runtime beats 99.56 % of java submissions
+  // Your memory usage beats 78.3 % of java submissions (37.7 MB)
 
   public char findTheDifference(String s, String t) {
-  // public char findTheDifference2(String s, String t) {
+    // public char findTheDifference2(String s, String t) {
     int l = s.length();
     char res = t.charAt(l);
 
-    for (int i = 0;  i < l; i++) {
+    for (int i = 0; i < l; i++) {
       res ^= s.charAt(i);
       res ^= t.charAt(i);
     }

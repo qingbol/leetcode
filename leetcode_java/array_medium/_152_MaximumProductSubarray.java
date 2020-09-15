@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200404)///////////////////////////////////
+  ////////////////// first round(20200404)///////////////////////////////////
   //// ---------------------start(Approach1)------------------------
   // 20200404, by myself.
   // Your runtime beats 10.33 % of java submissions
@@ -44,7 +46,9 @@ class Solution {
   //// ---------------------start(Approach2)------------------------
   // 20200404, dp, improvement of approach1.
   // Your runtime beats 11.02 % of java submissions
-  public int maxProduct(int[] nums) {
+
+  // public int maxProduct(int[] nums) {
+  public int maxProduct2(int[] nums) {
     if (nums.length == 0) {
       return 0;
     }
@@ -65,6 +69,36 @@ class Solution {
     }
     return res;
   }
+
   //// --------------------- end (Approach2)------------------------
+  ////////////////// second round(20200910)///////////////////////////////////
+  ////////////////// second round(20200910)///////////////////////////////////
+  //// --------------start(Approach3)------------------------
+  // 20200910.
+  // cant come up with a correct solution by myself.
+  // refer to Approach 2: Dynamic Programming
+
+  // 187/187 cases passed (1 ms)
+  // Your runtime beats 95.22 % of java submissions
+  // Your memory usage beats 100 % of java submissions (38.7 MB)
+
+  public int maxProduct(int[] nums) {
+    // public int maxProduct3(int[] nums) {
+    int n = nums.length;
+    if (n == 0)
+      return 0;
+
+    int res = nums[0];
+    int minSoFar = nums[0];
+    int maxSoFar = nums[0];
+    for (int i = 1; i < n; i++) {
+      int maxTmp = Math.max(nums[i], Math.max(maxSoFar * nums[i], minSoFar * nums[i]));
+      minSoFar = Math.min(nums[i], Math.min(maxSoFar * nums[i], minSoFar * nums[i]));
+      maxSoFar = maxTmp;
+      res = Math.max(res, maxSoFar);
+    }
+    return res;
+  }
+  //// --------------------- end (Approach3)------------------------
 }
 // @lc code=end

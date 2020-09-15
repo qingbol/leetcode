@@ -5,10 +5,14 @@
  */
 
 // @lc code=start
-////---------------------------start(Approach1)-----------------------
-//20200411, hashmap + PriorityQueue
-//Time Limit Exceeded 11/12 cases passed (N/A)
+////////////////// first round(20200411)///////////////////////////////////
+////////////////// first round(20200411)///////////////////////////////////
+//// ---------------------------start(Approach1)-----------------------
+// 20200411, hashmap + PriorityQueue
+// Time Limit Exceeded 11/12 cases passed (N/A)
 class WordDistance1 {
+  // public class WordDistance {
+
   // public class WordDistance {
   Map<Pair<String, String>, PriorityQueue<Integer>> map;
 
@@ -38,23 +42,24 @@ class WordDistance1 {
 // 20200411, hashmap + two pointers
 // Your runtime beats 84.01 % of java submissions
 
-// class WordDistance2 {
-public class WordDistance {
-  Map<String, List<Integer>> map;
 
-  public WordDistance(String[] words) {
-    // public WordDistance2(String[] words) {
-    map = new HashMap<>();
+class WordDistance2 {
+  // public class WordDistance {
+  Map<String, List<Integer>> map2;
+
+  // public WordDistance(String[] words) {
+  public WordDistance2(String[] words) {
+    map2 = new HashMap<>();
     for (int i = 0; i < words.length; i++) {
       // for (String s: words) {
-      map.putIfAbsent(words[i], new ArrayList<>());
-      map.get(words[i]).add(i);
+      map2.putIfAbsent(words[i], new ArrayList<>());
+      map2.get(words[i]).add(i);
     }
   }
 
   public int shortest(String word1, String word2) {
-    List<Integer> loc1 = map.get(word1);
-    List<Integer> loc2 = map.get(word2);
+    List<Integer> loc1 = map2.get(word1);
+    List<Integer> loc2 = map2.get(word2);
 
     int l = 0, r = 0;
     int res = Integer.MAX_VALUE;
@@ -70,10 +75,54 @@ public class WordDistance {
   }
 }
 //// --------------------------- end (Approach2)-----------------------
+////////////////// second round(20200908)///////////////////////////////////
+////////////////// second round(20200908)///////////////////////////////////
+//// ---------------------------start(Approach3)-----------------------
+// 20200908
+
+// 12/12 cases passed (24 ms)
+// Your runtime beats 94.32 % of java submissions
+// Your memory usage beats 77.99 % of java submissions (46.1 MB)
+
+
+// class WordDistance3 {
+public class WordDistance {
+
+  Map<String, List<Integer>> map;
+
+  public WordDistance(String[] words) {
+    // public WordDistance3(String[] words) {
+    map = new HashMap<>();
+    for (int i = 0; i < words.length; i++) {
+      map.putIfAbsent(words[i], new ArrayList<>());
+      map.get(words[i]).add(i);
+      // map.put(words[i], map.get(words[i]).add(i));
+    }
+  }
+
+  public int shortest(String word1, String word2) {
+    List<Integer> idx1 = map.get(word1);
+    List<Integer> idx2 = map.get(word2);
+
+    int i = 0, j = 0;
+    int res = Integer.MAX_VALUE;
+    while (i < idx1.size() && j < idx2.size()) {
+      int pos1 = idx1.get(i);
+      int pos2 = idx2.get(j);
+      res = Math.min(res, Math.abs(pos1 - pos2));
+      if (pos1 > pos2) {
+        j++;
+      } else {
+        i++;
+      }
+    }
+    return res;
+  }
+}
+//// --------------------------- end (Approach3)-----------------------
 
 /**
- * Your WordDistance object will be instantiated and called as such:
- * WordDistance obj = new WordDistance(words); int param_1 =
- * obj.shortest(word1,word2);
+ * Your WordDistance object will be instantiated and called as such: WordDistance obj = new
+ * WordDistance(words); int param_1 = obj.shortest(word1,word2);
  */
 // @lc code=end

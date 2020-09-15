@@ -6,7 +6,17 @@
 
 // @lc code=start
 class Solution {
-  public int minTotalDistance(int[][] grid) {
+  ////////////////// first round(20200116)///////////////////////////////////
+  ////////////////// first round(20200116)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200116
+
+  // You can calculate the distance without knowing the median using a two pointer approach. This
+  // neat approach is inspired by [@larrywang2014's
+  // solution](https://leetcode.com/discuss/65336/14ms-java-solution).
+
+  // public int minTotalDistance(int[][] grid) {
+  public int minTotalDistance1(int[][] grid) {
     List<Integer> listX = new ArrayList<>();
     List<Integer> listY = new ArrayList<>();
 
@@ -41,5 +51,47 @@ class Solution {
     }
     return sum;
   }
+  //// ---------------- end (Approach1)-------------------------------------
+  ////////////////// second round(20200911)///////////////////////////////////
+  ////////////////// second round(20200911)///////////////////////////////////
+  //// ----------------start(Approach2)-------------------------------------
+  // 20200911
+  // refer to Approach #3 (Sorting) [Accepted]
+  // Approach #4 (Collect Coordinates in Sorted Order) [Accepted]
+
+  // 57/57 cases passed (5 ms)
+  // Your runtime beats 66.3 % of java submissions
+  // Your memory usage beats 94.02 % of java submissions (38.8 MB)
+
+  public int minTotalDistance(int[][] grid) {
+    // public int minTotalDistance2(int[][] grid) {
+    int m = grid.length;
+    int n = grid[0].length;
+    List<Integer> rows = new ArrayList<>();
+    List<Integer> cols = new ArrayList<>();
+    // 1. collect valid home in sorted order
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < n; j++) {
+        if (grid[i][j] == 1) {
+          rows.add(i);
+          cols.add(j);
+        }
+      }
+    }
+    Collections.sort(cols);
+
+    // 2. cal the shortest distance
+    return calDistance(rows) + calDistance(cols);
+  }
+
+  private int calDistance(List<Integer> lst) {
+    int lo = 0, hi = lst.size() - 1;
+    int sum = 0;
+    while (lo < hi) {
+      sum += lst.get(hi--) - lst.get(lo++);
+    }
+    return sum;
+  }
+  //// ---------------- end (Approach2)-------------------------------------
 }
 // @lc code=end

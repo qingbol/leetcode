@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200217)///////////////////////////////////
+  ////////////////// first round(20200217)///////////////////////////////////
+  // ------------start(Approach 1)------------------------------------------
+  // 20200217
   // by myself, very ugly
   public List<String> findMissingRanges1(int[] nums, int lower, int upper) {
     List<String> lst = new ArrayList<>();
@@ -61,8 +65,13 @@ class Solution {
     return lst;
   }
 
-  // optimao solution
-  public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+  // ------------ end (Approach 1)------------------------------------------
+  // ------------start(Approach 2)------------------------------------------
+  // optimal solution
+  //https://leetcode.com/problems/missing-ranges/discuss/50476/Accepted-Java-solution-with-explanation/266314
+
+  // public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+  public List<String> findMissingRanges2(int[] nums, int lower, int upper) {
     List<String> lst = new ArrayList<>();
 
     // when nums is null
@@ -92,5 +101,44 @@ class Solution {
   private String createRange(int left, int right) {
     return left == right ? String.valueOf(left) : left + "->" + right;
   }
+  // ------------ end (Approach 2)------------------------------------------
+  ////////////////// second round(20200909)///////////////////////////////////
+  ////////////////// second round(20200909)///////////////////////////////////
+  // ------------start(Approach 3)------------------------------------------
+  // 20200909,
+  // refer to
+  // https://leetcode.com/problems/missing-ranges/discuss/50476/Accepted-Java-solution-with-explanation/239505
+
+//   40/40 cases passed (4 ms)
+// Your runtime beats 87.67 % of java submissions
+// Your memory usage beats 60.88 % of java submissions (38 MB)
+
+  public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+    // public List<String> findMissingRanges3(int[] nums, int lower, int upper) {
+    List<String> res = new ArrayList<>();
+    // int next = lower;
+    long next = lower;
+    for (int num : nums) {
+      if (num < next)
+        continue;
+      if (num == next) {
+        next++;
+        continue;
+      }
+
+      res.add(createRange(next, (long)num - 1));
+        next = (long)num + 1;
+    }
+
+    if (next <= upper)
+      res.add(createRange(next, (long)upper));
+
+    return res;
+  }
+
+  private String createRange(long left, long right) {
+    return left == right ? String.valueOf(left) : String.format("%d->%d", left, right);
+  }
+  // ------------ end (Approach 3)------------------------------------------
 }
 // @lc code=end

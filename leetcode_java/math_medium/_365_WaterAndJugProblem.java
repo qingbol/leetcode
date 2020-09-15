@@ -35,9 +35,12 @@ class Solution {
   ////////////////// second round(20200906)///////////////////////////////////
   //// ----------------start(Approach2)-------------------------
   //2020096
+  //cant come up by myself
 
   public boolean canMeasureWater(int x, int y, int z) {
   // public boolean canMeasureWater2(int x, int y, int z) {
+    
+
   }
   //// ---------------- end (Approach2)-------------------------
 }

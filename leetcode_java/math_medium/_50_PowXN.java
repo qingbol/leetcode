@@ -75,9 +75,13 @@ class Solution {
   //// ---------------- end (Approach2)-------------------------
   ////////////////// second round(20200906)///////////////////////////////////
   ////////////////// second round(20200906)///////////////////////////////////
-  //// ----------------start(Approach1)-------------------------
+  //// ----------------start(Approach2)-------------------------
   // 20200906. recuisive fast power algorightm
   // refer to leetcode standard solution
+
+  //304/304 cases passed (0 ms)
+// Your runtime beats 100 % of java submissions
+// Your memory usage beats 63.49 % of java submissions (37.7 MB)
 
   public double myPow(double x, int n) {
     // public double myPow3(double x, int n) {

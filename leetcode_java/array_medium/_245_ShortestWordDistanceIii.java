@@ -6,6 +6,11 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200111)///////////////////////////////////
+  ////////////////// first round(20200111)///////////////////////////////////
+  //// ---------------------------start(Approach1)-----------------------
+  // 20200111
+
   public int shortestWordDistance1(String[] words, String word1, String word2) {
     int prePos = -1;
     int minDis = words.length;
@@ -30,8 +35,11 @@ class Solution {
     return minDis;
   }
 
+  //// --------------------------- end (Approach1)-----------------------
+  //// ---------------------------start(Approach2)-----------------------
   // optimal
-  public int shortestWordDistance(String[] words, String word1, String word2) {
+  // public int shortestWordDistance(String[] words, String word1, String word2) {
+  public int shortestWordDistance2(String[] words, String word1, String word2) {
     int minDis = words.length;
     int idx1 = -1;
     int idx2 = -1;
@@ -55,5 +63,54 @@ class Solution {
 
     return minDis;
   }
+
+  //// --------------------------- end (Approach2)-----------------------
+  ////////////////// second round(20200908)///////////////////////////////////
+  ////////////////// second round(20200908)///////////////////////////////////
+  //// ---------------------------start(Approach3)-----------------------
+  // 20200908
+
+  // 39/39 cases passed (1 ms)
+  // Your runtime beats 99.57 % of java submissions
+  // Your memory usage beats 91.67 % of java submissions (39.5 MB)
+
+  public int shortestWordDistance(String[] words, String word1, String word2) {
+    // public int shortestWordDistance3(String[] words, String word1, String word2) {
+    int n = words.length;
+    int res = Integer.MAX_VALUE;
+    if (word1.equals(word2)) {
+      int prePos = -1;
+      // int idx = -1;
+      for (int i = 0; i < n; i++) {
+        if (words[i].equals(word1)) {
+          if (prePos == -1) {
+            prePos = i;
+          } else {
+            res = Math.min(res, i - prePos);
+            prePos = i;
+          }
+        }
+      }
+    } else {
+      int idx1 = -1, idx2 = -1;
+      for (int i = 0; i < n; i++) {
+        if (words[i].equals(word1) || words[i].equals(word2)) {
+          if (words[i].equals(word1)) {
+            idx1 = i;
+          } else {
+            idx2 = i;
+          }
+          if (idx1 != -1 & idx2 != -1) {
+            res = Math.min(res, Math.abs(idx1 - idx2));
+          }
+        }
+      }
+    }
+
+    return res;
+  }
+
+  //// --------------------------- end (Approach3)-----------------------
 }
+
 // @lc code=end

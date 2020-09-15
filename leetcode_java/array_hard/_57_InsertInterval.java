@@ -6,7 +6,13 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200112)///////////////////////////////////
+  ////////////////// first round(20200112)///////////////////////////////////
+  //// ---------------------------start(Approach1)-----------------------
+  // 20200112
+
   public int[][] insert1(int[][] intervals, int[] newInterval) {
+    // public int[][] insert(int[][] intervals, int[] newInterval) {
     // if (null == intervals || 0 == intervals.length) {
     // return newInterval;
     // }
@@ -69,7 +75,12 @@ class Solution {
     return low;
   }
 
-  public int[][] insert(int[][] intervals, int[] newInterval) {
+  //// --------------------------- end (Approach1)-----------------------
+  //// ---------------------------start(Approach2)-----------------------
+  //optimal
+
+  // public int[][] insert(int[][] intervals, int[] newInterval) {
+  public int[][] insert2(int[][] intervals, int[] newInterval) {
     List<int[]> lst = new ArrayList<>();
 
     int idx = 0;
@@ -95,5 +106,64 @@ class Solution {
     // System.out.println(Arrays.deepToString(lst.toArray()));
     return lst.toArray(new int[lst.size()][2]);
   }
+  //// --------------------------- end (Approach2)-----------------------
+  ////////////////// second round(20200908)///////////////////////////////////
+  ////////////////// second round(20200908)///////////////////////////////////
+  //// ---------------------------start(Approach3)-----------------------
+  // 20200908
+
+  // Wrong Answer
+  // 102/154 cases passed (N/A)
+  // Testcase
+  // [[1,3],[6,9]]
+  // [2,5]
+  // Answer
+  // [[6,9],[1,5]]
+  // Expected Answer
+  // [[1,5],[6,9]]
+
+  //Analysis: the order in the result matters, so I have to split the process to 3 parts. like approach2.
+
+  // public int[][] insert3(int[][] intervals, int[] newInterval) {
+  public int[][] insert(int[][] intervals, int[] newInterval) {
+    List<List<Integer>> res = new ArrayList<>();
+    for (int[] interval : intervals) {
+      if (isOverlap3(interval, newInterval)) {
+        newInterval[0] = Math.min(interval[0], newInterval[0]);
+        newInterval[1] = Math.max(interval[1], newInterval[1]);
+      } else {
+        List<Integer> cur = new ArrayList<>();
+        cur.add(interval[0]);
+        cur.add(interval[1]);
+        res.add(cur);
+      }
+    }
+
+    List<Integer> cur = new ArrayList<>();
+    cur.add(newInterval[0]);
+    cur.add(newInterval[1]);
+    res.add(cur);
+
+    // System.out.format("res: %s\n", res);
+    int[][] ret = new int[res.size()][2];
+    for (int i = 0; i < res.size(); i++) {
+      for (int j = 0; j < 2; j++) {
+        ret[i][j] = res.get(i).get(j);
+      }
+    }
+
+    return ret;
+    // return res.toArray(new int[res.size()][2]);
+  }
+
+  private boolean isOverlap3(int[] a, int[] b) {
+    if (a[1] >= b[0] && b[1] >= a[0]) {
+      // if (a[1] >= b[0] || b[1] >= a[0]) {
+      return true;
+    }
+    return false;
+  }
+
+  //// --------------------------- end (Approach3)-----------------------
 }
 // @lc code=end

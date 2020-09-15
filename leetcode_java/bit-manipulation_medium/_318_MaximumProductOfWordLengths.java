@@ -109,9 +109,9 @@ class Solution {
   // 20200904, bitmap, refer to leetcode standard solution
   // can't come up with myself.
 
-//   174/174 cases passed (24 ms)
-// Your runtime beats 42.99 % of java submissions
-// Your memory usage beats 81.41 % of java submissions (39.5 MB)
+  // 174/174 cases passed (24 ms)
+  // Your runtime beats 42.99 % of java submissions
+  // Your memory usage beats 81.41 % of java submissions (39.5 MB)
 
   public int maxProduct(String[] words) {
     // public int maxProduct3(String[] words) {

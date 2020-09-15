@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200116)///////////////////////////////////
+  ////////////////// first round(20200116)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200116
   // recursion
   public int wiggleMaxLength1(int[] nums) {
     if (nums.length < 2) {
@@ -24,8 +28,12 @@ class Solution {
     return max;
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // dynamic programming
+
   public int wiggleMaxLength2(int[] nums) {
+    // public int wiggleMaxLength(int[] nums) {
     int up[] = new int[nums.length];
     int down[] = new int[nums.length];
 
@@ -45,8 +53,11 @@ class Solution {
     return Math.max(up[nums.length - 1], down[nums.length - 1]);
   }
 
+  //// ---------------- end (Approach2)-------------------------------------
+  //// ----------------start(Approach3)-------------------------------------
   //
-  public int wiggleMaxLength(int[] nums) {
+  // public int wiggleMaxLength(int[] nums) {
+  public int wiggleMaxLength3(int[] nums) {
     if (nums.length < 2) {
       return nums.length;
     }
@@ -64,5 +75,36 @@ class Solution {
     }
     return count;
   }
+  //// ---------------- end (Approach3)-------------------------------------
+  ////////////////// second round(20200911)///////////////////////////////////
+  ////////////////// second round(20200911)///////////////////////////////////
+  //// ----------------start(Approach4)-------------------------------------
+  // 20200911, can't solve it by myself.
+  // refer to leetcode:
+  // Approach #2 Dynamic Programming
+  // Approach #3 Linear Dynamic Programming
+  // Approach #4 Space-Optimized Dynamic Programming
+
+  // 27/27 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 96.19 % of java submissions (36.7 MB)
+
+  public int wiggleMaxLength(int[] nums) {
+    // public int wiggleMaxLength3(int[] nums) {
+    int n = nums.length;
+    if (n < 2)
+      return n;
+
+    int up = 1, down = 1;
+    for (int i = 1; i < n; i++) {
+      if (nums[i] > nums[i - 1]) {
+        up = down + 1;
+      } else if (nums[i] < nums[i - 1]) {
+        down = up + 1;
+      }
+    }
+    return Math.max(up, down);
+  }
+  //// ---------------- end (Approach4)-------------------------------------
 }
 // @lc code=end

@@ -10,6 +10,7 @@ class Solution {
   ////////////////// first round(20200112)///////////////////////////////////
   //// ----------------start(Approach1)-------------------------------------
   // 20200112
+  //optimal
 
   // public int[] twoSum(int[] nums, int target) {
   public int[] twoSum1(int[] nums, int target) {
@@ -48,8 +49,7 @@ class Solution {
   }
   //// ---------------- end (Approach2)-------------------------------------
   //// ----------------start(Approach3)-------------------------------------
-  // 20200803, by myself.
-  // wrong, sort() will change the index.
+  // 20200803.
 
   public int[] twoSum(int[] nums, int target) {
     // public int[] twoSum3(int[] nums, int target) {

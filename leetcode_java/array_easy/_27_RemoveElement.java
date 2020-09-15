@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200111)///////////////////////////////////
+  ////////////////// first round(20200111)///////////////////////////////////
+  //// ---------------------------start(Approach1)-----------------------
+  // 20200111
   public int removeElement1(int[] nums, int val) {
     int low = 0;
     int high = nums.length - 1;
@@ -26,9 +30,12 @@ class Solution {
     }
     return res;
   }
+  //// --------------------------- end (Approach1)-----------------------
+  //// ---------------------------start(Approach2)-----------------------
 
   // optimal
-  public int removeElement(int[] nums, int val) {
+  // public int removeElement(int[] nums, int val) {
+  public int removeElement2(int[] nums, int val) {
     if (null == nums && 0 == nums.length) {
       return 0;
     }
@@ -40,5 +47,30 @@ class Solution {
     }
     return res;
   }
+  //// --------------------------- end (Approach2)-----------------------
+  ////////////////// second round(20200908)///////////////////////////////////
+  ////////////////// second round(20200908)///////////////////////////////////
+  //// ---------------------------start(Approach1)-----------------------
+  // 20200908, by myself.
+
+//   113/113 cases passed (0 ms)
+// Your runtime beats 100 % of java submissions
+// Your memory usage beats 84.27 % of java submissions (37.9 MB)
+
+  // public int removeElement3(int[] nums, int val) {
+  public int removeElement(int[] nums, int val) {
+    int n = nums.length;
+    int left = 0, right = 0; 
+    while (right < n) {
+      if (nums[right] != val) {
+        nums[left] = nums[right];
+        left++;
+      }
+      right++;
+    }
+    return left;
+  }
+
+  //// --------------------------- end (Approach2)-----------------------
 }
 // @lc code=end

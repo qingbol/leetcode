@@ -35,9 +35,9 @@ class Solution {
   //// ----------------start(Approach2)-------------------------------------
   // 20200906
 
-//   1101/1101 cases passed (1 ms)
-// Your runtime beats 100 % of java submissions
-// Your memory usage beats 14.32 % of java submissions (37.2 MB)
+  // 1101/1101 cases passed (1 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 14.32 % of java submissions (37.2 MB)
 
   public int addDigits(int num) {
     // public int addDigits2(int num) {

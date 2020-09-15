@@ -6,6 +6,11 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200116)///////////////////////////////////
+  ////////////////// first round(20200116)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200116
+
   public int longestConsecutive1(int[] nums) {
     if (null == nums || 0 == nums.length) {
       return 0;
@@ -58,8 +63,12 @@ class Solution {
     return res;
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // hashset
-  public int longestConsecutive(int[] nums) {
+
+  // public int longestConsecutive(int[] nums) {
+  public int longestConsecutive2(int[] nums) {
     if (null == nums || 0 == nums.length) {
       return 0;
     }
@@ -87,5 +96,42 @@ class Solution {
     }
     return max;
   }
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200913)///////////////////////////////////
+  ////////////////// second round(20200913)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200913, cant come up a soluiton by myself.
+  // refer to leetcode:Approach 2: Sorting
+
+  // 68/68 cases passed (4 ms)
+  // Your runtime beats 71.32 % of java submissions
+  // Your memory usage beats 91.41 % of java submissions (39.5 MB)
+
+  public int longestConsecutive(int[] nums) {
+    // public int longestConsecutive3(int[] nums) {
+    int n = nums.length;
+    if (n == 0)
+      return 0;
+    // 1. buid hashset
+    Set<Integer> set = new HashSet<>();
+    for (int num : nums) {
+      set.add(num);
+    }
+    // 2.
+    int res = 0;
+    for (int num : nums) {
+      if (!set.contains(num - 1)) {
+        int cur = num;
+        int cnt = 1;
+        while (set.contains(cur + 1)) {
+          cur += 1;
+          cnt += 1;
+        }
+        res = Math.max(res, cnt);
+      }
+    }
+    return res;
+  }
+  //// ---------------- end (Approach3)-------------------------------------
 }
 // @lc code=end

@@ -6,7 +6,14 @@
 
 // @lc code=start
 class Solution {
-  public List<Integer> spiralOrder(int[][] matrix) {
+  ////////////////// first round(20200111)///////////////////////////////////
+  ////////////////// first round(20200111)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200111
+  // refer to leetcode: Approach 2: Layer-by-Layer
+
+  // public List<Integer> spiralOrder(int[][] matrix) {
+  public List<Integer> spiralOrder1(int[][] matrix) {
     List<Integer> list = new ArrayList<>();
     if (0 == matrix.length) {
       return list;
@@ -52,5 +59,50 @@ class Solution {
 
     return list;
   }
+  //// ---------------- end (Approach1)-------------------------------------
+  ////////////////// second round(20200913)///////////////////////////////////
+  ////////////////// second round(20200913)///////////////////////////////////
+  //// ----------------start(Approach2)-------------------------------------
+  // 20200914
+  // approach1 is better.
+  // refer to leetcode: Approach 1: Simulation
+
+  // 22/22 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 97.82 % of java submissions (37 MB)
+
+  public List<Integer> spiralOrder(int[][] matrix) {
+    // public List<Integer> spiralOrder2(int[][] matrix) {
+    List<Integer> res = new ArrayList<>();
+    if (matrix.length == 0)
+      return res;
+    int R = matrix.length, C = matrix[0].length;
+    int[][] dir = new int[][] {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    boolean[][] visited = new boolean[R][C];
+
+    int r = 0, c = 0;
+    int candidateR = 0, candidateC = 0;
+    int di = 0;
+    while (res.size() < R * C) {
+      // System.out.format("ele: %d\n", matrix[r][c]);
+      res.add(matrix[r][c]);
+      // System.out.format("res: %s\n", res);
+      visited[r][c] = true;
+      candidateR = r + dir[di][0];
+      candidateC = c + dir[di][1];
+
+      if (candidateR >= R || candidateR < 0 || candidateC >= C || candidateC < 0
+          || visited[candidateR][candidateC]) {
+        di = (di + 1) % 4;
+        r += dir[di][0];
+        c += dir[di][1];
+      } else {
+        r = candidateR;
+        c = candidateC;
+      }
+    }
+    return res;
+  }
+  //// ---------------- end (Approach2)-------------------------------------
 }
 // @lc code=end

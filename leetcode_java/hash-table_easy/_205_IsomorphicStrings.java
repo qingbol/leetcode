@@ -6,7 +6,14 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200115)///////////////////////////////////
+  ////////////////// first round(20200115)///////////////////////////////////
+  //// ---------------------------start(Approach1)-----------------------
+  // 20200115
+  // cant come up with this approach by myself.
+
   public boolean isIsomorphic1(String s, String t) {
+    // public boolean isIsomorphic(String s, String t) {
     Map<Character, Character> map = new HashMap<>();
     for (int i = 0; i < s.length(); i++) {
       if (map.containsKey(s.charAt(i))) {
@@ -26,6 +33,8 @@ class Solution {
     return true;
   }
 
+  //// --------------------------- end (Approach1)-----------------------
+  //// ---------------------------start(Approach2)-----------------------
   //
   public boolean isIsomorphic2(String s, String t) {
     Map<Character, Character> map = new HashMap<>();
@@ -48,8 +57,11 @@ class Solution {
     }
     return true;
   }
+  //// --------------------------- end (Approach2)-----------------------
+  //// ---------------------------start(Approach3)-----------------------
 
-  public boolean isIsomorphic(String s, String t) {
+  // public boolean isIsomorphic(String s, String t) {
+  public boolean isIsomorphic3(String s, String t) {
     int[] countS = new int[256];
     int[] countT = new int[256];
     for (int i = 0; i < s.length(); i++) {
@@ -62,5 +74,33 @@ class Solution {
     }
     return true;
   }
+  //// --------------------------- end (Approach3)-----------------------
+  ////////////////// second round(20200908)///////////////////////////////////
+  ////////////////// second round(20200908)///////////////////////////////////
+  //// ---------------------------start(Approach4)-----------------------
+  // 20200908
+  // cant come up with a solution by myself.
+  // refer to My 6 lines solution
+  // https://leetcode.com/problems/isomorphic-strings/discuss/57796/My-6-lines-solution
+
+  // the idea is similar to union find.
+
+  // 32/32 cases passed (4 ms)
+  // Your runtime beats 92.46 % of java submissions
+  // Your memory usage beats 66.41 % of java submissions (39.7 MB)
+
+  // public boolean isIsomorphic4(String s, String t) {
+  public boolean isIsomorphic(String s, String t) {
+    int[] mapS = new int[256];
+    int[] mapT = new int[256];
+    for (int i = 0; i < s.length(); i++) {
+      if (mapS[s.charAt(i)] != mapT[t.charAt(i)])
+        return false;
+      mapS[s.charAt(i)] = i + 1;
+      mapT[t.charAt(i)] = i + 1;
+    }
+    return true;
+  }
+  //// --------------------------- end (Approach4)-----------------------
 }
 // @lc code=end

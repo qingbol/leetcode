@@ -36,6 +36,10 @@ class Solution {
   //// ----------------start(Approach2)-------------------------------------
   // 20200906
 
+  // 1012/1012 cases passed (1 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 68.65 % of java submissions (36.7 MB)
+
   public boolean isUgly(int num) {
     // public boolean isUgly2(int num) {
     if (num == 0)
