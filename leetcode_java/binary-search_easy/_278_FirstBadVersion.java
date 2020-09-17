@@ -102,9 +102,9 @@ public class Solution extends VersionControl {
   // 20200915. by myself
   // search the left bound. [lo, hi)
 
-//   22/22 cases passed (12 ms)
-// Your runtime beats 99.36 % of java submissions
-// Your memory usage beats 54.25 % of java submissions (36.3 MB)
+  // 22/22 cases passed (12 ms)
+  // Your runtime beats 99.36 % of java submissions
+  // Your memory usage beats 54.25 % of java submissions (36.3 MB)
 
   public int firstBadVersion(int n) {
     // public int firstBadVersion5(int n) {
@@ -120,10 +120,10 @@ public class Solution extends VersionControl {
 
     return lo;
     // if (isBadVersion(hi)) {
-    //   return hi;
+    // return hi;
     // } else {
-    //   return lo;
-    //   // return hi + 1;
+    // return lo;
+    // // return hi + 1;
     // }
   }
   //// ---------------- end (Approach5)-------------------------------------

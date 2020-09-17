@@ -6,9 +6,15 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200120)///////////////////////////////////
+  ////////////////// first round(20200120)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200120
+
   public int[] searchRange1(int[] nums, int target) {
+    // public int[] searchRange(int[] nums, int target) {
     if (null == nums || 0 == nums.length) {
-      return new int[] { -1, -1 };
+      return new int[] {-1, -1};
     }
     int lo = 0;
     int hi = nums.length - 1;
@@ -23,24 +29,27 @@ class Solution {
         while (right <= hi && nums[right] == target) {
           right++;
         }
-        return new int[] { ++left, --right };
+        return new int[] {++left, --right};
       } else if (nums[mid] > target) {
         hi = mid - 1;
       } else {
         lo = mid + 1;
       }
     }
-    return new int[] { -1, -1 };
+    return new int[] {-1, -1};
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   //
-  public int[] searchRange(int[] nums, int target) {
+  // public int[] searchRange(int[] nums, int target) {
+  public int[] searchRange2(int[] nums, int target) {
     int start = firstGreaterEqual(nums, target);
     if (start == nums.length || nums[start] != target) {
-      return new int[] { -1, -1 };
+      return new int[] {-1, -1};
     }
     int end = firstGreaterEqual(nums, target + 1);
-    return new int[] { start, end - 1 };
+    return new int[] {start, end - 1};
   }
 
   private int firstGreaterEqual(int[] arr, int aim) {
@@ -56,8 +65,13 @@ class Solution {
     }
     return lo;
   }
-
-// left + 1 < right
-// public int[] searchRange(int[] nums, int target) {
-// }
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200915)///////////////////////////////////
+  ////////////////// second round(20200915)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200915.
+  // just like approach2. the method to find the end is a little tricky.
+  // int end = firstGreaterEqual(nums, target + 1);
+  //// ---------------- end (Approach3)-------------------------------------
+}
 // @lc code=end

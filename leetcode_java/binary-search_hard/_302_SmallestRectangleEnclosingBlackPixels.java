@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200122)///////////////////////////////////
+  ////////////////// first round(20200122)///////////////////////////////////
+  //// ----------------start(Approach1)------------------------------------
+  // 20200122.
   public int minArea1(char[][] image, int x, int y) {
     int[] corner = new int[4];
     corner[0] = x;
@@ -34,8 +38,12 @@ class Solution {
     dfs(image, x, y - 1, vertex);
   }
 
+  //// :------------------ end (Approach1)----------------------------------
+  //// :------------------start(Approach2)----------------------------------
   // Approach2: binary searchd
-  public int minArea(char[][] image, int x, int y) {
+
+  public int minArea2(char[][] image, int x, int y) {
+    // public int minArea(char[][] image, int x, int y) {
     int m = image.length;
     int n = image[0].length;
     int left = searchHorizontal(image, 0, y, true);
@@ -82,5 +90,97 @@ class Solution {
     }
     return t;
   }
+  //// :------------------ end (Approach2)----------------------------------
+  ////////////////// second round(20200917)///////////////////////////////////
+  ////////////////// second round(20200917)///////////////////////////////////
+  //// :------------------start(Approach3)----------------------------------
+  // 20200917.
+  // i can only figure out approach1, approach2 is too tricky. the only way to master this method is
+  //// to remember it
+
+  // 111/111 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 56.73 % of java submissions (40.2 MB)
+
+  // public int minArea3(char[][] image, int x, int y) {
+  public int minArea(char[][] image, int x, int y) {
+    int m = image.length, n = image[0].length;
+    int left = findLeftBoundInRow(image, 0, y);
+    int right = findRightBoundInRow(image, y + 1, n);
+    int top = findLeftBoundInCol(image, 0, x);
+    int bottom = findRightBoundInCol(image, x + 1, m);
+    // System.out.format("left: %d, right: %d, top: %d, bot: %d\n", left, right, top, bottom);
+    return (right + 1 - left) * (bottom + 1 - top);
+    // return (right - left) * (bottom - top);
+  }
+
+  private int findLeftBoundInRow(char[][] image, int lo, int hi) {
+    while (lo < hi) {
+      int mid = lo + (hi - lo) / 2;
+      // System.out.format("mid: %d, isBlack: %b\n", mid, isBlackInCol(image,mid));
+      if (isBlackInCol(image, mid)) {
+        hi = mid;
+      } else {
+        lo = mid + 1;
+      }
+    }
+    return lo;
+  }
+
+  private int findRightBoundInRow(char[][] image, int lo, int hi) {
+    while (lo < hi) {
+      int mid = lo + (hi - lo) / 2;
+      if (isBlackInCol(image, mid)) {
+        lo = mid + 1;
+      } else {
+        hi = mid;
+      }
+    }
+    return lo - 1;
+  }
+
+  private int findLeftBoundInCol(char[][] image, int lo, int hi) {
+    while (lo < hi) {
+      int mid = lo + (hi - lo) / 2;
+      if (isBlackInRow(image, mid)) {
+        hi = mid;
+      } else {
+        lo = mid + 1;
+      }
+    }
+    return lo;
+  }
+
+  private int findRightBoundInCol(char[][] image, int lo, int hi) {
+    while (lo < hi) {
+      int mid = lo + (hi - lo) / 2;
+      if (isBlackInRow(image, mid)) {
+        lo = mid + 1;
+      } else {
+        hi = mid;
+      }
+    }
+    return lo - 1;
+  }
+
+  private boolean isBlackInCol(char[][] image, int mid) {
+    for (int i = 0; i < image.length; i++) {
+      if (image[i][mid] == '1') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean isBlackInRow(char[][] image, int mid) {
+    for (int j = 0; j < image[0].length; j++) {
+      if (image[mid][j] == '1') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  //// :------------------ end (Approach3)----------------------------------
 }
 // @lc code=end
