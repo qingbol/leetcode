@@ -5,6 +5,8 @@
  */
 
 // @lc code=start
+////////////////////////first round(20200412)////////////////////////
+////////////////////////first round(20200412)////////////////////////
 ////----------------------start(Approach1)-------------------------
 //20200412, by myselft. hashmap<Integer, List<Integer>> + List
 //Your runtime beats 98.53 % of java submissions
@@ -69,6 +71,11 @@ public class RandomizedCollection {
   }
 }
 //// ---------------------- end (Approach1)-------------------------
+////////////////////////second round(20200919)////////////////////////
+////////////////////////second round(20200919)////////////////////////
+/////-------------------start(Approach2)-----------------------------
+//20200919. just like approach1
+//// ---------------------- end (Approach2)-------------------------
 
 /**
  * Your RandomizedCollection object will be instantiated and called as such:

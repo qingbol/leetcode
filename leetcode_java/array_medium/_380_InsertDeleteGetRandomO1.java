@@ -5,8 +5,10 @@
  */
 
 // @lc code=start
-//// ------------------start(Approach1)-----------------------
-// 20200127.
+////////////////////////first round(20200127)////////////////////////
+////////////////////////first round(20200127)////////////////////////
+/////-------------------start(Approach1)-----------------------------
+//20200127
 public class RandomizedSet {
   // class RandomizedSet1 {
 
@@ -56,8 +58,15 @@ public class RandomizedSet {
   public int getRandom() {
     return lst.get(rand.nextInt(lst.size()));
   }
-  //// ------------------ end (Approach1)-----------------------
 }
+  //// ------------------ end (Approach1)-----------------------
+////////////////////////second round(20200919)////////////////////////
+////////////////////////second round(20200919)////////////////////////
+/////-------------------start(Approach2)-----------------------------
+//20200919. can't figure it out by myself. 
+//1.especially the way to getRandom, I confused random with random shuffle.
+//2. ArrayList.set() = O(1) just like ArrayList.get().
+  //// ------------------ end (Approach2)-----------------------
 
 /**
  * Your RandomizedSet object will be instantiated and called as such:

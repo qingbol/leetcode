@@ -5,7 +5,10 @@
  */
 
 // @lc code=start
-////-----------------start(Approach1)----------------------------------
+  /////////////////////////// first round(20200129)///////////////////////
+  /////////////////////////// first round(20200129)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200129
 //by myself
 //10/10 cases passed (169 ms)
 // Your runtime beats 15.83 % of java submissions
@@ -41,7 +44,9 @@ class Solution1 {
 }
 
 //// ----------------- end (Approach1)----------------------------------
-//// -----------------start(Approach1)----------------------------------
+  /////////////////////////// second round(20200717)///////////////////////
+  /////////////////////////// second round(20200717)///////////////////////
+//// -----------------start(Approach2)----------------------------------
 //leetcode standard solution
 //10/10 cases passed (159 ms)
 // Your runtime beats 19.64 % of java submissions
@@ -77,7 +82,7 @@ public class Solution {
     return arr;
   }
 }
-//// ----------------- end (Approach1)----------------------------------
+//// ----------------- end (Approach2)----------------------------------
 
 // * Your Solution object will be instantiated and called as such:
 // * Solution obj = new Solution(nums);
