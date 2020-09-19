@@ -10,6 +10,10 @@
  * next; ListNode(int x) { val = x; } }
  */
 class Solution {
+  ////////////////// first round(20200123)///////////////////////////////////
+  ////////////////// first round(20200123)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200123
   // designed by myself
   public ListNode partition1(ListNode head, int x) {
     if (null == head || null == head.next) {
@@ -65,7 +69,11 @@ class Solution {
     System.out.println();
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // separate it to two lists
+  //refer to leetcode :Approach 1: Two Pointer Approach
+
   public ListNode partition(ListNode head, int x) {
     if (null == head || null == head.next) {
       return head;
@@ -90,5 +98,11 @@ class Solution {
     big.next = cur;
     return smallHead.next;
   }
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200917)///////////////////////////////////
+  ////////////////// second round(20200917)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  //20200917. above Approach2 is awesome,  i can't come up this method.
+  //// ---------------- end (Approach3)-------------------------------------
 }
 // @lc code=end

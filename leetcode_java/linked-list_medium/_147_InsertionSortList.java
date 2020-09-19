@@ -10,6 +10,10 @@
  * next; ListNode(int x) { val = x; } }
  */
 class Solution {
+  /////////////////////////// first round(20200126)///////////////////////
+  /////////////////////////// first round(20200126)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200126
   public ListNode insertionSortList1(ListNode head) {
     if (null == head || null == head.next) {
       return head;
@@ -37,6 +41,8 @@ class Solution {
     return dummy.next;
   }
 
+  //// -------------------- end (Approach1)------------------------------
+  //// --------------------start(Approach2)------------------------------
   // better
   public ListNode insertionSortList(ListNode head) {
     if (head == null) {
@@ -74,5 +80,12 @@ class Solution {
     }
     System.out.println();
   }
+  //// -------------------- end (Approach2)------------------------------
+  /////////////////////////// second round(20200920)///////////////////////
+  /////////////////////////// second round(20200920)///////////////////////
+  //// ----------------start(Appraoch3)----------------------------------
+  // 20200920.
+  //just like approach2.
+  //// ---------------- end (Appraoch3)----------------------------------
 }
 // @lc code=end

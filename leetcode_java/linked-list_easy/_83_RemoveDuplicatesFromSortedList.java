@@ -57,6 +57,7 @@ class Solution {
 
   //// ----------------------- end (Approach2)--------------------------
   //////////////////////// second round(20200718)///////////////////////
+  //////////////////////// second round(20200718)///////////////////////
   //// -----------------------start(Approach3)--------------------------
   // 20200718. one pointer
   // 165/165 cases passed (0 ms)
@@ -79,7 +80,7 @@ class Solution {
   //// ----------------------- end (Approach3)--------------------------
   //// -----------------------start(Approach4)--------------------------
   // 20200718, two pointer
-  // optimal
+  // optimal. refer to labuladong<如何去除有序数组的重复元素>
   // 165/165 cases passed (1 ms)
   // Your runtime beats 40.01 % of java submissions
   // Your memory usage beats 7.62 % of java submissions (41.4 MB)

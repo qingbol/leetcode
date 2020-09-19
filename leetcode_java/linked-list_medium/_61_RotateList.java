@@ -6,10 +6,14 @@
 
 // @lc code=start
 /**
- * Definition for singly-linked list. public class ListNode { int val; ListNode
- * next; ListNode(int x) { val = x; } }
+ * Definition for singly-linked list. public class ListNode { int val; ListNode next; ListNode(int
+ * x) { val = x; } }
  */
 class Solution {
+  ////////////////// first round(20200123)///////////////////////////////////
+  ////////////////// first round(20200123)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200123
   public ListNode rotateRight1(ListNode head, int k) {
     if (null == head || null == head.next) {
       return head;
@@ -41,8 +45,12 @@ class Solution {
     return dummy.next;
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // better approach
-  public ListNode rotateRight(ListNode head, int k) {
+
+  public ListNode rotateRight2(ListNode head, int k) {
+    // public ListNode rotateRight(ListNode head, int k) {
     if (null == head || null == head.next) {
       return head;
     }
@@ -71,5 +79,42 @@ class Solution {
     slow.next = null;
     return dummy.next;
   }
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200917)///////////////////////////////////
+  ////////////////// second round(20200917)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200917. just like approach2.
+  //refer to leetcode : Approach 1:
+
+  // 231/231 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 95.48 % of java submissions (38.8 MB)
+
+  // public ListNode rotateRight3(ListNode head, int k) {
+  public ListNode rotateRight(ListNode head, int k) {
+    if (head == null || head.next == null || k == 0)
+      return head;
+    // 1. find the sold tail
+    ListNode oldTail = head;
+    int n = 1;
+    while (oldTail.next != null) {
+      oldTail = oldTail.next;
+      n++;
+    }
+    // 2. linke the oldTail to old head
+    oldTail.next = head;
+    // 3. find the new tail
+    ListNode newTail = head;
+    for (int i = 0; i < n - k % n - 1; i++) {
+      newTail = newTail.next;
+    }
+    // 4. break the newTail with newhead.
+    ListNode newHead = newTail.next;
+    newTail.next = null;
+
+    return newHead;
+
+  }
+  //// ---------------- end (Approach3)-------------------------------------
 }
 // @lc code=end

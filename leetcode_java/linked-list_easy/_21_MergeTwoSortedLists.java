@@ -10,6 +10,10 @@
  * next; ListNode(int x) { val = x; } }
  */
 class Solution {
+  /////////////////////////// first round(20200124)///////////////////////
+  /////////////////////////// first round(20200124)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200124
   // by myself
   public ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
     if (null == l1 && null == l2) {
@@ -71,6 +75,8 @@ class Solution {
     System.out.println();
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // better
   public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
     if (null == l1) {
@@ -97,8 +103,12 @@ class Solution {
     return dummy.next;
   }
 
+  //// ---------------- end (Approach2)-------------------------------------
+  //// ----------------start(Approach3)-------------------------------------
   // recusion
-  public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+
+  // public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+  public ListNode mergeTwoLists3(ListNode l1, ListNode l2) {
     if (null == l1) {
       return l2;
     } else if (null == l2) {
@@ -111,5 +121,12 @@ class Solution {
       return l2;
     }
   }
+  //// ---------------- end (Appraoch3)----------------------------------
+  /////////////////////////// second round(20200920)///////////////////////
+  /////////////////////////// second round(20200920)///////////////////////
+  //// ----------------start(Appraoch4)----------------------------------
+  // 20200920.
+  //just like approach2.
+  //// ---------------- end (Appraoch4)----------------------------------
 }
 // @lc code=end

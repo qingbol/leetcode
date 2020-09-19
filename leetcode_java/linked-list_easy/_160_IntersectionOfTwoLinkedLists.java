@@ -10,6 +10,10 @@
  * next; ListNode(int x) { val = x; next = null; } }
  */
 public class Solution {
+  ////////////////// first round(20200126)///////////////////////////////////
+  ////////////////// first round(20200126)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200126
   public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
     ListNode a = headA;
     ListNode b = headB;
@@ -19,5 +23,12 @@ public class Solution {
     }
     return a;
   }
+  //// ---------------- end (Approach1)-------------------------------------
+  ////////////////// second round(20200917)///////////////////////////////////
+  ////////////////// second round(20200917)///////////////////////////////////
+  //// ----------------start(Approach2)-------------------------------------
+  //20200917
+  //just like approach1. just remember it.
+  //// ---------------- end (Approach2)-------------------------------------
 }
 // @lc code=end

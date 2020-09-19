@@ -10,6 +10,10 @@
  * next; ListNode(int x) { val = x; } }
  */
 class Solution {
+  /////////////////////////// first round(20200125)///////////////////////
+  /////////////////////////// first round(20200125)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200125
   // recursion (misunderstand the requirement)
   public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
     int val = addHelper(l1, l2);
@@ -33,6 +37,8 @@ class Solution {
     return carry;
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // by myself
   public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
     ListNode cur = l1;
@@ -71,6 +77,8 @@ class Solution {
     return l1;
   }
 
+  //// ---------------- end (Approach2)-------------------------------------
+  //// ----------------start(Approach3)-------------------------------------
   // better
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
     ListNode dummy = new ListNode(0);
@@ -95,5 +103,12 @@ class Solution {
     return dummy.next;
   }
 
+  //// ---------------- end (Appraoch3)----------------------------------
+  /////////////////////////// second round(20200920)///////////////////////
+  /////////////////////////// second round(20200920)///////////////////////
+  //// ----------------start(Appraoch4)----------------------------------
+  // 20200920.
+  //just like approach3.
+  //// ---------------- end (Appraoch4)----------------------------------
 }
 // @lc code=end

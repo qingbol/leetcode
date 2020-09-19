@@ -12,7 +12,10 @@ import java.util.PriorityQueue;
  * next; ListNode(int x) { val = x; } }
  */
 class Solution {
-  //// --------------------start(Approach1)------------------------------
+  /////////////////////////// first round(20200126)///////////////////////
+  /////////////////////////// first round(20200126)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200126
   // by myself
   public ListNode mergeKLists1(ListNode[] lists) {
     int len = lists.length;
@@ -82,6 +85,12 @@ class Solution {
     return dummy.next;
   }
   //// -------------------- end (Approach2)------------------------------
+  /////////////////////////// second round(20200920)///////////////////////
+  /////////////////////////// second round(20200920)///////////////////////
+  //// ----------------start(Appraoch3)----------------------------------
+  // 20200920.
+  //just like approach2.
+  //// ---------------- end (Appraoch3)----------------------------------
 
 }
 // @lc code=end

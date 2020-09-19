@@ -10,6 +10,10 @@
  * next; ListNode(int x) { val = x; } }
  */
 class Solution {
+  ////////////////// first round(20200122)///////////////////////////////////
+  ////////////////// first round(20200122)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200122
   public ListNode oddEvenList1(ListNode head) {
     if (null == head || null == head.next) {
       return head;
@@ -32,8 +36,12 @@ class Solution {
     return head;
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // optimal
-  public ListNode oddEvenList(ListNode head) {
+
+  // public ListNode oddEvenList(ListNode head) {
+  public ListNode oddEvenList2(ListNode head) {
     if (null == head || null == head.next) {
       return head;
     }
@@ -50,5 +58,11 @@ class Solution {
     return head;
   }
 
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// second round(20200917)///////////////////////////////////
+  ////////////////// second round(20200917)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  //20200917. just like approach2.
+  //// ---------------- end (Approach3)-------------------------------------
 }
 // @lc code=end

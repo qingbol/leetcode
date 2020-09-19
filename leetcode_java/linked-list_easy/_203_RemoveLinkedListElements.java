@@ -10,7 +10,13 @@
  * next; ListNode(int x) { val = x; } }
  */
 class Solution {
-  public ListNode removeElements(ListNode head, int val) {
+  /////////////////////////// first round(20200125)///////////////////////
+  /////////////////////////// first round(20200125)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200125
+
+  // public ListNode removeElements(ListNode head, int val) {
+  public ListNode removeElements1(ListNode head, int val) {
     if (null == head) {
       return head;
     }
@@ -35,5 +41,12 @@ class Solution {
     }
     System.out.println();
   }
+  //// ---------------- end (Appraoch1)----------------------------------
+  /////////////////////////// second round(20200918)///////////////////////
+  /////////////////////////// second round(20200918)///////////////////////
+  //// ----------------start(Appraoch2)----------------------------------
+  // 20200918.
+  //just like approach1.
+  //// ---------------- end (Appraoch2)----------------------------------
 }
 // @lc code=end

@@ -6,10 +6,14 @@
 
 // @lc code=start
 /**
- * Definition for singly-linked list. public class ListNode { int val; ListNode
- * next; ListNode(int x) { val = x; } }
+ * Definition for singly-linked list. public class ListNode { int val; ListNode next; ListNode(int
+ * x) { val = x; } }
  */
 class Solution {
+  /////////////////////////// first round(20200126)///////////////////////
+  /////////////////////////// first round(20200126)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200126
   // recursion method by myself
   ListNode front = null;
 
@@ -51,8 +55,12 @@ class Solution {
     System.out.println();
   }
 
+  //// -------------------- end (Approach1)------------------------------
+  //// --------------------start(Approach2)------------------------------
   // iteration method
-  public void reorderList(ListNode head) {
+
+  // public void reorderList(ListNode head) {
+  public void reorderList2(ListNode head) {
     if (null == head || null == head.next) {
       return;
     }
@@ -105,5 +113,55 @@ class Solution {
     cur.next = p;
     l1 = dummy.next;
   }
+  //// -------------------- end (Approach2)------------------------------
+  /////////////////////////// second round(20200920)///////////////////////
+  /////////////////////////// second round(20200920)///////////////////////
+  //// ----------------start(Appraoch3)----------------------------------
+  // 20200920.
+  // Or refer to leetcode: Approach 1: Reverse the Second Part of the List and Merge Two Sorted
+  //// Lists
+  // detail is important: how to define the median of even number?
+
+  // 13/13 cases passed (1 ms)
+  // Your runtime beats 99.94 % of java submissions
+  // Your memory usage beats 34.28 % of java submissions (42.9 MB)
+
+  public void reorderList(ListNode head) {
+    // public void reorderList3(ListNode head) {
+    if (head == null || head.next == null)
+      return;
+    // 1. find the median
+    ListNode slow = head, fast = head;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    // 2. rever the second half.
+    ListNode pre = null;
+    ListNode cur = slow;
+    ListNode nxt = null;
+    // While (cur != null) {
+    while (cur != null) {
+      nxt = cur.next;
+      cur.next = pre;
+      pre = cur;
+      cur = nxt;
+    }
+    // 3. link them
+    // ListNode dummy = new ListNode();
+    // dummy.next = head;
+    ListNode first = head, second = pre;
+    while (second.next != null) {
+      nxt = first.next;
+      first.next = second;
+      first = nxt;
+
+      nxt = second.next;
+      second.next = first;
+      second = nxt;
+    }
+  }
+
+  //// ---------------- end (Appraoch3)----------------------------------
 }
 // @lc code=end

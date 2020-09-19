@@ -10,6 +10,10 @@
  * ListNode(int x) { val = x; next = null; } }
  */
 public class Solution {
+  ////////////////// first round(20200123)///////////////////////////////////
+  ////////////////// first round(20200123)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200123
   public ListNode detectCycle(ListNode head) {
     if (null == head || null == head.next) {
       return null;
@@ -32,5 +36,12 @@ public class Solution {
     }
     return null;
   }
+  //// ---------------- end (Appraoch1)----------------------------------
+  /////////////////////////// second round(20200918)///////////////////////
+  /////////////////////////// second round(20200918)///////////////////////
+  //// ----------------start(Appraoch2)----------------------------------
+  // 20200918.
+  //just like approach1.
+  //// ---------------- end (Appraoch2)----------------------------------
 }
 // @lc code=end
