@@ -6,7 +6,12 @@
 
 // @lc code=start
 class Solution {
+  /////////////////////////// first round(20200212)///////////////////////
+  /////////////////////////// first round(20200212)///////////////////////
+  //// ----------------start(Approach1)----------------------------------
+  // 20200212
   public int maximalRectangle(char[][] matrix) {
+  // public int maximalRectangle1(char[][] matrix) {
     if (null == matrix || 0 == matrix.length) {
       return 0;
     }
@@ -45,5 +50,16 @@ class Solution {
     }
     return res;
   }
+  //// ---------------- end (Appraoch1)----------------------------------
+  /////////////////////////// second round(20201019)///////////////////////
+  /////////////////////////// second round(20201019)///////////////////////
+  //// ----------------start(Appraoch2)----------------------------------
+  //20201019
+  //same as approach1
+
+  public int maximalRectangle2(char[][] matrix) {
+    return 0;
+  }
+  //// ---------------- end (Appraoch2)----------------------------------
 }
 // @lc code=end

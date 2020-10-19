@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  /////////////////////////// first round(20200212)///////////////////////
+  /////////////////////////// first round(20200212)///////////////////////
+  //// ----------------start(Approach1)----------------------------------
+  // 20200212
   // wrong
   public String removeDuplicateLetters1(String s) {
     Deque<Character> stack = new ArrayDeque<>();
@@ -45,6 +49,8 @@ class Solution {
     return str.toString();
   }
 
+  //// ---------------- end (Approach1)-------------------------------------
+  //// ----------------start(Approach2)-------------------------------------
   // by hashmap
   public String removeDuplicateLetters2(String s) {
     Map<Character, Integer> map = new HashMap<>();
@@ -81,7 +87,11 @@ class Solution {
     return min;
   }
 
+  //// ---------------- end (Approach2)-------------------------------------
+  //// ----------------start(Approach3)-------------------------------------
+  //refer to leetocde solution: Approach 1: Greedy - Solving Letter by Letter
   // optimal solution: greedy - solving letter by letter
+
   public String removeDuplicateLetters3(String s) {
     if (s.length() == 0) {
       return "";
@@ -102,6 +112,8 @@ class Solution {
     return s.charAt(pos) + removeDuplicateLetters(s.substring(pos + 1).replaceAll(s.charAt(pos) + "", ""));
   }
 
+  //// ---------------- end (Approach3)-------------------------------------
+  //// ----------------start(Approach4)-------------------------------------
   // greedy solving with stack and set
   public String removeDuplicateLetters(String s) {
     Map<Character, Integer> map = new HashMap<>();
@@ -131,5 +143,12 @@ class Solution {
     // }
     return sb.toString();
   }
+  //// ---------------- end (Appraoch4)----------------------------------
+  /////////////////////////// second round(20201019)///////////////////////
+  /////////////////////////// second round(20201019)///////////////////////
+  //// ----------------start(Appraoch5)----------------------------------
+  // 20201019. refer to leetcode standard solution: Approach 2: Greedy - Solving with Stack
+  //just like approach4.
+  //// ---------------- end (Appraoch5)----------------------------------
 }
 // @lc code=end

@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200211)///////////////////////////////////
+  ////////////////// first round(20200211)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+  // 20200211
   // logic error
   public String decodeString1(String s) {
     Deque<String> wordStack = new ArrayDeque<>();
@@ -73,6 +77,8 @@ class Solution {
     return res.toString();
   }
 
+  //// --------------- end (Approach1)------------------------------
+  //// ---------------start(Approach2)------------------------------
   // right, but with a extra strStack.
   public String decodeString2(String s) {
     if (null == s || 0 == s.length()) {
@@ -116,6 +122,8 @@ class Solution {
     return curStr.toString();
   }
 
+  //// --------------- end (Approach2)------------------------------
+  //// ---------------start(Approach3)------------------------------
   // same with approach 2
   public String decodeString3(String s) {
     if (null == s || s.length() <= 1) {
@@ -149,8 +157,12 @@ class Solution {
     return curStr;
   }
 
+  //// --------------- end (Approach3)------------------------------
+  //// ---------------start(Approach4)------------------------------
   // only use 1 stack
-  public String decodeString(String s) {
+
+  // public String decodeString(String s) {
+  public String decodeString4(String s) {
     Deque<Character> stack = new ArrayDeque<>();
 
     StringBuilder curStr = new StringBuilder();
@@ -186,6 +198,50 @@ class Solution {
     }
     return curStr.toString();
   }
+  //// ---------------- end (Approach4)-------------------------------------
+  ////////////////// third round(20200920)///////////////////////////////////
+  ////////////////// third round(20200920)///////////////////////////////////
+  //// ----------------start(Approach5)-------------------------------------
+  // 20200920. optimal solution. 
+  // refer to leetcode discuss: Python solution using stack.
+  //// https://leetcode.com/problems/decode-string/discuss/87662/Python-solution-using-stack
+
+  // 29/29 cases passed (0 ms)
+  // Your runtime beats 100 % of java submissions
+  // Your memory usage beats 91.5 % of java submissions (37.2 MB)
+
+  public String decodeString(String s) {
+    // public String decodeString5(String s) {
+    Deque<String> stack = new ArrayDeque<>();
+    // Deque<StringBuilder> stack = new ArrayDeque<>();
+    StringBuilder curStr = new StringBuilder();
+    StringBuilder curNum = new StringBuilder();
+    for (char c : s.toCharArray()) {
+      if (c == '[') {
+        stack.push(curStr.toString());
+        stack.push(curNum.toString());
+        curStr.setLength(0);
+        curNum.setLength(0);
+      } else if (c == ']') {
+        String preNum = stack.pop();
+        // System.out.format("preNum: %s\n", preNum);
+        String preStr = stack.pop();
+        int num = Integer.parseInt(preNum);
+        String tmp = curStr.toString();
+        while (num > 1) {
+          curStr.append(tmp);
+          num--;
+        }
+        curStr.insert(0, preStr);
+      } else if (Character.isDigit(c)) {
+        curNum.append(c);
+      } else {
+        curStr.append(c);
+      }
+    }
+    return curStr.toString();
+  }
+  //// ---------------- end (Approach5)-------------------------------------
 }
 
 // @lc code=end

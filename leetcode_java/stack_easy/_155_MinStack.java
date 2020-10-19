@@ -5,6 +5,10 @@
  */
 
 // @lc code=start
+  /////////////////////////// first round(20200205)///////////////////////
+  /////////////////////////// first round(20200205)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200205
 class MinStack {
   /** initialize your data structure here. */
   private Deque<Integer> stack;
@@ -43,6 +47,13 @@ class MinStack {
   }
 }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  /////////////////////////// second round(20200919)///////////////////////
+  /////////////////////////// second round(20200919)///////////////////////
+  //// ----------------start(Appraoch2)----------------------------------
+  // 20200919. can't figure it out by myself
+  //just like approach1.
+  //// ---------------- end (Appraoch2)----------------------------------
 /**
  * Your MinStack object will be instantiated and called as such: MinStack obj =
  * new MinStack(); obj.push(x); obj.pop(); int param_3 = obj.top(); int param_4

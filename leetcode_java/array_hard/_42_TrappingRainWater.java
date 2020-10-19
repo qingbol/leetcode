@@ -235,7 +235,7 @@ class Solution {
   //// ------------------- end (Approach8)--------------------------
   //// -------------------start(Approach9)--------------------------
   // 20200718, using stack
-  // refer to labladong & leetcode standard solution
+  // refer to leetcode standard solution
   //315/315 cases passed (2 ms)
 // Your runtime beats 31.29 % of java submissions
 // Your memory usage beats 78.49 % of java submissions (39 MB)

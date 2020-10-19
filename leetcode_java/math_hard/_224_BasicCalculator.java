@@ -16,7 +16,7 @@ class Solution {
   // Your memory usage beats 30.07 % of java submissions (40.2 MB)
 
   // public int calculate(String s) {
-    public int calculate1(String s) {
+  public int calculate1(String s) {
     if (null == s || 0 == s.length()) {
       return 0;
     }
@@ -85,8 +85,9 @@ class Solution {
   // Your runtime beats 61.7 % of java submissions
   // Your memory usage beats 30.07 % of java submissions (40.1 MB)
 
-  public int calculate(String s) {
-  // public int calculate2(String s) {
+  // public int calculate(String s) {
+  public int calculate2(String s) {
+    // public int calculate2(String s) {
     Deque<Integer> stack = new ArrayDeque<>();
 
     int idx = 0;
@@ -99,7 +100,7 @@ class Solution {
       if (Character.isDigit(ch)) {
         operand = operand * 10 + (ch - '0');
         idx++;
-        } else if (Character.isSpace(ch)) {
+      } else if (Character.isSpace(ch)) {
         idx++;
       }
       // } else {
@@ -138,10 +139,81 @@ class Solution {
       }
       // }
       // if (ch.equals(' '))
-      //   idx++;
+      // idx++;
     }
     return res;
   }
   //// ---------------- end (Approach2)-------------------------------------
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200920
+  // refer to labuladong<拆解复杂问题：实现计算器>
+
+//37/37 cases passed (163 ms)
+// Your runtime beats 8.07 % of java submissions
+// Your memory usage beats 5.01 % of java submissions (122.4 MB)
+
+  public int calculate(String s) {
+    // public int calculate3(String s) {
+    int n = s.length();
+    if (n == 0)
+      return 0;
+    // 1. define necessary variable
+    Deque<Integer> stack = new ArrayDeque<>();
+    int operand = 0;
+    char operator = '+';
+
+    // 2. iteratively check every char
+    for (int i = 0; i < n; i++) {
+      char c = s.charAt(i);
+      if (Character.isDigit(c)) {
+        operand = operand * 10 + (c - '0');
+      }
+      // next, we need to handle "(";
+      if (c == '(') {
+        String subString = s.substring(i + 1);
+        operand = calculate(subString);
+        i += getRightBound(subString);
+      }
+      if (!Character.isDigit(c) && !Character.isSpaceChar(c) || i == n - 1) {
+        switch (operator) {
+          case '+':
+            stack.push(operand);
+            break;
+          case '-':
+            stack.push(-operand);
+            break;
+        }
+        operator = c;
+        operand = 0;
+      }
+      if (c == ')')
+        break;
+
+    }
+    // sum the stack
+    int sum = 0;
+    while (!stack.isEmpty()) {
+      sum += stack.pop();
+    }
+    return sum;
+  }
+
+
+  private int getRightBound(String s) {
+    int count = 1;
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (c == '(') {
+        count++;
+      } else if (c == ')') {
+        count--;
+        if (count == 0) {
+          return i + 1;
+        }
+      }
+    }
+    return -1;
+  }
+  //// ---------------- end (Approach3)-------------------------------------
 }
 // @lc code=end

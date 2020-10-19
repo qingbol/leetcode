@@ -6,34 +6,36 @@
 
 // @lc code=start
 /**
- * // This is the interface that allows for creating nested lists. // You should
- * not implement it, or speculate about its implementation public interface
- * NestedInteger { // Constructor initializes an empty nested list. public
- * NestedInteger();
+ * // This is the interface that allows for creating nested lists. // You should not implement it,
+ * or speculate about its implementation public interface NestedInteger { // Constructor initializes
+ * an empty nested list. public NestedInteger();
  *
  * // Constructor initializes a single integer. public NestedInteger(int value);
  *
- * // @return true if this NestedInteger holds a single integer, rather than a
- * nested list. public boolean isInteger();
+ * // @return true if this NestedInteger holds a single integer, rather than a nested list. public
+ * boolean isInteger();
  *
- * // @return the single integer that this NestedInteger holds, if it holds a
- * single integer // Return null if this NestedInteger holds a nested list
- * public Integer getInteger();
+ * // @return the single integer that this NestedInteger holds, if it holds a single integer //
+ * Return null if this NestedInteger holds a nested list public Integer getInteger();
  *
- * // Set this NestedInteger to hold a single integer. public void
- * setInteger(int value);
+ * // Set this NestedInteger to hold a single integer. public void setInteger(int value);
  *
- * // Set this NestedInteger to hold a nested list and adds a nested integer to
- * it. public void add(NestedInteger ni);
+ * // Set this NestedInteger to hold a nested list and adds a nested integer to it. public void
+ * add(NestedInteger ni);
  *
- * // @return the nested list that this NestedInteger holds, if it holds a
- * nested list // Return null if this NestedInteger holds a single integer
- * public List<NestedInteger> getList(); }
+ * // @return the nested list that this NestedInteger holds, if it holds a nested list // Return
+ * null if this NestedInteger holds a single integer public List<NestedInteger> getList(); }
  */
 
+////////////////// first round(20200212)///////////////////////////////////
+////////////////// first round(20200212)///////////////////////////////////
+//// ----------------start(Approach1)-------------------------------------
+// 20200212
 // Approach1: by stack
-class Solution1 {
-  public NestedInteger deserialize(String s) {
+class Solution {
+
+  public NestedInteger deserialize1(String s) {
+    // public NestedInteger deserialize(String s) {
     if (null == s || 0 == s.length()) {
       return null;
     }
@@ -71,11 +73,13 @@ class Solution1 {
 
     return res;
   }
-}
 
-// Approach2: by recursion
-class Solution {
-  public NestedInteger deserialize(String s) {
+  //// --------------- end (Approach1)------------------------------
+  //// ---------------start(Approach2)------------------------------
+  // Approach2: by recursion
+
+  // public NestedInteger deserialize(String s) {
+  public NestedInteger deserialize2(String s) {
     if (s.length() == 0 || s.equals("[]"))
       return new NestedInteger();
     NestedInteger ni = new NestedInteger();
@@ -118,5 +122,49 @@ class Solution {
     }
     return i;
   }
+  //// ---------------- end (Approach2)-------------------------------------
+  ////////////////// third round(20200921)///////////////////////////////////
+  ////////////////// third round(20200921)///////////////////////////////////
+  //// ----------------start(Approach3)-------------------------------------
+  // 20200921.
+  // refer to leetcode discuss: An Java Iterative Solution
+  //// https://leetcode.com/problems/mini-parser/discuss/86066/An-Java-Iterative-Solution
+
+  // 57/57 cases passed (6 ms)
+  // Your runtime beats 65.23 % of java submissions
+  // Your memory usage beats 60.51 % of java submissions (41.4 MB)
+
+  public NestedInteger deserialize(String s) {
+    // public NestedInteger deserialize3(String s) {
+    if (s.charAt(0) != '[') {
+      return new NestedInteger(Integer.valueOf(s));
+    }
+
+    Deque<NestedInteger> stack = new ArrayDeque<>();
+    NestedInteger cur = null;
+    StringBuilder sb = new StringBuilder();
+    for (char c : s.toCharArray()) {
+      if (Character.isDigit(c) || c == '-') {
+        sb.append(c);
+      } else if (c == '[') {
+        if (cur != null) {
+          stack.push(cur);
+        }
+        cur = new NestedInteger();
+      } else if (c == ']' || c == ',') {
+        if (sb.length() > 0) {
+          cur.add(new NestedInteger(Integer.valueOf(sb.toString())));
+          sb.setLength(0);
+        }
+        if (c == ']' && !stack.isEmpty()) {
+          NestedInteger prev = stack.pop();
+          prev.add(cur);
+          cur = prev;
+        }
+      }
+    }
+    return cur;
+  }
+  //// ---------------- end (Approach3)-------------------------------------
 }
 // @lc code=end

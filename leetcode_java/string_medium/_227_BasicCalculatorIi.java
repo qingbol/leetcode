@@ -159,16 +159,18 @@ class Solution {
     return res;
   }
   //// -------------- end (Approach3)------------------
-  ////////////////// first round(20200207)///////////////////////////////////
-  //// --------------start(Approach1)------------------
+  ////////////////// second round(20200207)///////////////////////////////////
+  ////////////////// second round(20200207)///////////////////////////////////
+  //// --------------start(Approach4)------------------
   // 20200804, totally by myself.
+  //refer to labuladong<拆解复杂问题：实现计算器>
 
-  // 109/109 cases passed (17 ms)
-  // Your runtime beats 41.02 % of java submissions
-  // Your memory usage beats 20.72 % of java submissions (41.9 MB)
+//   109/109 cases passed (10 ms)
+// Your runtime beats 70.44 % of java submissions
+// Your memory usage beats 69.09 % of java submissions (39.8 MB)
 
-  // public int calculate4(String s) {
-  public int calculate(String s) {
+  public int calculate4(String s) {
+  // public int calculate(String s) {
     // System.out.format("s:%s\n", s);
     Deque<Integer> stack = new ArrayDeque<>();
     int sign = 1;
@@ -187,6 +189,8 @@ class Solution {
         operand *= sign;
         if (operator == '+') {
           stack.push(operand);
+        } else if (operator == '-') {
+          stack.push(-operand);
         } else if (operator == '*') {
           int part1 = stack.pop();
           stack.push(part1 * operand);
@@ -199,15 +203,16 @@ class Solution {
         // System.out.format("stack: %s\n", stack);
 
         // update the sign and operator
-        if (c == '+' || c == '*' || c == '/') {
+        // if (c == '+' || c == '*' || c == '/') {
           // dont forget to change sign
-          sign = 1;
+          // sign = 1;
           operator = c;
-        } else if (c == '-') {
-          sign = -1;
+        // } else if (c == '-') {
+        //   sign = -1;
           // dont forget to change the operator
-          operator = '+';
-        }
+          // operator = '+';
+        // }
+        
         // reset the operand
         operand = 0;
       }
@@ -235,7 +240,86 @@ class Solution {
 
     return res;
   }
-  //// -------------- end (Approach3)------------------
+  //// -------------- end (Approach4)------------------
+  ////////////////// third round(20200920)///////////////////////////////////
+  ////////////////// third round(20200920)///////////////////////////////////
+  //// ----------------start(Approach5)-------------------------------------
+  // 20200920
+  // refer to labuladong<拆解复杂问题：实现计算器>
+
+//   109/109 cases passed (10 ms)
+// Your runtime beats 70.44 % of java submissions
+// Your memory usage beats 89.94 % of java submissions (39.4 MB)
+
+
+  public int calculate(String s) {
+    // public int calculate3(String s) {
+    int n = s.length();
+    if (n == 0)
+      return 0;
+    // 1. define necessary variable
+    Deque<Integer> stack = new ArrayDeque<>();
+    int operand = 0;
+    char operator = '+';
+
+    // 2. iteratively check every char
+    for (int i = 0; i < n; i++) {
+      char c = s.charAt(i);
+      if (Character.isDigit(c)) {
+        operand = operand * 10 + (c - '0');
+      }
+      // next, we need to handle "(";
+      if (c == '(') {
+        String subString = s.substring(i + 1);
+        operand = calculate(subString);
+        i += getRightBound(subString);
+      }
+      if (!Character.isDigit(c) && !Character.isSpaceChar(c) || i == n - 1) {
+        switch (operator) {
+          case '+':
+            stack.push(operand);
+            break;
+          case '-':
+            stack.push(-operand);
+            break;
+          case '*':
+            stack.push(stack.pop() * operand);
+            break;
+          case '/':
+            stack.push(stack.pop() / operand);
+            break;
+        }
+        operator = c;
+        operand = 0;
+      }
+      if (c == ')')
+        break;
+
+    }
+    // sum the stack
+    int sum = 0;
+    while (!stack.isEmpty()) {
+      sum += stack.pop();
+    }
+    return sum;
+  }
+
+  private int getRightBound(String s) {
+    int count = 1;
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (c == '(') {
+        count++;
+      } else if (c == ')') {
+        count--;
+        if (count == 0) {
+          return i + 1;
+        }
+      }
+    }
+    return -1;
+  }
+  //// ---------------- end (Approach5)-------------------------------------
 
 }
 // @lc code=end
