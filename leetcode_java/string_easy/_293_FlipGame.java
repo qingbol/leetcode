@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200217)//////////////////////////
+  //////////////////////// first round(20200217)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200217
   public List<String> generatePossibleNextMoves1(String s) {
     List<String> lst = new ArrayList<>();
     int idx = s.indexOf("++");
@@ -22,6 +26,8 @@ class Solution {
     // return lst.isEmpty() ? Arrays.asList("") : lst;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // better
   public List<String> generatePossibleNextMoves(String s) {
     List<String> lst = new ArrayList<>();
@@ -31,5 +37,11 @@ class Solution {
     }
     return lst;
   }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201022)//////////////////////////
+  //////////////////////// second round(20201022)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201022. 
+  //// ---------- end (Approach3)------------------------------------
 }
 // @lc code=end

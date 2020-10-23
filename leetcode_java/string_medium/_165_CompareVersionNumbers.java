@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  /////////////////////////// first round(20200213)///////////////////////
+  /////////////////////////// first round(20200213)///////////////////////
+  //// ----------------start(Approach1)----------------------------------
+  // 20200213
   public int compareVersion1(String version1, String version2) {
     String[] ver1 = version1.split("\\.");
     String[] ver2 = version2.split("\\.");
@@ -38,6 +42,8 @@ class Solution {
     return 0;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // better
   public int compareVersion(String version1, String version2) {
     String[] ver1 = version1.split("\\.");
@@ -55,5 +61,12 @@ class Solution {
     }
     return 0;
   }
+  //// ---------------- end (Appraoch2)----------------------------------
+  /////////////////////////// second round(20201019)///////////////////////
+  /////////////////////////// second round(20201019)///////////////////////
+  //// ----------------start(Appraoch3)----------------------------------
+  //20201019.
+  //just like approach2.
+  //// ---------------- end (Appraoch3)----------------------------------
 }
 // @lc code=end

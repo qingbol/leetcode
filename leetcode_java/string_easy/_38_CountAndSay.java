@@ -1,6 +1,5 @@
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-
 /*
  * @lc app=leetcode id=38 lang=java
  *
@@ -9,7 +8,12 @@ import java.util.regex.Matcher;
 
 // @lc code=start
 class Solution {
-  public String countAndSay1(int n) {
+  //////////////////////// first round(20200215)//////////////////////////
+  //////////////////////// first round(20200215)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200215
+  public String countAndSay(int n) {
+  // public String countAndSay1(int n) {
     return say("1", n);
   }
 
@@ -31,8 +35,11 @@ class Solution {
     return say(sb.toString(), --n);
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // Regex
-  public String countAndSay(int n) {
+  // public String countAndSay(int n) {
+  public String countAndSay2(int n) {
     String regex = "(.)\\1*";
     Pattern pattern = Pattern.compile(regex);
     String curSeq = "1";
@@ -47,5 +54,11 @@ class Solution {
     }
     return curSeq;
   }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201020)//////////////////////////
+  //////////////////////// second round(20201020)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201020. ant figure it out by myself.
+  //// ---------- end (Approach3)------------------------------------
 }
 // @lc code=end

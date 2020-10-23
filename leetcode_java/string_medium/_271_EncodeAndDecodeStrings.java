@@ -7,6 +7,10 @@
 // @lc code=start
 public class Codec {
 
+  //////////////////////// first round(20200215)//////////////////////////
+  //////////////////////// first round(20200215)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200215
   // Encodes a list of strings to a single string.
   public String encode1(List<String> strs) {
     StringBuilder sb = new StringBuilder();
@@ -32,6 +36,8 @@ public class Codec {
     return lst;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // Encodes a list of strings to a single string.
   public String encode(List<String> strs) {
     return strs.stream().map(s -> s.replace("#", "##") + " # ").collect(Collectors.joining());
@@ -43,6 +49,12 @@ public class Codec {
     strs.remove(strs.size() - 1);
     return strs;
   }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201020)//////////////////////////
+  //////////////////////// second round(20201020)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201020. ant figure it out by myself.
+  //// ---------- end (Approach3)------------------------------------
 }
 
 // Your Codec object will be instantiated and called as such:

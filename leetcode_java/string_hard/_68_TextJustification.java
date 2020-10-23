@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200217)//////////////////////////
+  //////////////////////// first round(20200217)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200217
   public List<String> fullJustify(String[] words, int maxWidth) {
     List<String> res = new ArrayList<>();
     StringBuilder sb = new StringBuilder();
@@ -54,5 +58,11 @@ class Solution {
     // System.out.format("res: %s\n", res);
     return res;
   }
+  //// ---------- end (Approach1)------------------------------------
+  //////////////////////// second round(20201022)//////////////////////////
+  //////////////////////// second round(20201022)//////////////////////////
+  //// ----------start(Approach2)------------------------------------
+  // 20201022. 
+  //// ---------- end (Approach2)------------------------------------
 }
 // @lc code=end

@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200215)//////////////////////////
+  //////////////////////// first round(20200215)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200215
   public String reverseWords(String s) {
     String[] str = s.trim().split("\\s+");
     // System.out.format("str: %s\n", Arrays.toString(str));
@@ -23,5 +27,11 @@ class Solution {
     }
     return sb.toString().trim();
   }
+  //// ---------- end (Approach1)------------------------------------
+  //////////////////////// second round(20201020)//////////////////////////
+  //////////////////////// second round(20201020)//////////////////////////
+  //// ----------start(Approach2)------------------------------------
+  // 20201020
+  //// ---------- end (Approach2)------------------------------------
 }
 // @lc code=end

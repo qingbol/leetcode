@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200213)//////////////////////////
+  //////////////////////// first round(20200213)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200213
   // by myself, it' a little verbose, should use the optimal approach.
   public List<List<String>> groupAnagrams1(String[] strs) {
     Map<String, List<String>> map = new HashMap<>();
@@ -31,8 +35,9 @@ class Solution {
     return res;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // optimal
-  public class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
       if (strs == null || strs.length == 0)
         return new ArrayList<List<String>>();
@@ -45,8 +50,14 @@ class Solution {
           map.put(keyStr, new ArrayList<String>());
         map.get(keyStr).add(s);
       }
-      return new ArrayList<List<String>>(map.values());
+      // return new ArrayList<List<String>>(map.values());
+      return new ArrayList(map.values());
     }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201023)//////////////////////////
+  //////////////////////// second round(20201023)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201023. 
+  //// ---------- end (Approach3)------------------------------------
   }
-}
 // @lc code=end

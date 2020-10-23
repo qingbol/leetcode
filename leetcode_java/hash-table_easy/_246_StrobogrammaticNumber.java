@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200215)//////////////////////////
+  //////////////////////// first round(20200215)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200215
   // By myself
   public boolean isStrobogrammatic1(String num) {
     if (null == num || num.length() < 1) {
@@ -40,6 +44,8 @@ class Solution {
     return true;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // optimal approach
   public boolean isStrobogrammatic(String num) {
     for (int i = 0, j = num.length() - 1; i <= j; i++, j--)
@@ -47,6 +53,12 @@ class Solution {
         return false;
     return true;
   }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201021)//////////////////////////
+  //////////////////////// second round(20201021)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201021. 
+  //// ---------- end (Approach3)------------------------------------
 
 }
 // @lc code=end

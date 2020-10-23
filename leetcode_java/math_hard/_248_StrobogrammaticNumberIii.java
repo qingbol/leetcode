@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200216)//////////////////////////
+  //////////////////////// first round(20200216)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200216
   private static final char[][] PAIRS = { { '0', '0' }, { '1', '1' }, { '8', '8' }, { '6', '9' }, { '9', '6' } };
 
   public int strobogrammaticInRange1(String low, String high) {
@@ -40,6 +44,8 @@ class Solution {
     return count;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // A more understandable solution
   public int strobogrammaticInRange(String low, String high) {
     List<String> list = new ArrayList<>();
@@ -76,5 +82,11 @@ class Solution {
     }
     return ret;
   }
+  //// ---------- end (Approach1)------------------------------------
+  //////////////////////// second round(20201022)//////////////////////////
+  //////////////////////// second round(20201022)//////////////////////////
+  //// ----------start(Approach2)------------------------------------
+  // 20201022. 
+  //// ---------- end (Approach2)------------------------------------
 }
 // @lc code=end

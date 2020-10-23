@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200213)//////////////////////////
+  //////////////////////// first round(20200213)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200213
   public boolean isOneEditDistance1(String s, String t) {
     if (s.length() > t.length()) {
       String tmp = "";
@@ -50,6 +54,8 @@ class Solution {
     return true;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // better
   public boolean isOneEditDistance(String s, String t) {
     if (null == s || null == t) {
@@ -71,5 +77,11 @@ class Solution {
 
     return t.length() - 1 == j;
   }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201020)//////////////////////////
+  //////////////////////// second round(20201020)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201020
+  //// ---------- end (Approach3)------------------------------------
 }
 // @lc code=end

@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200216)//////////////////////////
+  //////////////////////// first round(20200216)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200216
   public List<String> findStrobogrammatic(int n) {
     return helper(n, n);
   }
@@ -18,6 +22,7 @@ class Solution {
       return new ArrayList<>(Arrays.asList("0", "1", "8"));
     }
     List<String> lst = helper(n - 2, m);
+    System.out.format("lst.size: %d\n", lst.size());
     List<String> res = new ArrayList<>();
     for (int i = 0; i < lst.size(); i++) {
       String s = lst.get(i);
@@ -31,5 +36,11 @@ class Solution {
     }
     return res;
   }
+  //// ---------- end (Approach1)------------------------------------
+  //////////////////////// second round(20201022)//////////////////////////
+  //////////////////////// second round(20201022)//////////////////////////
+  //// ----------start(Approach2)------------------------------------
+  // 20201022. 
+  //// ---------- end (Approach2)------------------------------------
 }
 // @lc code=end

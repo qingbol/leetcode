@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200215)//////////////////////////
+  //////////////////////// first round(20200215)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200215
   // by myself, brute force
   public int romanToInt1(String s) {
     // System.out.format("s: %s\n", s);
@@ -57,6 +61,8 @@ class Solution {
     return res;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // optimal
   public int romanToInt(String s) {
     int[] bucket = new int[26];
@@ -79,5 +85,11 @@ class Solution {
     }
     return res;
   }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201021)//////////////////////////
+  //////////////////////// second round(20201021)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201021. ant figure it out by myself.
+  //// ---------- end (Approach3)------------------------------------
 }
 // @lc code=end

@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200215)//////////////////////////
+  //////////////////////// first round(20200215)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200215
   public String intToRoman1(int num) {
     StringBuilder sb = new StringBuilder();
     while (num > 0) {
@@ -55,6 +59,8 @@ class Solution {
     return sb.toString();
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // optimum
   public String intToRoman2(int num) {
     String M[] = { "", "M", "MM", "MMM" };
@@ -64,6 +70,8 @@ class Solution {
     return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[(num % 10)];
   }
 
+  //// ---------------- end (Appraoch2)----------------------------------
+  //// ----------------start(Appraoch3)----------------------------------
   public String intToRoman(int num) {
     int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
     String[] tokens = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
@@ -76,5 +84,11 @@ class Solution {
     }
     return sb.toString();
   }
+  //// ---------- end (Approach3)------------------------------------
+  //////////////////////// second round(20201021)//////////////////////////
+  //////////////////////// second round(20201021)//////////////////////////
+  //// ----------start(Approach4)------------------------------------
+  // 20201021. ant figure it out by myself.
+  //// ---------- end (Approach4)------------------------------------
 }
 // @lc code=end

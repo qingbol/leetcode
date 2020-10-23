@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200216)//////////////////////////
+  //////////////////////// first round(20200216)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200216
   private final String[] belowTen = { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
   private final String[] belowTwenty = new String[] { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
       "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
@@ -38,5 +42,11 @@ class Solution {
     }
     return sb.toString().trim();
   }
+  //// ---------- end (Approach1)------------------------------------
+  //////////////////////// second round(20201021)//////////////////////////
+  //////////////////////// second round(20201021)//////////////////////////
+  //// ----------start(Approach2)------------------------------------
+  // 20201021. 
+  //// ---------- end (Approach2)------------------------------------
 }
 // @lc code=end

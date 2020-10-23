@@ -6,7 +6,13 @@
 
 // @lc code=start
 class Solution {
-  public String longestCommonPrefix(String[] strs) {
+  //////////////////////// first round(20200213)//////////////////////////
+  //////////////////////// first round(20200213)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200213
+
+  // public String longestCommonPrefix(String[] strs) {
+  public String longestCommonPrefix1(String[] strs) {
     if (null == strs || 0 == strs.length) {
       return "";
     }
@@ -40,5 +46,11 @@ class Solution {
     // return sb.length() == 0 ? "" : sb.toString();
     return strs[0];
   }
+  //// ---------- end (Approach1)------------------------------------
+  //////////////////////// second round(20201019)//////////////////////////
+  //////////////////////// second round(20201019)//////////////////////////
+  //// ----------start(Approach2)------------------------------------
+  // 20201019
+  //// ---------- end (Approach2)------------------------------------
 }
 // @lc code=end

@@ -14,6 +14,10 @@ public class Solution extends Reader4 {
    * @param n   Number of characters to read
    * @return The number of actual characters read
    */
+  //////////////////////// first round(20200217)//////////////////////////
+  //////////////////////// first round(20200217)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200217
   private List<Character> stock = new ArrayList<>();
 
   public int read1(char[] buf, int n) {
@@ -46,6 +50,8 @@ public class Solution extends Reader4 {
     return p;
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // better solution
   private char[] pool = new char[4];
   private int ptr = 0;
@@ -69,5 +75,11 @@ public class Solution extends Reader4 {
     }
     return p;
   }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201022)//////////////////////////
+  //////////////////////// second round(20201022)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201022. 
+  //// ---------- end (Approach3)------------------------------------
 }
 // @lc code=end
