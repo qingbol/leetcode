@@ -8,6 +8,10 @@ import java.util.Map;
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200218)///////////////////////////////////
+  ////////////////// first round(20200218)///////////////////////////////////
+  //// ---------------start(Approach1)----------------------------------
+  // 20200218
   // by myself
   public int lengthOfLongestSubstringKDistinct1(String s, int k) {
     if (null == s || s.length() == 0 || k == 0) {
@@ -37,6 +41,8 @@ class Solution {
     return res;
   }
 
+  //// --------------- end (Approach1)----------------------------------
+  //// ---------------start(Approach2)----------------------------------
   // improved
   public int lengthOfLongestSubstringKDistinct(String s, int k) {
     if (null == s || s.length() == 0 || k == 0) {
@@ -68,5 +74,11 @@ class Solution {
     }
     return res;
   }
+  //// ----------------- end (Appraoch2)----------------------
+  ////////////////// second round(20201023)/////////////////////////////////////
+  ////////////////// second round(20201023)/////////////////////////////////////
+  //// -----------------start(Appraoch3)----------------------
+  //20201023
+  //// ----------------- end (Appraoch3)----------------------
 }
 // @lc code=end

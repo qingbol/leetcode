@@ -48,6 +48,7 @@ class Solution {
       Matcher m = pattern.matcher(curSeq);
       StringBuilder nextSeq = new StringBuilder();
       if (m.find()) {
+        System.out.format("len:%d, str: %s\n", m.group().length(), m.group());
         nextSeq.append(m.group().length()).append(m.group().charAt(0));
       }
       curSeq = nextSeq.toString();

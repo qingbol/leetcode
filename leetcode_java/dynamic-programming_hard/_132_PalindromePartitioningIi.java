@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  /////////////////////// first round(20200408)/////////////////////////////
+  /////////////////////// first round(20200408)/////////////////////////////
   //// ---------------start(Approach1)--------------------------
   // 20200408. by myselft. backtracking
   // Memory Limit Exceeded 24/29 cases passed (N/A)
@@ -220,6 +222,7 @@ class Solution {
   //// --------------- end (Approach5)--------------------------
   //// ---------------start(Approach6)--------------------------
   // 20200408. dp
+  //optimal
   // Your runtime beats 44.43 % of java submissions
   public int minCut(String s) {
     boolean[][] isPal = new boolean[s.length()][s.length()];
@@ -247,7 +250,13 @@ class Solution {
 
     return dp[s.length()];
   }
-  //// --------------- end (Approach6)--------------------------
+  //// ---------------------- end (Approach 6)-----------------------------
+  ////////////////// second round(20201029)////////////////////////////////////
+  ////////////////// second round(20201029)////////////////////////////////////
+  //// ----------------------start(Approach 7)-----------------------------
+  // 20201029.
+  //just like approach6
+  //// ---------------------- end (Approach 7)-----------------------------
 
 }
 // @lc code=end

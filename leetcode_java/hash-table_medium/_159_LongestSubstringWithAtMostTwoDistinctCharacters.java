@@ -8,6 +8,10 @@ import java.util.Map;
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200219)///////////////////////////////////
+  ////////////////// first round(20200219)///////////////////////////////////
+  //// ---------------start(Approach1)----------------------------------
+  // 20200219, 
   public int lengthOfLongestSubstringTwoDistinct(String s) {
     if (null == s || s.length() < 3) {
       return s.length();
@@ -29,5 +33,14 @@ class Solution {
     }
     return res;
   }
+  //// ----------------- end (Appraoch1)----------------------
+  ////////////////// second round(20201025)/////////////////////////////////////
+  ////////////////// second round(20201025)/////////////////////////////////////
+  //// -----------------start(Appraoch2)----------------------
+  //20201025
+  //refer to leetcode: Approach 1: Sliding Window
+  //int del_idx = Collections.min(hashmap.values());
+  //trick: use hashmap to store the index instead of quantity.
+  //// ----------------- end (Appraoch2)----------------------
 }
 // @lc code=end

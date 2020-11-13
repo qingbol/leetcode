@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200220)//////////////////////////////////////
+  ////////////////// first round(20200220)//////////////////////////////////////
+  //// -------------start(approach 1) -------------------------------------
+  //20200220
   public List<List<String>> groupStrings1(String[] strings) {
     Map<String, List<String>> map = new HashMap<>();
     for (int i = 0; i < strings.length; i++) {
@@ -32,6 +36,7 @@ class Solution {
     // return new ArrayList<List<String>>(map.values());
   }
 
+  //// ------------------- end (approach1)--------------------------------------
   //// -------------------start(approach2)--------------------------------------
   // by stream
   public List<List<String>> groupStrings2(String[] strings) {
@@ -53,5 +58,10 @@ class Solution {
         .values());
   }
   //// ------------------- end (approach3)--------------------------------------
+  ////////////////// second round(20201026)////////////////////////////////////
+  ////////////////// second round(20201026)////////////////////////////////////
+  //// -------------------start(approach4)--------------------------------------
+  //20201026.
+  //// ------------------- end (approach4)--------------------------------------
 }
 // @lc code=end

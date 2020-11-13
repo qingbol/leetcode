@@ -5,7 +5,9 @@
  */
 
 // @lc code=start
-//// -------------start(approach1)------------------------------
+  ////////////////// first round(20200226)///////////////////////////////////
+  ////////////////// first round(20200226)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
 //20200226, by myself. brute force^
 //Your runtime beats 7.38 % of java submissions
 class MedianFinder1 {
@@ -70,8 +72,10 @@ public class MedianFinder {
 }
 
 //// ------------- end (approach2)------------------------------
+  ////////////////// second round(20201112)///////////////////////////////////
+  ////////////////// second round(20201112)///////////////////////////////////
 //// -------------start(approach3)------------------------------
-// 20200410, try to solve it again
+// 20201112, try to solve it again
 // public class MedianFinder {
 class MedianFinder3 {
 

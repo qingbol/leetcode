@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  //////////////////////// first round(20200217)//////////////////////////
+  //////////////////////// first round(20200217)//////////////////////////
+  //// ----------start(Approach1)------------------------------------
+  // 20200217
   // Comparator class
   public String largestNumber1(int[] nums) {
     String[] strs = new String[nums.length];
@@ -33,6 +37,8 @@ class Solution {
     }
   }
 
+  //// ---------------- end (Appraoch1)----------------------------------
+  //// ----------------start(Appraoch2)----------------------------------
   // lambda
   public String largestNumber(int[] nums) {
     String[] strs = new String[nums.length];
@@ -50,5 +56,11 @@ class Solution {
     }
     return sb.toString();
   }
+  //// ---------- end (Approach2)------------------------------------
+  //////////////////////// second round(20201022)//////////////////////////
+  //////////////////////// second round(20201022)//////////////////////////
+  //// ----------start(Approach3)------------------------------------
+  // 20201022. 
+  //// ---------- end (Approach3)------------------------------------
 }
 // @lc code=end

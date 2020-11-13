@@ -8,6 +8,10 @@ import java.util.Map;
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200218)///////////////////////////////////
+  ////////////////// first round(20200218)///////////////////////////////////
+  //// ----------------start(Approach1)-----------------
+  // 20200218. 
   // wrong, misunderstand the requirement
   public List<Integer> findSubstring1(String s, String[] words) {
     List<Integer> lst = new ArrayList<>();
@@ -25,6 +29,8 @@ class Solution {
     return lst;
   }
 
+  //// ----------------- end (Appraoch1)----------------------
+  //// -----------------start(Appraoch2)----------------------
   // wrong. one loop can't work.
   public List<Integer> findSubstring2(String s, String[] words) {
     Map<String, Integer> map = new HashMap<>();
@@ -67,6 +73,8 @@ class Solution {
     return res;
   }
 
+  //// ----------------- end (Appraoch2)----------------------
+  //// -----------------start(Appraoch3)----------------------
   // After reading the answer,
   public List<Integer> findSubstring(String s, String[] words) {
     if (null == s || s.length() == 0 || words == null || words.length == 0) {
@@ -107,5 +115,11 @@ class Solution {
     }
     return res;
   }
+  //// ----------------- end (Appraoch3)----------------------
+  ////////////////// second round(20201023)/////////////////////////////////////
+  ////////////////// second round(20201023)/////////////////////////////////////
+  //// -----------------start(Appraoch4)----------------------
+  //20201023
+  //// ----------------- end (Appraoch4)----------------------
 }
 // @lc code=end

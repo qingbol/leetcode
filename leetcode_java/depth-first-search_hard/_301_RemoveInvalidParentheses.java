@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200219)//////////////////////////////////////
+  ////////////////// first round(20200219)//////////////////////////////////////
   //// -------------start(approach 1) -------------------------------------
   // solution1: by myself. without pruning
   // problem: some case can't pass
@@ -230,5 +232,11 @@ class Solution {
     }
   }
   //// ------------- end (approach 4) --------------------------------------
+  ////////////////// second round(20201026)////////////////////////////////////
+  ////////////////// second round(20201026)////////////////////////////////////
+  //// ---------------start(Approach3)--------------------
+  //20201026.
+  //refer to leetcode: Approach 2: Limited Backtracking!
+  //// --------------- end (Approach3)--------------------
 }
 // @lc code=end

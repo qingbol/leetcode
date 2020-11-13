@@ -8,6 +8,11 @@ import java.util.Deque;
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200214)///////////////////////////////////
+  ////////////////// first round(20200214)///////////////////////////////////
+  //// ---------------start(Approach1)----------------------------------
+  // 20200214, 
+
   // by myself, logic error.
   public int longestValidParentheses1(String s) {
     Deque<Character> stack = new ArrayDeque<>();
@@ -27,6 +32,8 @@ class Solution {
     return res;
   }
 
+  //// --------------- end (Approach1)------------------------------
+  //// ---------------start(Approach2)------------------------------
   // after saw the answer
   public int longestValidParentheses(String s) {
     Deque<Integer> stack = new ArrayDeque<>();
@@ -46,5 +53,11 @@ class Solution {
     }
     return res;
   }
+  //// ----------------- end (Appraoch2)----------------------
+  ////////////////// second round(20201025)/////////////////////////////////////
+  ////////////////// second round(20201025)/////////////////////////////////////
+  //// -----------------start(Appraoch3)----------------------
+  //20201025
+  //// ----------------- end (Appraoch3)----------------------
 }
 // @lc code=end

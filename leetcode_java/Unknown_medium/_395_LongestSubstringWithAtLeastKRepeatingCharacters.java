@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200218)///////////////////////////////////
+  ////////////////// first round(20200218)///////////////////////////////////
+  //// ---------------start(Approach1)----------------------------------
+  // 20200218, brute force
   public int longestSubstring1(String s, int k) {
     if (null == s || 0 == s.length() || k > s.length()) {
       return 0;
@@ -37,6 +41,8 @@ class Solution {
     return res == Integer.MIN_VALUE ? 0 : res;
   }
 
+  //// --------------- end (Approach1)----------------------------------
+  //// ---------------start(Approach2)----------------------------------
   // recursion
   public int longestSubstring(String s, int k) {
     if (null == s || 0 == s.length() || k > s.length()) {
@@ -79,5 +85,12 @@ class Solution {
 
     return res;
   }
+  //// ----------------- end (Appraoch2)----------------------
+  ////////////////// second round(20201023)/////////////////////////////////////
+  ////////////////// second round(20201023)/////////////////////////////////////
+  //// -----------------start(Appraoch3)----------------------
+  //20201023
+  //refer to leetcode: Approach 3: Sliding Window
+  //// ----------------- end (Appraoch3)----------------------
 }
 // @lc code=end

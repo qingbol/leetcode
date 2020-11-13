@@ -6,6 +6,10 @@
 
 // @lc code=start
 class Solution {
+  ////////////////// first round(20200219)//////////////////////////////////////
+  ////////////////// first round(20200219)//////////////////////////////////////
+  //// ---------------start(Approach1)--------------------
+  // 20200219.
   // divide and conquer
   public List<Integer> diffWaysToCompute1(String input) {
     List<Integer> res = helper(input);
@@ -49,6 +53,8 @@ class Solution {
     return ret;
   }
 
+  //// --------------- end (Approach1)--------------------
+  //// ---------------start(Approach2)--------------------
   // divide and conquer with memo
   private Map<String, List<Integer>> map = new HashMap<>();
 
@@ -97,5 +103,13 @@ class Solution {
     map.put(s, ret);
     return ret;
   }
+
+  //// --------------- end (Approach2)--------------------
+  ////////////////// second round(20200727)////////////////////////////////////
+  ////////////////// second round(20200727)////////////////////////////////////
+  //// ---------------start(Approach3)--------------------
+  //refer to leetcode discussion: <A recursive Java solution (284 ms)>
+  // https://leetcode.com/problems/different-ways-to-add-parentheses/discuss/66328/A-recursive-Java-solution-(284-ms)
+  //// --------------- end (Approach3)--------------------
 }
 // @lc code=end
