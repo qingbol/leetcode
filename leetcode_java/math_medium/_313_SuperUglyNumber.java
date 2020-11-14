@@ -8,7 +8,11 @@ import java.io.InvalidClassException;
 
 // @lc code=start
 class Solution {
-  //// ----------------start(Approach1)------------------------
+  ////////////////// first round(20200226)///////////////////////////////////
+  ////////////////// first round(20200226)///////////////////////////////////
+  //// ----------------start(Approach1)-------------------------------------
+//20200226
+//https://leetcode.com/problems/super-ugly-number/discuss/76291/Java-three-methods-23ms-36-ms-58ms(with-heap)-performance-explained
   public int nthSuperUglyNumber1(int n, int[] primes) {
     // use ugly to store the ugly number
     int[] ugly = new int[n];
@@ -99,6 +103,13 @@ class Solution {
       return "val: " + val;
     }
   }
+  //// ---------------- end (Approach3)------------------------
+  ////////////////// second round(20201113)///////////////////////////////////
+  ////////////////// second round(20201113)///////////////////////////////////
+//// -------------start(approach3)------------------------------
+// 20201113
+//refer to leetcode discussion:  https://leetcode.com/problems/super-ugly-number/discuss/76291/Java-three-methods-23ms-36-ms-58ms(with-heap)-performance-explaine
+//Java three methods, 23ms, 36 ms, 58ms(with heap), performance explained
   //// ---------------- end (Approach3)------------------------
 }
 // @lc code=end
