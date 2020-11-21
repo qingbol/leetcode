@@ -10,9 +10,11 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
-  //// -----------------start(Approach1)------------------------
+  ////////////////// first round(20200319)///////////////////////////////////
+  ////////////////// first round(20200319)///////////////////////////////////
+  //// ----------------start(Approach1)------------------------------------
   // 20200319, bymyselft, DFS
-  // dfs is worng. becausel it volite the rule of from top to bottom
+  // dfs is worng. becausel it violate the rule of from top to bottom
   // 201/212 cases passed (N/A)
   // [3,9,8,4,0,1,7,null,null,null,2,5]
   public List<List<Integer>> verticalOrder1(TreeNode root) {
@@ -86,6 +88,11 @@ class Solution {
     res.addAll(map.values());
     return res;
   }
-  //// ----------------- end (Approach2)------------------------
+  //// ---------------- end (Approach2)----------------------------------
+  /////////////////////////// second round(20201118)///////////////////////
+  /////////////////////////// second round(20201118)///////////////////////
+  //// ----------------start(Approach3)----------------------------------
+  // 20201118.
+  //// ---------------- end (Approach3)----------------------------------
 }
 // @lc code=end

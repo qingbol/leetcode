@@ -10,7 +10,9 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
-  //// -------------------------start(Approach1)---------------------
+  ////////////////// first round(20200317)///////////////////////////////////
+  ////////////////// first round(20200317)///////////////////////////////////
+  //// ----------------start(Approach1)----------------------------------
   // 20200317
   // by myselft. In a top-down, preorder way, which is bad.
   // 9/31 cases passed (N/A)
@@ -154,6 +156,13 @@ class Solution {
     }
     return q;
   }
-  //// ------------------------- end (Approach4)---------------------
+  //// ---------------- end (Approach4)----------------------------------
+  /////////////////////////// second round(20201116)///////////////////////
+  /////////////////////////// second round(20201116)///////////////////////
+  //// ----------------start(Approach5)----------------------------------
+  // 20201116.
+// Approach 2: Iterative using parent pointers
+//this method is more intuitive than recursion methods
+  //// ---------------- end (Approach5)----------------------------------
 }
 // @lc code=end

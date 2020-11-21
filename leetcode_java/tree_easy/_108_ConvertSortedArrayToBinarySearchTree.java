@@ -10,7 +10,9 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
-  //// -------------start(Approach1)---------------------
+  ////////////////// first round(20200319)///////////////////////////////////
+  ////////////////// first round(20200319)///////////////////////////////////
+  //// ----------------start(Approach1)------------------------------------
   // 20200319. by myselft. binary search + inorder
   public TreeNode sortedArrayToBST(int[] nums) {
     return buildTree(nums, 0, nums.length - 1);
@@ -27,6 +29,11 @@ class Solution {
     node.right = buildTree(nums, mid + 1, hi);
     return node;
   }
-  //// ------------- end (Approach1)---------------------
+  //// ---------------- end (Approach1)----------------------------------
+  /////////////////////////// second round(20201118)///////////////////////
+  /////////////////////////// second round(20201118)///////////////////////
+  //// ----------------start(Approach2)----------------------------------
+  // 20201118.
+  //// ---------------- end (Approach2)----------------------------------
 }
 // @lc code=end

@@ -6,12 +6,12 @@
 
 // @lc code=start
 // /**
-//  * Definition for a binary tree node. 
-//  * public class TreeNode { 
-//  *  int val; 
-//  *  TreeNode left; TreeNode right; 
-//  *  TreeNode(int x) { val = x; } }
-//  */
+// * Definition for a binary tree node.
+// * public class TreeNode {
+// * int val;
+// * TreeNode left; TreeNode right;
+// * TreeNode(int x) { val = x; } }
+// */
 class Solution {
   /////////////////////// first round(20200318)//////////////////
   /////////////////////// first round(20200318)//////////////////
@@ -110,7 +110,8 @@ class Solution {
   }
 
   //// -------------- end (Approach2)---------------------
-  /////////////////////// first round(20200318)//////////////////
+  /////////////////////////// second round(20200723)///////////////////////
+  /////////////////////////// second round(20200723)///////////////////////
   //// --------------start(Approach3)---------------------
   // 202000723. by myself. recursive version.
 
@@ -139,7 +140,8 @@ class Solution {
     }
     helper3(node.left, pre, mistake);
     // if (pre != null && node != null && pre.val > node.val) {
-    if (pre[0] != null && node != null && pre[0].val > node.val) {
+    // if (pre[0] != null && node != null && pre[0].val > node.val) {
+    if (pre[0] != null && pre[0].val > node.val) {
       if (mistake[0] == null) {
         // mistake[0] = pre;
         mistake[0] = pre[0];
@@ -156,7 +158,11 @@ class Solution {
   }
   //// -------------- end (Approach3)---------------------
   //// --------------start(Approach4)---------------------
-  // 202000723. by myself. recursive version.
+  // 202000723. by myself. iterative version.
+
+  // 1918/1918 cases passed (2 ms)
+  // Your runtime beats 87.01 % of java submissions
+  // Your memory usage beats 33.75 % of java submissions (39.5 MB)
 
   public void recoverTree(TreeNode root) {
     // public void recoverTree4(TreeNode root) {
@@ -168,7 +174,7 @@ class Solution {
     TreeNode second = null;
 
     while (!stack.isEmpty() || node != null) {
-    // while (!stack.isEmpty() || node == root) {
+      // while (!stack.isEmpty() || node == root) {
       // traverse the left tree
       while (node != null) {
         stack.push(node);

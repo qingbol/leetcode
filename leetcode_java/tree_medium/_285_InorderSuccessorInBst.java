@@ -10,7 +10,9 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
-  // --------------start(Approach1)------------------------------
+  ////////////////// first round(20200318)///////////////////////////////////
+  ////////////////// first round(20200318)///////////////////////////////////
+  //// ----------------start(Approach1)----------------------------------
   // 20200318, bymyself. inorder iterative + a boolean flag
   // Your runtime beats 29.43 % of java submissions
   public TreeNode inorderSuccessor1(TreeNode root, TreeNode p) {
@@ -112,6 +114,11 @@ class Solution {
     return res;
   }
 
-  // -------------- end (Approach4)------------------------------
+  //// ---------------- end (Approach4)----------------------------------
+  /////////////////////////// second round(20201117)///////////////////////
+  /////////////////////////// second round(20201117)///////////////////////
+  //// ----------------start(Approach5)----------------------------------
+  // 20201117.
+  //// ---------------- end (Approach5)----------------------------------
 }
 // @lc code=end

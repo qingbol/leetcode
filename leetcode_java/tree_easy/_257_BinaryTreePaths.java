@@ -10,7 +10,10 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
-  //// ----------------start(Approach1)----------------------
+  /////////////////////////// first round(2020315)///////////////////////
+  /////////////////////////// first round(2020315)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  //20200315
   // by myselft. preorder recursion. + backtrack + StringBuilder
   // Your runtime beats 100 % of java submissions
   public List<String> binaryTreePaths(TreeNode root) {
@@ -74,5 +77,10 @@ class Solution {
     helper2(res, node.right, s);
   }
   //// ---------------- end (Approach2)----------------------
+  /////////////////////////// second round(20201114)///////////////////////
+  /////////////////////////// second round(20201114)///////////////////////
+  //// ----------------start(Appraoch3)----------------------------------
+  // 20201114.
+  //// ---------------- end (Appraoch3)----------------------------------
 }
 // @lc code=end

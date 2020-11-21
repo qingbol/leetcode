@@ -14,7 +14,9 @@ import javax.swing.tree.TreeNode;
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
-  // ----------------------start(Approach1)-------------------
+  ////////////////// first round(20200316)///////////////////////////////////
+  ////////////////// first round(20200316)///////////////////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
   // 20200316
   // by myself. bfs
   public List<List<Integer>> levelOrderBottom(TreeNode root) {
@@ -63,6 +65,11 @@ class Solution {
     levelMaker(list, root.right, level + 1);
     list.get(list.size() - level - 1).add(root.val);
   }
-  // ---------------------- end (Approach2)-------------------
+  //// ---------------- end (Appraoch2)----------------------------------
+  /////////////////////////// second round(20201115)///////////////////////
+  /////////////////////////// second round(20201115)///////////////////////
+  //// ----------------start(Appraoch3)----------------------------------
+  // 20201115.
+  //// ---------------- end (Appraoch3)----------------------------------
 }
 // @lc code=end

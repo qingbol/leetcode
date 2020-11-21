@@ -14,7 +14,9 @@ import javax.swing.tree.TreeNode;
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
-  //// ------------------start(Approach1)-----------------------
+  ////////////////// first round(20200318)///////////////////////////////////
+  ////////////////// first round(20200318)///////////////////////////////////
+  //// ----------------start(Approach1)----------------------------------
   // 20200318. By myself. preorder iteracion + pq
   // Your runtime beats 12.16 % of java submissions
   // This method don't use the bst information. So it's very slow.
@@ -59,7 +61,10 @@ class Solution {
   //// ------------------start(Approach2)-----------------------
   // 20200318, inorder recursion
   // Your runtime beats 100 % of java submissions
+  //very tricky approach.
+
   public List<Integer> closestKValues2(TreeNode root, double target, int k) {
+  // public List<Integer> closestKValues(TreeNode root, double target, int k) {
     LinkedList<Integer> res = new LinkedList<>();
     helper2(res, root, target, k);
     return res;
@@ -89,7 +94,9 @@ class Solution {
   // 20200318, hard to come up.
   // o(logn)
   // Your runtime beats 63.8 % of java submissions
-  public List<Integer> closestKValues(TreeNode root, double target, int k) {
+
+  // public List<Integer> closestKValues(TreeNode root, double target, int k) {
+  public List<Integer> closestKValues3(TreeNode root, double target, int k) {
     List<Integer> res = new ArrayList<>();
     Deque<TreeNode> pred = new ArrayDeque<>();
     Deque<TreeNode> succ = new ArrayDeque<>();
@@ -98,6 +105,7 @@ class Solution {
     initSucc(succ, root, target);
     // System.out.format("a");
 
+    //if there's value == target. remove one from pred or succ, the purpose is to remove the duplicate.
     if (!pred.isEmpty() && !succ.isEmpty() && pred.peek().val == succ.peek().val) {
       // System.out.format("b");
       getNextPred(pred);
@@ -125,6 +133,10 @@ class Solution {
     return res;
   }
 
+  
+  //keep pushing the node to stack untill find the node whose value is large than or equal to target.
+  //during this process, if we find a node whose value == target. stop .
+  //so the node on top of the stack is the closest to target.
   private void initPred(Deque<TreeNode> pred, TreeNode node, double target) {
     while (node != null) {
       if (node.val == target) {
@@ -175,7 +187,14 @@ class Solution {
     return ret;
   }
 
-  //// ------------------ end2(Approach3)-----------------------
+  //// ---------------- end (Approach3)----------------------------------
+  /////////////////////////// second round(20201117)///////////////////////
+  /////////////////////////// second round(20201117)///////////////////////
+  //// ----------------start(Approach4)----------------------------------
+  // 20201117.
+  //refer to leetcode standard solution. 
+  // the above approach3 is good, but hard to come up
+  //// ---------------- end (Approach4)----------------------------------
 
 }
 // @lc code=end

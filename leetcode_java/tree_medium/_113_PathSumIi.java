@@ -6,10 +6,14 @@
 
 // @lc code=start
 /**
- * Definition for a binary tree node. public class TreeNode { int val; TreeNode
- * left; TreeNode right; TreeNode(int x) { val = x; } }
+ * Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode
+ * right; TreeNode(int x) { val = x; } }
  */
 class Solution {
+  /////////////////////////// first round(2020316)///////////////////////
+  /////////////////////////// first round(2020316)///////////////////////
+  //// ----------------start(Appraoch1)----------------------------------
+  // 20200316
   public List<List<Integer>> pathSum(TreeNode root, int sum) {
     List<List<Integer>> res = new ArrayList<>();
     helper1(res, new ArrayList<>(), root, sum);
@@ -26,11 +30,18 @@ class Solution {
       if (sum == 0) {
         res.add(new ArrayList<>(lst));
       }
+    } else {
+      helper1(res, lst, node.left, sum);
+      // lst.remove(lst.size() - 1);
+      helper1(res, lst, node.right, sum);
     }
-    helper1(res, lst, node.left, sum);
-    // lst.remove(lst.size() - 1);
-    helper1(res, lst, node.right, sum);
     lst.remove(lst.size() - 1);
   }
+  //// ----------------start(Appraoch1)----------------------------------
+  /////////////////////////// second round(20201115)///////////////////////
+  /////////////////////////// second round(20201115)///////////////////////
+  //// ----------------start(Appraoch2)----------------------------------
+  // 20201115.
+  //// ---------------- end (Appraoch2)----------------------------------
 }
 // @lc code=end

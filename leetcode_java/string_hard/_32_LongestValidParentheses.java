@@ -58,6 +58,8 @@ class Solution {
   ////////////////// second round(20201025)/////////////////////////////////////
   //// -----------------start(Appraoch3)----------------------
   //20201025
+  //refer to leetcode: Approach 2: Using Dynamic Programming
+//dp method is easier to figure out than stack. 
   //// ----------------- end (Appraoch3)----------------------
 }
 // @lc code=end

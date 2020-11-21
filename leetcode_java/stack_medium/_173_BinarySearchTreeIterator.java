@@ -9,6 +9,10 @@
  * Definition for a binary tree node. public class TreeNode { int val; TreeNode
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
+  ////////////////// first round(20200317)///////////////////////////////////
+  ////////////////// first round(20200317)///////////////////////////////////
+  //// ----------------start(Approach1)----------------------------------
+  // 20200317
 class BSTIterator {
 
   TreeNode cur;
@@ -44,6 +48,12 @@ class BSTIterator {
   }
 }
 
+  //// ---------------- end (Approach1)----------------------------------
+  /////////////////////////// second round(20201117)///////////////////////
+  /////////////////////////// second round(20201117)///////////////////////
+  //// ----------------start(Approach2)----------------------------------
+  // 20201117.
+  //// ---------------- end (Approach2)----------------------------------
 /**
  * Your BSTIterator object will be instantiated and called as such: BSTIterator
  * obj = new BSTIterator(root); int param_1 = obj.next(); boolean param_2 =
