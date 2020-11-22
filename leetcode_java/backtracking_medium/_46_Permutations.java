@@ -43,30 +43,32 @@ class Solution {
   // 20200227.
   // optimal, no need to check lst.contains()
 
-  // public List<List<Integer>> permute(int[] nums) {
-  public List<List<Integer>> permute2(int[] nums) {
+  public List<List<Integer>> permute(int[] nums) {
+  // public List<List<Integer>> permute2(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
     if (nums == null || nums.length == 0) {
       return res;
     }
     int end = nums.length;
+    //here nums is int[] not Integer[]. so we cant use the below method
+    // List<Integer> lst = new ArrayList<Integer>(Arrays.asList(nums));
     List<Integer> lst = new ArrayList<>(nums.length);
     for (int num : nums) {
       lst.add(num);
     }
     // System.out.format("lst: %s\n", lst);
-    backtracking(res, lst, end, 0);
+    helper2(res, lst, end, 0);
     return res;
   }
 
-  private void backtracking(List<List<Integer>> res, List<Integer> lst, int end, int first) {
+  private void helper2(List<List<Integer>> res, List<Integer> lst, int end, int first) {
     if (first == end) {
       res.add(new ArrayList(lst));
     }
 
     for (int i = first; i < end; i++) {
       Collections.swap(lst, first, i);
-      backtracking(res, lst, end, first + 1);
+      helper2(res, lst, end, first + 1);
       Collections.swap(lst, first, i);
     }
   }
@@ -114,8 +116,8 @@ class Solution {
   // Your runtime beats 94.39 % of java submissions
   // Your memory usage beats 21.7 % of java submissions (39.9 MB)
 
-  public List<List<Integer>> permute(int[] nums) {
-    // public List<List<Integer>> permute4(int[] nums) {
+  // public List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permute4(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
     List<Integer> lst = new ArrayList<>();
     for (int num : nums) {

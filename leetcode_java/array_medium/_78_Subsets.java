@@ -5,32 +5,14 @@
  *
  * https://leetcode.com/problems/subsets/description/
  *
- * algorithms
- * Medium (56.94%)
- * Likes:    2709
- * Dislikes: 63
- * Total Accepted:    460.8K
- * Total Submissions: 808.9K
- * Testcase Example:  '[1,2,3]'
+ * algorithms Medium (56.94%) Likes: 2709 Dislikes: 63 Total Accepted: 460.8K Total Submissions:
+ * 808.9K Testcase Example: '[1,2,3]'
  *
- * Given a set of distinct integers, nums, return all possible subsets (the
- * power set).
+ * Given a set of distinct integers, nums, return all possible subsets (the power set).
  * 
  * Note: The solution set must not contain duplicate subsets.
  * 
- * Example:
- * Input: nums = [1,2,3]
- * Output:
- * [
- * ⁠ [3],
- * [1],
- * [2],
- * [1,2,3],
- * [1,3],
- * [2,3],
- * [1,2],
- * []
- * ]
+ * Example: Input: nums = [1,2,3] Output: [ ⁠ [3], [1], [2], [1,2,3], [1,3], [2,3], [1,2], [] ]
  * 
  */
 
@@ -204,8 +186,8 @@ class Solution {
   // Your runtime beats 100 % of java submissions
   // Your memory usage beats 81.75 % of java submissions (39.4 MB)
 
-  // public List<List<Integer>> subsets7(int[] nums) {
-  public List<List<Integer>> subsets(int[] nums) {
+  public List<List<Integer>> subsets7(int[] nums) {
+    // public List<List<Integer>> subsets(int[] nums) {
     int n = nums.length;
     int p = 1 << n;
     List<List<Integer>> res = new ArrayList<>();
@@ -222,5 +204,38 @@ class Solution {
     return res;
   }
   //// --------------- end (Approach7)----------------------------
+  //// ---------------start(Approach8)----------------------------
+  //20201121. another backtracking implementation
+  //similar to _320_			Generalized Abbreviation
+
+//with track.remove(track.size() - 1);
+//   10/10 cases passed (1 ms)
+// Your runtime beats 55.61 % of java submissions
+// Your memory usage beats 71.24 % of java submissions (39.1 MB)
+
+//without track.remove(track.size() - 1);
+// 10/10 cases passed (0 ms)
+// Your runtime beats 100 % of java submissions
+// Your memory usage beats 84.92 % of java submissions (39.1 MB)
+
+  // public List<List<Integer>> subsets5(int[] nums) {
+  public List<List<Integer>> subsets(int[] nums) {
+    List<List<Integer>> res = new ArrayList<>();
+    helper8(nums, new ArrayList<>(), 0, res);
+    return res;
+  }
+
+  private void helper8(int[] nums, List<Integer> track, int start, List<List<Integer>> res) {
+    if (start == nums.length) {
+      res.add(new ArrayList<>(track));
+    }
+
+    helper5(nums, track, start + 1, res);
+    track.add(nums[start]);
+    helper5(nums, track, start + 1, res);
+    // helper5(nums, track, start + 1, res);
+    // track.remove(track.size() - 1);
+  }
+  //// --------------- end (Approach5)----------------------------
 }
 // @lc code=end

@@ -6,7 +6,10 @@
 
 // @lc code=start
 class Solution {
-  //// ----------------------start(Approach1)----------------------
+  /////////////////////////// first round(20200229)//////////////////////////
+  /////////////////////////// first round(20200229)//////////////////////////
+  //// ----------------------start(Approach1)-------------------------
+  // 20200229
   // By myself. BackTracking. Time Limite Exceeded error for case:
   // "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   // '["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"]
@@ -120,6 +123,11 @@ class Solution {
     }
     return dp[s.length()];
   }
-  //// ---------------------- end (Approach4)----------------------
+  //// --------------- end (Approach3)--------------------------------
+  /////////////////////////// second round(20201122)///////////////////////
+  /////////////////////////// second round(20201122)///////////////////////
+  //// ----------------start(Approach4)----------------------------------
+  // 20201122.
+  //// ---------------- end (Approach4)----------------------------------
 }
 // @lc code=end

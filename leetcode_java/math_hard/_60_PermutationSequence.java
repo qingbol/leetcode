@@ -7,6 +7,7 @@
 // @lc code=start
 class Solution {
   ////////////////// first round(20200227)///////////////////////
+  ////////////////// first round(20200227)///////////////////////
   //// -------------------start(Approach1)----------------------
   // 20200227.
   // public String getPermutation(int n, int k) {

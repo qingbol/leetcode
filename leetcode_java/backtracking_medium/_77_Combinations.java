@@ -109,8 +109,8 @@ class Solution {
   //refer to Approach 2: Lexicographic (binary sorted) combinations
   //dont understand.
   
-  // public List<List<Integer>> combine(int n, int k) {
-  public List<List<Integer>> combine4(int n, int k) {
+  public List<List<Integer>> combine(int n, int k) {
+  // public List<List<Integer>> combine4(int n, int k) {
     // init first combination
     LinkedList<Integer> nums = new LinkedList<Integer>();
     for (int i = 1; i < k + 1; ++i)

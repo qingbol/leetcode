@@ -6,7 +6,10 @@
 
 // @lc code=start
 class Solution {
-  //// ---------------start(Approach1)--------------------------
+  /////////////////////////// first round(20200229)//////////////////////////
+  /////////////////////////// first round(20200229)//////////////////////////
+  //// ----------------------start(Approach1)-------------------------
+  // 20200229
   // optimal
   // use for loop to get all possible operands
   public List<String> addOperators1(String num, int target) {
@@ -15,7 +18,8 @@ class Solution {
     return res;
   }
 
-  private void helper1(List<String> res, String num, int target, StringBuilder sb, long val, long prev, int idx) {
+  private void helper1(List<String> res, String num, int target, StringBuilder sb, long val,
+      long prev, int idx) {
     if (idx == num.length()) {
       if (val == target) {
         res.add(sb.toString());
@@ -42,7 +46,8 @@ class Solution {
         helper1(res, num, target, sb.append("-").append(cur), val - cur, -cur, i + 1);
         sb.setLength(len);
         // multiplication
-        helper1(res, num, target, sb.append("*").append(cur), val - prev + (prev * cur), prev * cur, i + 1);
+        helper1(res, num, target, sb.append("*").append(cur), val - prev + (prev * cur), prev * cur,
+            i + 1);
         sb.setLength(len);
       }
 
@@ -52,6 +57,12 @@ class Solution {
   //// --------------- end (Approach1)--------------------------
   //// ---------------start(Approach2)--------------------------
   // use backtrack to get all possible operands
+  // refer to leetcode: Approach 1: Backtracking
+
+  // 20/20 cases passed (52 ms)
+  // Your runtime beats 78.02 % of java submissions
+  // Your memory usage beats 77.73 % of java submissions (39.6 MB)
+
   // optimal
   public List<String> addOperators(String num, int target) {
     List<String> res = new ArrayList<>();
@@ -62,11 +73,14 @@ class Solution {
     return res;
   }
 
-  private void helper2(List<String> res, String num, int target, StringBuilder sb, long val, long cur, long prev,
-      int idx) {
+  private void helper2(List<String> res, String num, int target, StringBuilder sb, long val,
+      long cur, long prev, int idx) {
     if (idx == num.length()) {
       if (val == target && cur == 0) {
         // if (val == target) {
+        // if (cur != 0) {
+        // System.out.format("sb:%s, cur: %d\n", sb.toString(), cur);
+        // }
         res.add(sb.substring(1).toString());
       }
       // System.out.format("sb: %s\n", sb);
@@ -75,7 +89,8 @@ class Solution {
 
     // extend the current operand by one digit.
     cur = cur * 10 + Character.getNumericValue(num.charAt(idx));
-    String curStr = Long.toString(cur);
+    // String curStr = Long.toString(cur);
+    String curStr = String.valueOf(cur);
     // System.out.format("curr: %s\n", curStr);
     // int length = num.length();
     int len = sb.length();
@@ -117,8 +132,8 @@ class Solution {
     return res;
   }
 
-  private void helper3(List<String> res, String num, int target, StringBuilder sb, long val, long prev, int start,
-      int end) {
+  private void helper3(List<String> res, String num, int target, StringBuilder sb, long val,
+      long prev, int start, int end) {
     if (end == num.length() + 1) {
       // if (end == num.length() + 1) {
       if (val == target) {
@@ -177,6 +192,12 @@ class Solution {
 
   }
 
-  //// --------------- end (Approach3)--------------------------
+  //// --------------- end (Approach3)--------------------------------
+  /////////////////////////// second round(20201121)///////////////////////
+  /////////////////////////// second round(20201121)///////////////////////
+  //// ----------------start(Approach4)----------------------------------
+  // 20201121.
+  // refer to leetcode: Approach 1: Backtracking
+  //// ---------------- end (Approach4)----------------------------------
 }
 // @lc code=end

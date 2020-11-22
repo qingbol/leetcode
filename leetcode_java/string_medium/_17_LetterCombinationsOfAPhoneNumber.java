@@ -6,7 +6,10 @@
 
 // @lc code=start
 class Solution {
-  //// ---------------start(Approach1)--------------------------------
+  /////////////////////////// first round(20200228)//////////////////////////
+  /////////////////////////// first round(20200228)//////////////////////////
+  //// ----------------------start(Approach1)-------------------------
+  // 20200228
   // by myself, wrong
   public List<String> letterCombinations1(String digits) {
     Map<Character, String> map = new HashMap<>();
@@ -78,7 +81,9 @@ class Solution {
   //// --------------- end (Approach2)--------------------------------
   //// ---------------start(Approach3)--------------------------------
   // iteration version
-  public List<String> letterCombinations(String digits) {
+
+  // public List<String> letterCombinations(String digits) {
+  public List<String> letterCombinations3(String digits) {
     List<String> res = new ArrayList<>();
     if (digits == null || digits.length() == 0) {
       return res;
@@ -102,6 +107,11 @@ class Solution {
     return ret;
   }
   //// --------------- end (Approach3)--------------------------------
+/////////////////////////// second round(20201121)///////////////////////
+/////////////////////////// second round(20201121)///////////////////////
+//// ----------------start(Approach4)----------------------------------
+// 20201121.
+//// ---------------- end (Approach4)----------------------------------
 
 }
 // @lc code=end

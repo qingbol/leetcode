@@ -54,6 +54,8 @@ class Solution {
   // Your runtime beats 100 % of java submissions
   // Your memory usage beats 9.17 % of java submissions (40 MB)
 
+  //eg. 45876321
+
   public void nextPermutation(int[] nums) {
     // public void nextPermutation2(int[] nums) {
     int n = nums.length;
