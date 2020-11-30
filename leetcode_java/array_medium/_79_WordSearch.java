@@ -6,10 +6,13 @@
 
 // @lc code=start
 class Solution {
-  //// --------------start(Approach1)---------------------
+  /////////////////////// first round(20200309)////////////////////////////
+  /////////////////////// first round(20200309)////////////////////////////
+  //// -----------------start(Approach1)-------------------------------
   // 20200309
   // bfs: it's wrong use bfs, we should use backtrak. but why?
-  // what's the difference?
+  // what's the difference? 
+  //because "The same letter cell may not be used more than once."
   public boolean exist1(char[][] board, String word) {
     int nr = board.length;
     int nc = board[0].length;
@@ -140,6 +143,11 @@ class Solution {
     visited[r][c] = false;
     return ret;
   }
-  //// -------------- end (Approach3)---------------------
+  //// ---------------- end (Approach1)----------------------------------
+  /////////////////////////// second round(20201129)///////////////////////
+  /////////////////////////// second round(20201129)///////////////////////
+  //// ----------------start(Approach2)----------------------------------
+  // 20201129.
+  //// ---------------- end (Approach2)----------------------------------
 }
 // @lc code=end

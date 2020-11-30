@@ -6,7 +6,15 @@
 
 // @lc code=start
 class Solution {
-  //// --------------strart(Approach1)----------------------
+  ////////////////// first round(20200308)///////////////////////////////////
+  ////////////////// first round(20200308)///////////////////////////////////
+  //// ----------------start(Approach1)------------------------------------
+  // 20200308
+
+  // 162/162 cases passed (7 ms)
+  // Your runtime beats 95.71 % of java submissions
+  // Your memory usage beats 92.77 % of java submissions (42.1 MB)
+
   public List<Integer> numIslands2(int m, int n, int[][] positions) {
     // declare res to hold the result
     int nr = positions.length;
@@ -17,7 +25,7 @@ class Solution {
     int[] roots = new int[m * n];
     Arrays.fill(roots, -1);
     int count = 0;
-    int[][] directions = new int[][] { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
+    int[][] directions = new int[][] {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
     // iteratelly add every land. and cal the number islands
     for (int[] pos : positions) {
@@ -58,16 +66,19 @@ class Solution {
   }
 
   private int find1(int[] roots, int node) {
-    if (roots[node] == node) {
-      return node;
-    }
-    roots[node] = find1(roots, roots[node]);
+    // if (roots[node] == node) {
+    // return node;
+    // }
+
+    if (roots[node] != node)
+      roots[node] = find1(roots, roots[node]);
     return roots[node];
   }
-  //// -------------- end (Approach1)----------------------
-  //// --------------strart(Approach2)----------------------
-  //// -------------- end (Approach2)----------------------
-  //// --------------strart(Approach3)----------------------
-  //// -------------- end (Approach3)----------------------
+  //// ---------------- end (Approach1)----------------------------------
+  /////////////////////////// second round(20201124)///////////////////////
+  /////////////////////////// second round(20201124)///////////////////////
+  //// ----------------start(Approach2)----------------------------------
+  // 20201124.
+  //// ---------------- end (Approach2)----------------------------------
 }
 // @lc code=end

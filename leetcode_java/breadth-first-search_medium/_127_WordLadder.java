@@ -6,7 +6,10 @@
 
 // @lc code=start
 class Solution {
-  //// ---------------------start(Approach1)------------------------
+  ////////////////// first round(202000304)////////////////////////////////////
+  ////////////////// first round(202000304)////////////////////////////////////
+  //// -------------------start(Approach1)---------------------------------
+  // 20200304.
   // By cspiration
   // Build GraphNode
   public int ladderLength1(String beginWord, String endWord, List<String> wordList) {
@@ -112,7 +115,12 @@ class Solution {
 
   //// --------------------- end (Approach1)------------------------
   //// ---------------------start(Approach2)------------------------
-  // by leetcode
+  // by leetcode Approach 1: Breadth First Search
+
+  // 43/43 cases passed (39 ms)
+  // Your runtime beats 87.69 % of java submissions
+  // Your memory usage beats 19.88 % of java submissions (46.9 MB)
+
   public int ladderLength(String beginWord, String endWord, List<String> wordList) {
     Map<String, List<String>> map = new HashMap<>();
 
@@ -155,8 +163,11 @@ class Solution {
 
     return 0;
   }
-  //// --------------------- end (Approach2)------------------------
-  //// ---------------------start(Approach3)------------------------
-  //// --------------------- end (Approach3)------------------------
+  //// ------------------- end (Approach2)---------------------------------
+  /////////////////////////// second round(20201123)///////////////////////
+  /////////////////////////// second round(20201123)///////////////////////
+  //// ----------------start(Approach3)----------------------------------
+  // 20201123.
+  //// ---------------- end (Approach3)----------------------------------
 }
 // @lc code=end

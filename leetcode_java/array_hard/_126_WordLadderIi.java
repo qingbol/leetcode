@@ -6,7 +6,10 @@
 
 // @lc code=start
 class Solution {
-  // ------------------strat(Approach1)----------------------------
+  ////////////////// first round(202000306)////////////////////////////////////
+  ////////////////// first round(202000306)////////////////////////////////////
+  //// -------------------start(Approach1)---------------------------------
+  // 20200306.
   // buildGraph + bfs(calculate distance) + backtrack(dfs)
   // 39/39 cases passed (272 ms)
   // Your runtime beats 28.8 % of java submissions
@@ -278,7 +281,7 @@ class Solution {
     Set<String> curLevel = new HashSet<>();
     curLevel.add(beginWord);
 
-    boolean foundEnd = false;
+    // boolean foundEnd = false;
     while (!curLevel.isEmpty()) {
       // key point to avoid the distanceMap structure.
       wordDict.removeAll(curLevel);
@@ -301,9 +304,9 @@ class Solution {
             if (wordDict.contains(newWord)) {
               tree.get(curWord).add(newWord);
               nextLevel.add(newWord);
-              if (newWord.equals(endWord)) {
-                foundEnd = true;
-              }
+              // if (newWord.equals(endWord)) {
+              //   foundEnd = true;
+              // }
             }
           }
           curArray[i] = c;
@@ -316,9 +319,12 @@ class Solution {
     // return new ArrayList<>();
     // }
   }
-  // ------------------ end (Approach3)----------------------------
-  // ------------------strat(Approach4)----------------------------
-  // ------------------ end (Approach4)----------------------------
+  //// ------------------- end (Approach3)---------------------------------
+  /////////////////////////// second round(20201123)///////////////////////
+  /////////////////////////// second round(20201123)///////////////////////
+  //// ----------------start(Approach4)----------------------------------
+  // 20201123.
+  //// ---------------- end (Approach4)----------------------------------
 
 }
 // @lc code=end

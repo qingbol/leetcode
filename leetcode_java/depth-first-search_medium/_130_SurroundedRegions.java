@@ -9,14 +9,14 @@ class Solution {
   /////////////////////// first round(20200309)////////////////////////////
   /////////////////////// first round(20200309)////////////////////////////
   //// -----------------start(Approach1)-----------------
-  // 20200309, bfs
+  // 20200309, dfs
 
   // 59/59 cases passed (2 ms)
   // Your runtime beats 50.96 % of java submissions
   // Your memory usage beats 7.17 % of java submissions (48.9 MB)
 
-  public void solve1(char[][] board) {
-    // public void solve(char[][] board) {
+  // public void solve1(char[][] board) {
+  public void solve(char[][] board) {
     // System.out.format("board: %s\n", Arrays.deepToString(board));
     if (board.length < 3 || board[0].length < 3) {
       return;
@@ -27,19 +27,19 @@ class Solution {
     // traverse the top and bottome border
     for (int j = 0; j < nc; j++) {
       if (board[0][j] == 'O') {
-        bfs1(board, 0, j);
+        dfs1(board, 0, j);
       }
       if (board[nr - 1][j] == 'O') {
-        bfs1(board, nr - 1, j);
+        dfs1(board, nr - 1, j);
       }
     }
 
     for (int i = 0; i < nr; i++) {
       if (board[i][0] == 'O') {
-        bfs1(board, i, 0);
+        dfs1(board, i, 0);
       }
       if (board[i][nc - 1] == 'O') {
-        bfs1(board, i, nc - 1);
+        dfs1(board, i, nc - 1);
       }
     }
 
@@ -55,15 +55,15 @@ class Solution {
     }
   }
 
-  private void bfs1(char[][] board, int r, int c) {
+  private void dfs1(char[][] board, int r, int c) {
     if (r < 0 || r >= board.length || c < 0 || c >= board[0].length || board[r][c] != 'O') {
       return;
     }
     board[r][c] = 'E';
-    bfs1(board, r - 1, c);
-    bfs1(board, r + 1, c);
-    bfs1(board, r, c - 1);
-    bfs1(board, r, c + 1);
+    dfs1(board, r - 1, c);
+    dfs1(board, r + 1, c);
+    dfs1(board, r, c - 1);
+    dfs1(board, r, c + 1);
   }
 
   //// ----------------- end (Approach1)-----------------
@@ -73,11 +73,29 @@ class Solution {
   // refer to labuladong <Union-Find算法应用>
   // https://github.com/labuladong/fucking-algorithm/blob/master/%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4%E7%B3%BB%E5%88%97/UnionFind%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8.md
 
+  // if (parent[x] != x) {
+  // parent[x] = parent[parent[x]];
+  // x = parent[x];
+  // }
+  // return x;
+  // }
   // Wrong Answer
   // 58/59 cases passed (N/A)
 
-  public void solve(char[][] board) {
-    // public void solve2(char[][] board) {
+  // private int find(int x) {
+  // While (parent[x] != x) {
+  // parent[x] = parent[parent[x]];
+  // x = parent[x];
+  // }
+  // return x;
+  // }
+
+  // 59/59 cases passed (10 ms)
+  // Your runtime beats 8.52 % of java submissions
+  // Your memory usage beats 72.88 % of java submissions (41 MB)
+
+  // public void solve(char[][] board) {
+    public void solve2(char[][] board) {
     if (board.length < 3 || board[0].length < 3) {
       return;
     }
@@ -108,7 +126,7 @@ class Solution {
     }
 
     // connect the inside 'O'
-    int[][] direction = new int[][] { { 1, 0 }, { 0, 1 }, { 0, -1 }, { -1, 0 } };
+    int[][] direction = new int[][] {{1, 0}, {0, 1}, {0, -1}, {-1, 0}};
     for (int i = 1; i < m - 1; i++) {
       for (int j = 1; j < n - 1; j++) {
         if (board[i][j] == 'O') {
@@ -116,10 +134,10 @@ class Solution {
             int x = i + direction[k][0];
             int y = j + direction[k][1];
             if (board[x][y] == 'O') {
-              if (i == 4 && j == 13) {
-                System.out.format("i: %d, j: %d, board[] : %c \n", i, j, board[i][j]);
-                System.out.format("x: %d, y: %d, board[] : %c \n", x, y, board[x][y]);
-              }
+              // if (i == 4 && j == 13) {
+              // System.out.format("i: %d, j: %d, board[] : %c \n", i, j, board[i][j]);
+              // System.out.format("x: %d, y: %d, board[] : %c \n", x, y, board[x][y]);
+              // }
               uf.union(x * n + y, i * n + j);
             }
           }
@@ -173,9 +191,9 @@ class Solution {
     }
 
     private int find(int x) {
-      //note: dont use if here. 
+      // note: dont use if here.
       while (parent[x] != x) {
-      // if (parent[x] != x) {
+        // if (parent[x] != x) {
         parent[x] = parent[parent[x]];
         x = parent[x];
       }
@@ -185,8 +203,8 @@ class Solution {
     public boolean connected(int p, int q) {
       int rootP = find(p);
       int rootQ = find(q);
-      if (q == 93 || q == 112)
-        System.out.format("p: %d, rootP: %d; q: %d, rootQ: %d\n", p, rootP, q, rootQ);
+      // if (q == 93 || q == 112)
+      // System.out.format("p: %d, rootP: %d; q: %d, rootQ: %d\n", p, rootP, q, rootQ);
       return rootP == rootQ;
     }
 

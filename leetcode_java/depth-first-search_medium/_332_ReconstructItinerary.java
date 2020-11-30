@@ -6,9 +6,14 @@
 
 // @lc code=start
 class Solution {
-  //// -------------------start(Approach1)------------------------
+  ////////////////// first round(202000305)////////////////////////////////////
+  ////////////////// first round(202000305)////////////////////////////////////
+  //// -------------------start(Approach1)---------------------------------
+  // 20200305.
   // backtrack + greedy + List
+
   // Your runtime beats 13.32 % of java submissions
+
   public List<String> findItinerary1(List<List<String>> tickets) {
     // 1: build the graph
     Map<String, List<String>> graph = new HashMap<>();
@@ -44,8 +49,8 @@ class Solution {
     return res;
   }
 
-  private boolean backtrack1(Map<String, List<String>> graph, int nTicket, Map<String, List<Boolean>> visited,
-      List<String> res, List<String> lst, String src) {
+  private boolean backtrack1(Map<String, List<String>> graph, int nTicket,
+      Map<String, List<Boolean>> visited, List<String> res, List<String> lst, String src) {
     if (lst.size() == nTicket + 1) {
       // res = (List<String>) lst.clone();
       res.clear();
@@ -82,6 +87,8 @@ class Solution {
   //// -------------------start(Approach1)------------------------
   //// ------------------- end (Approach2)------------------------
   // Eulerian path algo + List
+  //refer to leetcode: Approach 2: Hierholzer's Algorithm
+
   public List<String> findItinerary2(List<List<String>> tickets) {
     // build grapsh
     Map<String, LinkedList<String>> graph = new HashMap<>();
@@ -113,8 +120,14 @@ class Solution {
   }
 
   //// ------------------- end (Approach2)------------------------
-  //// -------------------start(Approach2)------------------------
+  //// -------------------start(Approach3)------------------------
   // Eulerian path + priorityQueue
+  //refer to leetcode: Approach 2: Hierholzer's Algorithm
+
+  // 80/80 cases passed (5 ms)
+  // Your runtime beats 72.92 % of java submissions
+  // Your memory usage beats 86.29 % of java submissions (39.5 MB)
+
   public List<String> findItinerary(List<List<String>> tickets) {
     // build the graph
     Map<String, Queue<String>> graph = new HashMap<>();
@@ -140,6 +153,11 @@ class Solution {
     res.offerFirst(src);
   }
 
-  //// ------------------- end (Approach2)------------------------
+  //// ------------------- end (Approach3)---------------------------------
+  /////////////////////////// second round(20201122)///////////////////////
+  /////////////////////////// second round(20201122)///////////////////////
+  //// ----------------start(Approach4)----------------------------------
+  // 20201122.
+  //// ---------------- end (Approach4)----------------------------------
 }
 // @lc code=end

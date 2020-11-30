@@ -5,30 +5,33 @@
  */
 
 // @lc code=start
-/*
+// /*
 // Definition for a Node.
-class Node {
-    public int val;
-    public List<Node> neighbors;
-    
-    public Node() {
-        val = 0;
-        neighbors = new ArrayList<Node>();
-    }
-    
-    public Node(int _val) {
-        val = _val;
-        neighbors = new ArrayList<Node>();
-    }
-    
-    public Node(int _val, ArrayList<Node> _neighbors) {
-        val = _val;
-        neighbors = _neighbors;
-    }
-}
-*/
+// class Node {
+// public int val;
+// public List<Node> neighbors;
+
+// public Node() {
+// val = 0;
+// neighbors = new ArrayList<Node>();
+// }
+
+// public Node(int _val) {
+// val = _val;
+// neighbors = new ArrayList<Node>();
+// }
+
+// public Node(int _val, ArrayList<Node> _neighbors) {
+// val = _val;
+// neighbors = _neighbors;
+// }
+// }
+// */
 class Solution {
+  ////////////////// first round(202000302)////////////////////////////////////
+  ////////////////// first round(202000302)////////////////////////////////////
   //// -------------------start(Approach1)---------------------------------
+  // 20200302.
   // Bfs, recursion, wrong
   public Node cloneGraph1(Node node) {
     Node dummy = new Node();
@@ -148,7 +151,10 @@ class Solution {
     return map.get(node);
   }
   //// ------------------- end (Approach5)---------------------------------
-  //// -------------------start(Approach6)---------------------------------
-  //// ------------------- end (Approach6)---------------------------------
+  /////////////////////////// second round(20201122)///////////////////////
+  /////////////////////////// second round(20201122)///////////////////////
+  //// ----------------start(Approach6)----------------------------------
+  // 20201122.
+  //// ---------------- end (Approach6)----------------------------------
 }
 // @lc code=end
